@@ -1,0 +1,59 @@
+body {
+  background: url("https://cdn.discordapp.com/attachments/744281580327010396/798590160806739978/test.gif");
+  background-size: cover;
+}
+
+.user_disconnected {
+  display: flex;
+}
+
+/*PROFIL.PHP*/
+.avatar_profil {
+  margin-top: -20px;
+}
+
+.profil_content p {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 780px) {
+  .col-md-8 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.tattoo_profil img {
+  width: 40px;
+  height: 40px;
+}
+
+/*BANQUE*/
+.img_compte {
+  width: 146px;
+  height: 146px;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.transac_box {
+  margin-top: 10px;
+}
+
+.solde_nul {
+  display: none;
+}
+
+.solde_positif {
+  z-index: 1;
+}
+
+.banque_actions {
+  margin-left: 10px;
+}
+
+.form_virement {
+  margin-top: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */

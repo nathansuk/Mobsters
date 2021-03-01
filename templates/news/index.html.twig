@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ site_name }} : {{ controller_name }}!{% endblock %}
+
+{% block body %}
+
+    {% for news in newsList %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ news.topstory }}" class="card-img-top" alt="Topstory">
+            <div class="card-body">
+                <h5 class="card-title">{{ news.title }}</h5>
+                <p class="card-text">{{ news.content }}</p>
+                <a href="/news-{{ news.id }}" class="btn btn-primary">Lire...</a>
+            </div>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}
+
