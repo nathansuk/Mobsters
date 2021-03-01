@@ -42,6 +42,11 @@ class News
      */
     private $createdAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=NewsCategory::class, inversedBy="newsId")
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class News
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCategory(): ?NewsCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?NewsCategory $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

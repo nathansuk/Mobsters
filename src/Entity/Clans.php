@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\ClanRepository;
+use App\Repository\ClansRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ClanRepository::class)
+ * @ORM\Entity(repositoryClass=ClansRepository::class)
  */
-class Clan
+class Clans
 {
     /**
      * @ORM\Id
@@ -33,9 +35,14 @@ class Clan
     private $badge;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="clan")
+     * @ORM\OneToMany(targetEntity=User::class, mappedBy="clan")
      */
-    private $user;
+    private $users;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -78,14 +85,32 @@ class Clan
         return $this;
     }
 
-    public function getUser(): ?User
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
     {
-        return $this->user;
+        return $this->users;
     }
 
-    public function setUser(?User $user): self
+    public function addUser(User $user): self
     {
-        $this->user = $user;
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->setClan($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            // set the owning side to null (unless already changed)
+            if ($user->getClan() === $this) {
+                $user->setClan(null);
+            }
+        }
 
         return $this;
     }

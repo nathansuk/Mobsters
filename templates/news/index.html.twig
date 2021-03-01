@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ site_name }} : {{ controller_name }}!{% endblock %}
+{% block title %}{{ sitename }} : {{ controller_name }}!{% endblock %}
 
 {% block body %}
 
@@ -8,6 +8,7 @@
         <div class="card" style="width: 18rem;">
             <img src="{{ news.topstory }}" class="card-img-top" alt="Topstory">
             <div class="card-body">
+                <span class="badge bg-success">{{ news.category.name }}</span>
                 <h5 class="card-title">{{ news.title }}</h5>
                 <p class="card-text">{{ news.content }}</p>
                 <a href="/news-{{ news.id }}" class="btn btn-primary">Lire...</a>

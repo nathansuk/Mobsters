@@ -3,7 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Clan;
+use App\Entity\Clans;
 use App\Entity\News;
+use App\Entity\NewsCategory;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -30,8 +32,13 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Accueil', 'fa fa-home');
-        yield MenuItem::linkToCrud('Articles', 'fas fa-list', News::class);
-        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', User::class);
-        yield MenuItem::linkToCrud('Clans', 'fas fa-list', Clan::class);
+
+        yield MenuItem::section('Le Times', 'fas fa-atlas');
+        yield MenuItem::linkToCrud('Catégories', 'fas fa-list', NewsCategory::class);
+        yield MenuItem::linkToCrud('Articles', 'far fa-newspaper', News::class);
+
+        yield MenuItem::section('Communauté', 'fas fa-wrench');
+        yield MenuItem::linkToCrud('Les Clans', 'fas fa-users', Clans::class);
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
     }
 }

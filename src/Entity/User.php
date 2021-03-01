@@ -3,17 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields = "email", message="Cette adresse mail est déjà utilisée")
- * @UniqueEntity(fields = "username", message="Ce pseudo est déjà utilisé")
  */
 class User implements UserInterface
 {
@@ -25,18 +20,11 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", unique=true)
+     * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\Length(min="3", minMessage="Votre nom d'utilisateur doit faire plus de 3 caractères")
      * @Assert\Length(max="32", maxMessage="Votre nom d'utilisateur ne doit pas faire plus de 32 caractères")
      */
     private $username;
-
-
-    /**
-     * @ORM\Column(type="string", length=255, unique=true)
-     * @Assert\Email(message="Cette adresse email est invalide")
-     */
-    private $email;
 
     /**
      * @ORM\Column(type="json")
@@ -56,6 +44,12 @@ class User implements UserInterface
     public $confirm_password;
 
     /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\Email(message="Cette adresse email est invalide")
+     */
+    private $email;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $money;
@@ -66,30 +60,13 @@ class User implements UserInterface
     private $createdAt;
 
     /**
-     * @ORM\OneToMany(targetEntity=Clan::class, mappedBy="user")
+     * @ORM\ManyToOne(targetEntity=Clans::class, inversedBy="users")
      */
     private $clan;
-
-    public function __construct()
-    {
-        $this->clan = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
     }
 
     /**
@@ -99,7 +76,14 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
     }
 
     /**
@@ -156,9 +140,14 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function setUsername(string $username): self
+    public function getEmail(): ?string
     {
-        $this->username = $username;
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }
@@ -187,32 +176,14 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Clan[]
-     */
-    public function getClan(): Collection
+    public function getClan(): ?Clans
     {
         return $this->clan;
     }
 
-    public function addClan(Clan $clan): self
+    public function setClan(?Clans $clan): self
     {
-        if (!$this->clan->contains($clan)) {
-            $this->clan[] = $clan;
-            $clan->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeClan(Clan $clan): self
-    {
-        if ($this->clan->removeElement($clan)) {
-            // set the owning side to null (unless already changed)
-            if ($clan->getUser() === $this) {
-                $clan->setUser(null);
-            }
-        }
+        $this->clan = $clan;
 
         return $this;
     }

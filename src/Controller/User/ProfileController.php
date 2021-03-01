@@ -2,6 +2,7 @@
 
 namespace App\Controller\User;
 
+use App\CityApi;
 use App\Services\UserService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +18,7 @@ class ProfileController extends AbstractController
      */
     public function show(string $username, UserService $userService): Response
     {
+        // TODO CALL THE API HERE
 
         $user = $userService->getUserByUsername($username);
 
