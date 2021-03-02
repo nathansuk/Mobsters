@@ -4,7 +4,6 @@ namespace App\Controller\Admin\Crud;
 
 use App\Entity\Clans;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ClansCrudController extends AbstractCrudController
