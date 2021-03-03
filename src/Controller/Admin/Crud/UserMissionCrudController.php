@@ -2,27 +2,26 @@
 
 namespace App\Controller\Admin\Crud;
 
-use App\Entity\Clans;
+use App\Entity\UserMission;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class ClansCrudController extends AbstractCrudController
+class UserMissionCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Clans::class;
+        return UserMission::class;
     }
 
 
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name', 'Nom du Clan'),
-            TextField::new('description', 'Description'),
-            TextField::new('badge', 'Badge'),
-            AssociationField::new('missions')
+            AssociationField::new('user', 'Utilisateur'),
+            AssociationField::new('mission', 'Mission'),
+            BooleanField::new('done', 'Réalisée')
         ];
     }
 

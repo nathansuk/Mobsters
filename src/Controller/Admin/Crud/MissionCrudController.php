@@ -2,28 +2,29 @@
 
 namespace App\Controller\Admin\Crud;
 
-use App\Entity\News;
+use App\Entity\Mission;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class NewsCrudController extends AbstractCrudController
+class MissionCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return News::class;
+        return Mission::class;
     }
 
 
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title', 'Titre'),
-            TextEditorField::new('content', 'Contenu'),
-            TextField::new('author', 'Auteur'),
-            TextField::new('topstory', 'Image'),
-            AssociationField::new('category', 'Catégorie')
+            TextField::new('title', 'Intitulé'),
+            TextEditorField::new('description', 'Description'),
+            TextField::new('type', 'Le Type'),
+            AssociationField::new('clan', 'Associé au clan')
+
         ];
     }
 
