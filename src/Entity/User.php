@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -63,6 +65,16 @@ class User implements UserInterface
      * @ORM\ManyToOne(targetEntity=Clans::class, inversedBy="users")
      */
     private $clan;
+
+    /**
+     * @ORM\OneToMany(targetEntity=UserMission::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $userMissions;
+
+    public function __construct()
+    {
+        $this->userMissions = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -184,6 +196,36 @@ class User implements UserInterface
     public function setClan(?Clans $clan): self
     {
         $this->clan = $clan;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|UserMission[]
+     */
+    public function getUserMissions(): Collection
+    {
+        return $this->userMissions;
+    }
+
+    public function addUserMission(UserMission $userMission): self
+    {
+        if (!$this->userMissions->contains($userMission)) {
+            $this->userMissions[] = $userMission;
+            $userMission->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserMission(UserMission $userMission): self
+    {
+        if ($this->userMissions->removeElement($userMission)) {
+            // set the owning side to null (unless already changed)
+            if ($userMission->getUser() === $this) {
+                $userMission->setUser(null);
+            }
+        }
 
         return $this;
     }

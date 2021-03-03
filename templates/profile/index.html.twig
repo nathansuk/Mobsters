@@ -4,4 +4,17 @@
 
 {% block body %}
     <h1>{{ user.username }}</h1>
+
+    <ul class="list-group">
+        {% for mission in userMission %}
+            <li class="list-group-item">{{ mission }}
+                {% if mission.done %}
+                    <span class="badge bg-success">Terminée</span>
+                    {% else %}
+                        <span class="badge bg-warning">En cours</span>
+                {% endif %}
+            </li>
+
+        {% endfor %}
+    </ul>
 {% endblock %}

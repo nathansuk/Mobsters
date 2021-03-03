@@ -3,6 +3,7 @@
 namespace App\Controller\User;
 
 use App\CityApi;
+use App\Entity\UserMission;
 use App\Services\UserService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,10 +22,12 @@ class ProfileController extends AbstractController
         // TODO CALL THE API HERE
 
         $user = $userService->getUserByUsername($username);
+        $userMission = $this->getDoctrine()->getRepository(UserMission::class)->findBy(['user' => $user->getId()]);
 
         return $this->render('profile/index.html.twig', [
             'controller_name' => 'ProfileController',
-            'user' => $user
+            'user' => $user,
+            'userMission' => $userMission
         ]);
     }
 }

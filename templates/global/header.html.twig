@@ -12,21 +12,24 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/"><img src="https://images.habbo.com/c_images/album1584/ACH_TradingPass4.png">&nbsp;<b>Accueil</b></a>
                     </li>&nbsp;&nbsp;
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a class="nav-link text-white" href="#"><img src="https://images.habbo.com/c_images/album1584/ITE06.png">&nbsp;<b>Map</b></a>
-                    </li>&nbsp;&nbsp;
+                    </li>&nbsp;&nbsp;-->
                     <li class="nav-item">
                         <a class="nav-link text-white" href="mission.php"><img src="https://images.habbo.com/c_images/album1584/FR85C.png">&nbsp;<b>Missions</b></a>
                     </li>&nbsp;&nbsp;
+                    <!--
                     <a class="nav-link text-white" href="mission.php"><img src="https://images.habbo.com/c_images/album1584/PT741.png">&nbsp;<b>Criminalité</b></a>
                     </li>&nbsp;&nbsp;
-                    <a class="nav-link text-white" href="/news"><img src="https://images.habbo.com/c_images/album1584/PT370.png">&nbsp;<b>The times</b></a>
+                    -->
+                    <a class="nav-link text-white" href="/news"><img src="https://images.habbo.com/c_images/album1584/PT370.png">&nbsp;<b>The Times</b></a>
                     </li>&nbsp;&nbsp;
-                    <a class="nav-link text-white" href="banque.php"><img src="https://habbomafia.com/public/assets/img/tatoo/ITC58.png">&nbsp;<b>Banque</b></a>
+                    <!--
+                    <a class="nav-link text-white" href="banque.php"><img src="https://images.habbo.com/c_images/album1584/ITC58.png">&nbsp;<b>Banque</b></a>
                     </li>&nbsp;&nbsp;
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://habbomafia.com/public/assets/img/tatoo/FR823.png">&nbsp;<b>Business</b>
+                            <img src="https://images.habbo.com/c_images/album1584/FR823.png">&nbsp;<b>Business</b>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="#">Entreprises</a></li>
@@ -34,6 +37,7 @@
                             <li><a class="dropdown-item" href="#">Marché</a></li>
                         </ul>
                     </li>
+                    -->
 
 
                     <!--DROPDOWN IF I HAVE TO USE IT
@@ -62,6 +66,9 @@
                         <li><a class="dropdown-item" href="#">Paramètres</a></li>
                         <li><a class="dropdown-item" href="#">Mes missions</a></li>
                         <li><a class="dropdown-item" href="/profil/{{ app.user.username }}">Mon profil</a></li>
+                        {% if "ROLE_ADMIN" in app.user.roles %}
+                            <li><a class="dropdown-item" href="/admin"><span class="badge bg-danger">Administration</span></a></li>
+                        {% endif %}
                         <li><a class="dropdown-item" href="/logout">Déconnexion</a></li>
                     </ul>
                 </div>

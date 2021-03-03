@@ -19,4 +19,5 @@ class UserService
         return $this->em->getRepository(User::class)->findOneBy(['username' => $username]);
     }
 
+
 }

@@ -39,9 +39,15 @@ class Clans
      */
     private $users;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Mission::class, mappedBy="clan")
+     */
+    private $missions;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->missions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -117,5 +123,35 @@ class Clans
 
     public function __toString(){
         return $this->name;
+    }
+
+    /**
+     * @return Collection|Mission[]
+     */
+    public function getMissions(): Collection
+    {
+        return $this->missions;
+    }
+
+    public function addMission(Mission $mission): self
+    {
+        if (!$this->missions->contains($mission)) {
+            $this->missions[] = $mission;
+            $mission->setClan($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMission(Mission $mission): self
+    {
+        if ($this->missions->removeElement($mission)) {
+            // set the owning side to null (unless already changed)
+            if ($mission->getClan() === $this) {
+                $mission->setClan(null);
+            }
+        }
+
+        return $this;
     }
 }

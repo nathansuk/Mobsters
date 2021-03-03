@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MissionController!{% endblock %}
+
+{% block body %}
+    {% for mission in missionDispo %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ mission.title }}</h5>
+                <p class="card-text">{{ mission.description}}</p>
+                <button class="btn btn-success">Accepter</button>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
