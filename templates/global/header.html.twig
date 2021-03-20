@@ -1,97 +1,77 @@
 {% block header %}
 
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/"><img src="https://i.servimg.com/u/f12/19/02/71/34/bleu10.png" /></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/"><img src="https://images.habbo.com/c_images/album1584/ACH_TradingPass4.png">&nbsp;<b>Accueil</b></a>
-                    </li>&nbsp;&nbsp;
-                    <!--<li class="nav-item">
-                        <a class="nav-link text-white" href="#"><img src="https://images.habbo.com/c_images/album1584/ITE06.png">&nbsp;<b>Map</b></a>
-                    </li>&nbsp;&nbsp;-->
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/mission"><img src="https://images.habbo.com/c_images/album1584/FR85C.png">&nbsp;<b>Missions</b></a>
-                    </li>&nbsp;&nbsp;
-                    <!--
-                    <a class="nav-link text-white" href="mission.php"><img src="https://images.habbo.com/c_images/album1584/PT741.png">&nbsp;<b>Criminalité</b></a>
-                    </li>&nbsp;&nbsp;
-                    -->
-                    <a class="nav-link text-white" href="/news"><img src="https://images.habbo.com/c_images/album1584/PT370.png">&nbsp;<b>The Times</b></a>
-                    </li>&nbsp;&nbsp;
-                    <!--
-                    <a class="nav-link text-white" href="banque.php"><img src="https://images.habbo.com/c_images/album1584/ITC58.png">&nbsp;<b>Banque</b></a>
-                    </li>&nbsp;&nbsp;
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://images.habbo.com/c_images/album1584/FR823.png">&nbsp;<b>Business</b>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Entreprises</a></li>
-                            <li><a class="dropdown-item" href="#">Commerce</a></li>
-                            <li><a class="dropdown-item" href="#">Marché</a></li>
-                        </ul>
-                    </li>
-                    -->
+	<input type="checkbox" id="main-navigation-toggle" class="btn btn--close" title="Toggle main navigation"/>
+
+	<label for="main-navigation-toggle">
+		<span></span>
+	</label>
+
+	<nav id="main-navigation" class="nav-main">
+		<ul class="menu">
+			<li class="menu__item">
+				<a class="menu__link" href="#0">Accueil</a>
+			</li>
+			<li class="menu__item">
+				<a class="menu__link" href="#0">The Times</a>
+			</li>
+			<li class="menu__item">
+				<a class="menu__link" href="#0">Banque</a>
+				<ul class="submenu">
+					<li class="menu__item">
+						<a class="menu__link" href="#0">Mon compte</a>
+					</li>
+					<li class="menu__item">
+						<a class="menu__link" href="#0">Emprunts</a>
+					</li>
+				</ul>
+			</li>
+			<li class="menu__item">
+				<a class="menu__link" href="#0">Profil</a>
+			</li>
+			<li class="menu__item">
+				<a class="menu__link" href="#0">Déconnexion</a>
+			</li>
+			<p>Imperial Mobsters 2021 - Version ALPHA</p>
+			<p>&copy; Galahad & Leafron</p>
+
+		</ul>
+	</nav>
+	<div class="user-space">
+		<div class="user-head">
+			<img src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
+		</div>
+		<div class="user-name">
+			Galahad&nbsp;
+			<img src="https://files.habboemotion.com/resources/images/icons/edit_badge_button.gif"/>
+
+		</div>
+
+	</div>
+
+	{% if app.user %}
+		<div class="user-space">
+			<div class="user-head">
+				<img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=2&head_direction=3&size=n">
+			</div>
+			<div class="user-name">
+				{{ app.user.username }}&nbsp;
+				<img src="https://files.habboemotion.com/resources/images/icons/edit_badge_button.gif"/>
+			</div>
+		{% else %}
+			<div class="user-space">
+				<div class="user-head">
+					<img src="https://api.habbocity.me/avatar_image.php?user=PRIMELIA&headonly=0&direction=2&head_direction=3&size=n">
+				</div>
+				<div class="user-name">
+					Visiteur&nbsp;
+					<a href="/login"><img style="top: 0px;" src="https://files.habboemotion.com/resources/images/icons/locked_big.gif"></a>
+				</div>
+			{% endif %}
 
 
-                    <!--DROPDOWN IF I HAVE TO USE IT
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown link
-                      </a>
-                      <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item text-light" href="#">Action</a></li>
-                        <li><a class="dropdown-item text-light" href="#">Another action</a></li>
-                        <li><a class="dropdown-item text-light" href="#">Something else here</a></li>
-                      </ul>
-                    </li>
-            -->
+			<!-- Quand l'user est connecté, il voit : -->
 
 
-                </ul>
-            </div>
-
-            {% if app.user %}
-                <div class="dropdown user_connected">
-                    <a class="btn btn-warning dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://cdn.discordapp.com/attachments/763538430927175680/794254168734826496/irone.png">&nbsp;<b>{{ app.user.username }}</b></a>
-
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink bg-light">
-                        <li><a class="dropdown-item" href="#">Paramètres</a></li>
-                        <li><a class="dropdown-item" href="#">Mes missions</a></li>
-                        <li><a class="dropdown-item" href="/profil/{{ app.user.username }}">Mon profil</a></li>
-                        {% if "ROLE_ADMIN" in app.user.roles %}
-                            <li><a class="dropdown-item" href="/admin"><span class="badge bg-danger">Administration</span></a></li>
-                        {% endif %}
-                        <li><a class="dropdown-item" href="/logout">Déconnexion</a></li>
-                    </ul>
-                </div>
-
-                {% else %}
-            <!--Quand l'user est déconnecté, il voit : -->
-            <div class="dropdown user_disconnected">
-                <a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://images.habbo.com/c_images/album1584/ACH_Tutorial1.png">&nbsp;<b>Espace membre</b></a>
-
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink bg-light">
-                    <li><a class="dropdown-item" href="/login">Connexion</a></li>
-                    <li><a class="dropdown-item" href="/register">Inscription</a></li>
-                </ul>
-            </div>
-
-            {% endif %}
-
-            <!-- Quand l'user est connecté, il voit : -->
-
-
-        </div>
-    </nav>
-</header>
-
-{% endblock %}
+		</div>
+	</nav>
+</header>{% endblock %}
