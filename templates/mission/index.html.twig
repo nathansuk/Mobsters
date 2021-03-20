@@ -3,6 +3,14 @@
 {% block title %}Hello MissionController!{% endblock %}
 
 {% block body %}
+
+    {% for message in app.flashes('notice') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+
     {% for mission in missionDispo %}
         <div class="card" style="width: 18rem;">
             <div class="card-body">

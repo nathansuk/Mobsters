@@ -213,6 +213,10 @@ class User implements UserInterface
         if (!$this->userMissions->contains($userMission)) {
             $this->userMissions[] = $userMission;
             $userMission->setUser($this);
+        } else {
+            throw new \Error(
+                'erreur'
+            );
         }
 
         return $this;

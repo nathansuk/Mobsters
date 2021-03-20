@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\UserMissionRepository;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\True_;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserMissionRepository::class)
@@ -43,7 +45,7 @@ class UserMission
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(?UserInterface $user): self
     {
         $this->user = $user;
 
@@ -55,7 +57,7 @@ class UserMission
         return $this->mission;
     }
 
-    public function setMission(?Mission $mission): self
+    public function setMission(?object $mission): self
     {
         $this->mission = $mission;
 

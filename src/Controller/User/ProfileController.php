@@ -22,10 +22,10 @@ class ProfileController extends AbstractController
         // TODO CALL THE API HERE
 
         $user = $userService->getUserByUsername($username);
-        $userMission = $this->getDoctrine()->getRepository(UserMission::class)->findBy(['user' => $user->getId()]);
+        $userMission = $userService->getUserById($user->getId());
 
         return $this->render('profile/index.html.twig', [
-            'controller_name' => 'ProfileController',
+            'controller_name' => 'Profil',
             'user' => $user,
             'userMission' => $userMission
         ]);

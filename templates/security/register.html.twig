@@ -4,6 +4,12 @@
 
 {% block body %}
 
+    {% for message in app.flashes('notice') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     {{ form_start(register_form) }}
     {{ form_widget(register_form) }}
     <button type="submit" class="btn btn-primary">M'inscrire</button>

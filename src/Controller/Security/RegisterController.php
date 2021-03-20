@@ -29,6 +29,8 @@ class RegisterController extends AbstractController
      */
     public function registration(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder, LoginFormAuthenticator $loginAuthenticator, GuardAuthenticatorHandler $guardAuthenticatorHandler): Response
     {
+        
+        $this->addFlash('notice', 'Voici votre code');
 
         if ($this->getUser()) {
             return $this->redirectToRoute('home');
