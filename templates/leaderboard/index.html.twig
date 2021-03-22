@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ sitename }} : Forbes {% endblock %}
+
+{% block body %}
+
+    {% for user in leaderboard %}
+            <h1>{{ user.username }}</h1>
+    {% endfor %}
+
+{% endblock %}
