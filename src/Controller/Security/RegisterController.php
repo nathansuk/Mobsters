@@ -4,6 +4,7 @@
 namespace App\Controller\Security;
 
 
+use App\CityApi;
 use App\Entity\User;
 use App\Form\RegistrationType;
 use App\Security\LoginFormAuthenticator;
@@ -11,6 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
@@ -29,8 +31,6 @@ class RegisterController extends AbstractController
      */
     public function registration(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder, LoginFormAuthenticator $loginAuthenticator, GuardAuthenticatorHandler $guardAuthenticatorHandler): Response
     {
-        
-        $this->addFlash('notice', 'Voici votre code');
 
         if ($this->getUser()) {
             return $this->redirectToRoute('home');
@@ -42,22 +42,49 @@ class RegisterController extends AbstractController
 
         if($register_form->isSubmitted() && $register_form->isValid()) {
 
-            $hash = $passwordEncoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($hash)
-                ->setCreatedAt(new \DateTime("now"))
-                ->setMoney(0)
-                ->setRoles(['ROLE_USER']);
+            /*
+             * This tries to connect to city's API
+             * If the API throw an error, then the user isn't registered on Habbocity
+             * Then we redirect and add an error message
+             */
+            try {
 
-            $entityManager->persist($user);
-            $entityManager->flush();
+                $api = new CityApi($register_form->get('username')->getData());
+                $motto = $api->getMission();
 
-            $guardAuthenticatorHandler->authenticateUserAndHandleSuccess($user, $request, $loginAuthenticator, 'main');
-            return $this->redirectToRoute('home');
+            } catch (\Exception $exception) {
+
+                $this->addFlash('notice', "Cet utilisateur n'existe pas sur Habbocity");
+                return $this->redirectToRoute("register");
+
+            }
+
+            /**
+             * We check if the user has the correct moto "CODE-IM-PseudoOnHabbocity"
+             * if not we redirect on register and add a error message.
+             */
+            if($motto == 'CODE-IM-'. $register_form->get('username')->getData()) {
+
+                $hash = $passwordEncoder->encodePassword($user, $user->getPassword());
+                $user->setPassword($hash)
+                    ->setCreatedAt(new \DateTime("now"))
+                    ->setMoney(0)
+                    ->setRoles(['ROLE_USER']);
+
+                $entityManager->persist($user);
+                $entityManager->flush();
+                $guardAuthenticatorHandler->authenticateUserAndHandleSuccess($user, $request, $loginAuthenticator, 'main');
+                return $this->redirectToRoute('home');
+
+            } else {
+                $this->addFlash('notice', 'Attention , le code est pas bon');
+                return $this->redirectToRoute("register");
+            }
         }
 
 
         return $this->render('security/register.html.twig', [
-            'register_form' => $register_form->createView()
+            'register_form' => $register_form->createView(),
         ]);
     }
 }
