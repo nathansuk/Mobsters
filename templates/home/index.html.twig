@@ -1,8 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ sitename }} : Accueil {% endblock %}
+{% block title %}
+	{{ sitename }}
+	: Accueil
+{% endblock %}
 
 {% block body %}
-    <h1>test</h1>
 
-{% endblock %}
+	<section class="container">
+		<div class="band">
+			<div class="item-1 mt-20">
+				<a href="#" class="card">
+					<div class="thumb" style="background-image: url(https://images.habbo.com/web_images/habbo-web-articles/HavgsWP.png);"></div>
+					<article>
+						<h1>News #1</h1>
+						<p>Description...</p>
+						<span>En savoir +</span>
+					</article>
+				</a>
+			</div>
+			<div class="item-2 mt-20">
+				<a href="#" class="card">
+					<div class="thumb" style="background-image: url(https://images.habbo.com/web_images/habbo-web-articles/HavgsWP.png);"></div>
+					<article>
+						<h1>News #2</h1>
+						<p>Description</p>
+						<span>En savoir +</span>
+					</article>
+				</a>
+			</div>
+			<div class="item-3 mt-20">
+				<a href="#" class="card">
+					<div class="thumb" style="background-image: url(https://images.habbo.com/web_images/habbo-web-articles/HavgsWP.png);"></div>
+					<article>
+						<h1>News #3</h1>
+						<p>Description
+						</p>
+						<span>En savoir +</span>
+					</article>
+				</a>
+			</div>
+
+		</section>
+
+		<section class="partner">
+			<div class="courses-container">
+				<div class="course">
+					<div class="course-preview">
+						<h2>Partenaires</h2>
+						<img src="https://files.habboemotion.com/resources/images/figures/Figure%20(55).gif">
+
+					</div>
+					<div class="course-info">
+						<img src="https://cdn.discordapp.com/attachments/703780097576009841/823276530096144384/Sans_titre.png">
+						<img src="https://cdn.discordapp.com/attachments/703780097576009841/823276788301955162/logo_pour_IM.png">
+					</div>
+				</div>
+			</div>
+
+		</section>
+	{% endblock %}

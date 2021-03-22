@@ -1,14 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Voltaire&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap");
 
 * {
   padding: 0;
   margin: 0;
-  font-family: "Voltaire", sans-serif;
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-weight: bold;
 }
 body {
   background: url("https://cdn.discordapp.com/attachments/744281580327010396/798590160806739978/test.gif");
   background-size: cover;
+  background-attachment: fixed;
+  color: white;
 }
+
+@media (max-width: 1200px) {
+  body {
+    background-size: initial;
+  }
+}
+
+.container {
+  padding-top: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+}
+
 :root {
   --color-primary: #18181a;
   --color-secondary: #75757c;
@@ -20,50 +38,6 @@ body {
   // Global transition values
   --td: 150ms;
   --te: cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-// ========================
-// Global elements
-// ========================
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  color: var(--color-dark);
-  font-family: var(--font-family-primary);
-  overflow-x: hidden;
-  position: relative;
-}
-
-h1 {
-  font-size: calc(1.5rem + 4vmin);
-  font-weight: 700;
-  margin-bottom: 2rem;
-}
-
-p {
-  line-height: 1.4;
-}
-
-a {
-  font-weight: 700;
-}
-
-.page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 45rem;
-  padding: 1rem;
-
-  > * + * {
-    margin-top: 1.5rem;
-  }
 }
 
 // ================================
@@ -182,6 +156,7 @@ a {
 [id="main-navigation-toggle"]:checked ~ .nav-main {
   left: 0;
   transition: transform 0s;
+  z-index: 99;
 
   &::before,
   &::after {
@@ -376,7 +351,9 @@ a {
   }
 }
 
-//Users-space
+// ================================
+// USER-SPACE
+// ================================
 .user-space {
   width: 150px;
   height: 50px;
@@ -387,6 +364,8 @@ a {
   overflow: hidden;
   border-radius: 10px;
   border: 2px solid white;
+  color: #18181a;
+  z-index: 100;
 }
 
 .user-head {
@@ -416,56 +395,149 @@ a {
   margin-left: 5px;
 }
 
-.user_disconnected {
-  display: flex;
+// ================================
+// CONNEXION - INSCRIPTION
+// ================================
+.connexion {
+  text-align: center;
+  background: red;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
 }
 
-/*PROFIL.PHP*/
-.avatar_profil {
-  margin-top: -20px;
-}
+// ================================
+// ROUTE : HOME (/)
+// ================================
+.band {
+  width: 50%;
+  max-width: 1240px;
+  margin: 0 auto;
 
-.profil_content p {
-  margin-top: 10px;
-}
+  display: grid;
 
-@media screen and (max-width: 780px) {
-  .col-md-8 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+
+  @media (min-width: 60em) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  h1 {
+    width: 200px;
   }
 }
 
-.tattoo_profil img {
-  width: 40px;
-  height: 40px;
+.card {
+  background: RGBA(54, 76, 98, 0.91);
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  // sets up hover state
+  position: relative;
+  top: 0;
+  transition: all 0.1s ease-in;
+
+  &:hover {
+    top: -2px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  article {
+    padding: 20px;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mt-20 {
+    margin-top: -20px;
+  }
+
+  p {
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  span {
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 2em 0 0 0;
+    background: #3f75ab;
+    width: fit-content;
+    padding: 10px;
+  }
+
+  .thumb {
+    padding-bottom: 60%;
+    background-size: cover;
+    background-position: center center;
+  }
 }
 
-/*BANQUE*/
-.img_compte {
-  width: 146px;
-  height: 146px;
-  margin-top: 15px;
-  margin-left: 15px;
+.item-1 {
+  @media (min-width: 60em) {
+    grid-column: 1 / span 2;
+
+    h1 {
+      font-size: 24px;
+    }
+  }
 }
 
-.transac_box {
-  margin-top: 10px;
+//Partners
+.partner {
+  display: flex;
+  justify-content: center;
+}
+.course {
+  background: RGBA(255, 255, 255, 0.89);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  max-width: 100%;
+  margin: 20px;
+  overflow: hidden;
+  width: 500px;
 }
 
-.solde_nul {
-  display: none;
+.course h2 {
+  letter-spacing: 1px;
+  margin: 10px 0;
 }
 
-.solde_positif {
-  z-index: 1;
+.course-preview {
+  background: RGBA(54, 76, 98, 0.81);
+  color: #fff;
+  padding: 10px;
+  max-width: 250px;
 }
 
-.banque_actions {
-  margin-left: 10px;
+.course-preview a {
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 30px;
+  text-decoration: none;
 }
 
-.form_virement {
-  margin-top: 20px;
+.course-info {
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
