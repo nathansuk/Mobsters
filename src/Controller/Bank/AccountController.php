@@ -39,7 +39,8 @@ class AccountController extends AbstractController
             /*
             * We get the sender User object
             */
-            $sender = $userService->getUserByUsername($sendMoneyForm->get('sender')->getData());
+            $username = $this->getUser()->getUsername();
+            $sender = $userService->getUserByUsername($username);
             $senderMoney = $userService->getUserMoney($sender);
 
             /**
@@ -67,7 +68,7 @@ class AccountController extends AbstractController
              * We check if the receiver exist in database, else we throw an error.
              */
 
-            $transaction->setSender($this->getUser()->getUsername())
+            $transaction->setSender($username)
                 ->setAmount($amount)
                 ->setReceiver($sendMoneyForm->get('receiver')->getData());
 
