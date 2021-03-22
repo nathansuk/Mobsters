@@ -12,6 +12,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   color: white;
+  line-height: normal !important;
 }
 
 @media (max-width: 1200px) {
@@ -194,7 +195,7 @@ body {
 
   > .menu__item {
     font-family: var(--font-family-secondary);
-    font-size: 10vmin;
+    font-size: 7vmin;
   }
 }
 
@@ -410,134 +411,3 @@ body {
 // ================================
 // ROUTE : HOME (/)
 // ================================
-.band {
-  width: 50%;
-  max-width: 1240px;
-  margin: 0 auto;
-
-  display: grid;
-
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  grid-gap: 20px;
-
-  @media (min-width: 60em) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  h1 {
-    width: 200px;
-  }
-}
-
-.card {
-  background: RGBA(54, 76, 98, 0.91);
-  text-decoration: none;
-  color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-
-  // sets up hover state
-  position: relative;
-  top: 0;
-  transition: all 0.1s ease-in;
-
-  &:hover {
-    top: -2px;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-  }
-
-  article {
-    padding: 20px;
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .mt-20 {
-    margin-top: -20px;
-  }
-
-  p {
-    flex: 1;
-    line-height: 1.4;
-  }
-
-  span {
-    font-size: 12px;
-    font-weight: bold;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 2em 0 0 0;
-    background: #3f75ab;
-    width: fit-content;
-    padding: 10px;
-  }
-
-  .thumb {
-    padding-bottom: 60%;
-    background-size: cover;
-    background-position: center center;
-  }
-}
-
-.item-1 {
-  @media (min-width: 60em) {
-    grid-column: 1 / span 2;
-
-    h1 {
-      font-size: 24px;
-    }
-  }
-}
-
-//Partners
-.partner {
-  display: flex;
-  justify-content: center;
-}
-.course {
-  background: RGBA(255, 255, 255, 0.89);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  max-width: 100%;
-  margin: 20px;
-  overflow: hidden;
-  width: 500px;
-}
-
-.course h2 {
-  letter-spacing: 1px;
-  margin: 10px 0;
-}
-
-.course-preview {
-  background: RGBA(54, 76, 98, 0.81);
-  color: #fff;
-  padding: 10px;
-  max-width: 250px;
-}
-
-.course-preview a {
-  color: #fff;
-  display: inline-block;
-  font-size: 12px;
-  opacity: 0.6;
-  margin-top: 30px;
-  text-decoration: none;
-}
-
-.course-info {
-  padding: 10px;
-  position: relative;
-  width: 100%;
-  color: black;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}

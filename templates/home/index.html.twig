@@ -6,57 +6,106 @@
 {% endblock %}
 
 {% block body %}
+	<div class=" d-flex justify-content-center">
+		<div class="card text-center" style="width: 70vh;">
+			<div class="card-header">
+				<img src="https://cdn.discordapp.com/attachments/744281580327010396/809538904188780544/test.png"/>
 
-	<section class="container">
-		<div class="band">
-			<div class="item-1 mt-20">
-				<a href="#" class="card">
-					<div class="thumb" style="background-image: url(https://images.habbo.com/web_images/habbo-web-articles/HavgsWP.png);"></div>
-					<article>
-						<h1>News #1</h1>
-						<p>Description...</p>
-						<span>En savoir +</span>
-					</article>
-				</a>
-			</div>
-			<div class="item-2 mt-20">
-				<a href="#" class="card">
-					<div class="thumb" style="background-image: url(https://images.habbo.com/web_images/habbo-web-articles/HavgsWP.png);"></div>
-					<article>
-						<h1>News #2</h1>
-						<p>Description</p>
-						<span>En savoir +</span>
-					</article>
-				</a>
-			</div>
-			<div class="item-3 mt-20">
-				<a href="#" class="card">
-					<div class="thumb" style="background-image: url(https://images.habbo.com/web_images/habbo-web-articles/HavgsWP.png);"></div>
-					<article>
-						<h1>News #3</h1>
-						<p>Description
-						</p>
-						<span>En savoir +</span>
-					</article>
-				</a>
+			<!--QUAND LE USER FAIT UN VIREMENT ET QUE C'EST REUSSI :
+			        <div class="alert alert-success" role="alert">
+			            Votre transaction a été effectuée avec succès !
+			        </div>
+			-->
+
+				<!--QUAND LE USER FAIT UN VIREMENT FRODULEUX
+				        <div class="alert alert-danger" role="alert">
+				            <b>Erreur :</b> Votre transaction a été refusée.
+				        </div>
+				-->
 			</div>
 
-		</section>
 
-		<section class="partner">
-			<div class="courses-container">
-				<div class="course">
-					<div class="course-preview">
-						<h2>Partenaires</h2>
-						<img src="https://files.habboemotion.com/resources/images/figures/Figure%20(55).gif">
-
+			<div class="card-body profil_user">
+				<section class="profil_card_content d-flex justify-content-center">
+					<div class="card text-center">
+						<div class="card-header">
+							<b>Mon compte</b>
+						</div>
+						<div class="card-body">
+							<img
+							class="float-left img-fluid" src="https://cdn.discordapp.com/attachments/698515000272093205/803379064353325157/courbes.png"/>
+							<!--Nombre de LS-->
+							<p class="card-text" style="font-size: 20px;">
+								<b>134 098</b>&nbsp;
+								<img class="livresterlings" src="https://i.servimg.com/u/f29/20/14/94/41/livre_10.png"><br>
+							</p>
+							<!-- If LS > 0 -->
+							<div class="solde_positif">
+								<button style="" type="button" class="btn btn-outline-success">Solde positif</button>
+							</div>
+							<!-- If LS = 0-->
+							<div class="solde_nul">
+								<button type="button" class="btn btn-outline-danger">Solde Nul</button>
+							</div>
+							<!--Historique des transactions-->
+							<ul class="list-group transac_box">
+								<li class="list-group-item active"><img src="https://cdn.discordapp.com/attachments/698515000272093205/803384562863833108/transac.png" class="img-fluid"/><br>
+									<b>Mes transactions</b>
+								</li>
+								<!--Transaction > Emprunts -->
+								<li class="list-group-item">
+									<em>Emprunt :
+										<b>10 000</b>&nbsp;<img class="livresterlings" src="https://i.servimg.com/u/f29/20/14/94/41/livre_10.png"></em>
+								</li>
+								<!--Transaction virement-->
+								<li class="list-group-item">
+									<em>Virement :
+										<b>10 000</b>&nbsp;<img class="livresterlings" src="https://i.servimg.com/u/f29/20/14/94/41/livre_10.png">
+										à Heidegger</em>
+								</li>
+								<!--Aucune transaction-->
+								<li class="list-group-item">
+									<em>Aucune transaction enregistrée</em>
+								</li>
+							</ul>
+						</div>
 					</div>
-					<div class="course-info">
-						<img src="https://cdn.discordapp.com/attachments/703780097576009841/823276530096144384/Sans_titre.png">
-						<img src="https://cdn.discordapp.com/attachments/703780097576009841/823276788301955162/logo_pour_IM.png">
+
+					<div class="card banque_actions text-center">
+						<div class="card-header">
+							<b>Virements</b>
+						</div>
+						<div class="card-body">
+							<p class="card-text">
+								<em>Les intérêts des virements s'élèvent à 5%</em>
+							</p>
+							<img class="img-fluid" src="https://cdn.discordapp.com/attachments/784037187645210626/803415317841838100/portemonaie.png"/><br/>
+							<!--Virements-->
+							<form>
+								<div
+									class="form-group form_virement">
+									<!--Pseudo du user à qui virer l'argent-->
+									<input type="text" class="form-control" id="user_virement" placeholder="Pseudo">
+									<small class="form-text text-muted text-left">
+										<em>Veuillez faire attention à l'orthographe !</em>
+									</small>
+									<!--Montant à virer -->
+									<input type="text" class="form-control" id="virement_montant" placeholder="Montant"><br/>
+									<div class="col-auto">
+										<button type="submit" class="btn btn-primary mb-2">Valider</button>
+									</div>
+								</div>
+							</form>
+							<p class="card-text text-danger">
+								<b>
+									<em>Attention !
+										<br>Cette action est irréversible.</em>
+								</b>
+							</p>
+						</div>
 					</div>
 				</div>
-			</div>
 
+			</div>
 		</section>
 	{% endblock %}
