@@ -12,16 +12,16 @@
 				<img src="https://cdn.discordapp.com/attachments/744281580327010396/809538904188780544/test.png"/>
 
 			<!--QUAND LE USER FAIT UN VIREMENT ET QUE C'EST REUSSI :
-			        <div class="alert alert-success" role="alert">
-			            Votre transaction a été effectuée avec succès !
-			        </div>
-			-->
+						        <div class="alert alert-success" role="alert">
+						            Votre transaction a été effectuée avec succès !
+						        </div>
+						-->
 
 				<!--QUAND LE USER FAIT UN VIREMENT FRODULEUX
-				        <div class="alert alert-danger" role="alert">
-				            <b>Erreur :</b> Votre transaction a été refusée.
-				        </div>
-				-->
+								        <div class="alert alert-danger" role="alert">
+								            <b>Erreur :</b> Votre transaction a été refusée.
+								        </div>
+								-->
 			</div>
 
 
@@ -108,4 +108,57 @@
 
 			</div>
 		</section>
-	{% endblock %}
+
+
+		<div class=" d-flex justify-content-center">
+			<div class="card text-center" style="width: 70vh;">
+				<div class="card-header">
+					<img src="https://cdn.discordapp.com/attachments/744281580327010396/809538904188780544/test.png"/>
+					<div class="DescrBBank">
+						<div class="concierge"></div><br>
+						<em>"Attention ! Vous ne pouvez pas contracter plusieurs emprunts à la fois.
+							<br>Réfléchissez-bien avant de faire une demande ! "</em>
+					</div>
+
+					<!--Demande d'emprunt pris en compte
+					        <div class="alert alert-success" role="alert">
+					            Votre Emprunt a été pris en compte, un banquier va l'étudier
+					        </div>
+					-->
+				</div>
+
+				<div class="card-body profil_user">
+					<section class="d-flex justify-content-center">
+						<div class="card text-center">
+							<div class="card-header">
+								<b>Emprunts</b>
+							</div>
+
+							<div class="card-body">
+								<img src="https://habboemotion.com/resources/images/icons/cash.gif"/>
+								<p class="card-text">
+									<em>Les emprunts sont réglementés, seul les banquiers sont habilités à les accepter.<br>
+										Ils ne peuvent pas être cumulés, une fois un emprunt accepté il faut le rembourser<br>
+										intégralement avant de pouvoir en contracter un autre.</em>
+								</p>
+
+								<form>
+									<div
+										class="form-group form_virement">
+										<!--Montant de l'emprunt-->
+										<input type="text" class="form-control" id="user_virement" placeholder="Montant de l'emprunt"><br/>
+										<!--Raison -->
+										<select class="form-select" aria-label="Default select example">
+											<option selected>Motif</option>
+											<option value="1">Investissement</option>
+											<option value="2">Enrichissement</option>
+											<option value="3">Aucun</option>
+										</select><br>
+										<div class="col-auto">
+											<button type="submit" class="btn btn-primary mb-2">Valider</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					{% endblock %}
