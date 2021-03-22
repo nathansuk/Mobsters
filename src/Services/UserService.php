@@ -49,5 +49,13 @@ class UserService
         }
     }
 
+    /*
+     * Money
+     */
+
+    public function getUserMoney(object $user): int {
+        return $user->getMoney();
+    }
+
 
 }
