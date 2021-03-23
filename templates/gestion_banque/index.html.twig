@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GestionBanqueController!{% endblock %}
+
+{% block body %}
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">
+            {{message}}
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger" role="alert">
+            {{message}}
+        </div>
+    {% endfor %}
+
+<h1 style="color: red;">Demandes en attente</h1>
+
+<ul class="list-group">
+    {% for demande in demandes %}
+        <li class="list-group-item">
+            <span><span class="badge bg-warning text-dark">{{ demande.user }}</span>
+                souhaite emprunter : <span class="badge bg-light text-dark">{{ demande.montant }}</span>
+                pour : {{ demande.motif }}
+                 <a href="{{ path('accept_demande', {'id': demande.id }) }}">
+                    <button type="button" class="btn btn-success">Accorder</button>
+                </a>
+            </span>
+        </li>
+    {% endfor %}
+</ul>
+
+    <h1 style="color: yellow;">Demandes acceptées</h1>
+<ul class="list-group">
+    {% for demande in demandes_acceptees %}
+        <li class="list-group-item">
+            <span><span class="badge bg-warning text-dark">{{ demande.user }}</span>
+                Montant : <span class="badge bg-light text-dark">{{ demande.montant }}</span>
+                Motif : {{ demande.motif }}
+                <a href="{{ path('valider_emprunt', {'id': demande.id }) }}">
+                    <button type="button" class="btn btn-success">Marquer comme payé</button>
+                </a>
+            </span>
+        </li>
+    {% endfor %}
+</ul>
+
+    <h1 style="color: green;">Emprunts payés </h1>
+<ul class="list-group">
+    {% for demande in empruntsRembourses %}
+        <li class="list-group-item list-group-item-success">
+            <span><span class="badge bg-warning text-dark">{{ demande.user }}</span>
+                Montant : <span class="badge bg-light text-dark">{{ demande.montant }}</span>
+                Motif : {{ demande.motif }}
+            </span>
+        </li>
+    {% endfor %}
+</ul>
+
+
+
+{% endblock %}

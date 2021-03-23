@@ -1,4 +1,8 @@
 security:
+    role_hierarchy:
+        ROLE_JOURNALISTE: ROLE_USER
+        ROLE_BANQUIER: ROLE_USER
+        ROLE_ADMIN: ROLE_USER
     encoders:
         App\Entity\User:
             algorithm: auto
@@ -38,4 +42,6 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/gestion-banque, roles: [ROLE_BANQUIER, ROLE_ADMIN] }
+         - { path: ^/mission, roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }

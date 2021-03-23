@@ -30,7 +30,7 @@ class MissionController extends AbstractController
     }
 
     /**
-     * @Route("/accept/{id}", name="accept_mission")
+     * @Route("/mission/accept/{id}", name="accept_mission")
      * @param int $id
      * @param UserService $userService
      * @param MissionService $missionService

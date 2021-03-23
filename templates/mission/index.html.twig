@@ -10,14 +10,17 @@
         </div>
     {% endfor %}
 
-
+<div class="list-mission" style="display: flex; flex-direction: row; flex-flow: row wrap; width: 80%; margin: auto;">
     {% for mission in missionDispo %}
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{ mission.title }}</h5>
                 <p class="card-text">{{ mission.description}}</p>
-                <button class="btn btn-success">Accepter</button>
+                <a href="{{ path('accept_mission', {'id': mission.id }) }}">
+                    <button type="button" class="btn btn-success">Accepter</button>
+                </a>
             </div>
         </div>
     {% endfor %}
+</div>
 {% endblock %}

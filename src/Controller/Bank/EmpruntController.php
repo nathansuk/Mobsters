@@ -41,6 +41,7 @@ class EmpruntController extends AbstractController
                 ->setMontant($montant)
                 ->setMotif($motif)
                 ->setIsAccepted(false)
+                ->setIsReimbursed(false)
                 //TO-DO: Le taux sera configurable par les administrateurs.
                 ->setInterets(0.0);
 

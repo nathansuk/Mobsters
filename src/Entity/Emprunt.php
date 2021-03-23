@@ -43,6 +43,11 @@ class Emprunt
      */
     private $interets;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isReimbursed;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +109,18 @@ class Emprunt
     public function setInterets(float $interets): self
     {
         $this->interets = $interets;
+
+        return $this;
+    }
+
+    public function getIsReimbursed(): ?bool
+    {
+        return $this->isReimbursed;
+    }
+
+    public function setIsReimbursed(bool $isReimbursed): self
+    {
+        $this->isReimbursed = $isReimbursed;
 
         return $this;
     }
