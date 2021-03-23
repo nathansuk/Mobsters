@@ -4,6 +4,7 @@
 namespace App\Services;
 
 
+use App\Entity\Transaction;
 use App\Entity\User;
 use App\Entity\UserMission;
 use Doctrine\ORM\EntityManagerInterface;
@@ -15,7 +16,7 @@ class UserService
         $this->em = $em;
     }
 
-    public function getUserByUsername(string $username): ?object
+    public function getUserByUsername(string $username): ?User
     {
         return $this->em->getRepository(User::class)->findOneBy(['username' => $username]);
     }
@@ -54,8 +55,16 @@ class UserService
      */
 
     public function getUserMoney(object $user): int {
+
         return $user->getMoney();
+
     }
 
+
+    public function getUserTransactions(int $max, object $user): array {
+
+        return $this->em->getRepository(Transaction::class)->findBy(['sender' => $user->getUsername()]);
+
+    }
 
 }

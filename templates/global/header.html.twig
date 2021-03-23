@@ -9,49 +9,39 @@
 	<nav id="main-navigation" class="nav-main">
 		<ul class="menu">
 			<li class="menu__item">
-				<a class="menu__link" href="#0">Accueil</a>
+				<a class="menu__link" href="{{ path('home') }}">Accueil</a>
 			</li>
 			<li class="menu__item">
-				<a class="menu__link" href="#0">The Times</a>
+				<a class="menu__link" href="{{ path('news') }}">The Times</a>
 			</li>
 			<li class="menu__item">
-				<a class="menu__link" href="#0">Banque</a>
+				<a class="menu__link" href="#">Banque</a>
 				<ul class="submenu">
 					<li class="menu__item">
-						<a class="menu__link" href="#0">Mon compte</a>
+						<a class="menu__link" href="{{ path('my_bank_account') }}">Mon compte</a>
 					</li>
 					<li class="menu__item">
-						<a class="menu__link" href="#0">Emprunts</a>
+						<a class="menu__link" href="#">Emprunts</a>
 					</li>
 				</ul>
 			</li>
 			<li class="menu__item">
-				<a class="menu__link" href="#0">Missions</a>
-			</li>
-			<li class="menu__item">
-				<a class="menu__link" href="#0">Profil</a>
-			</li>
-			<li class="menu__item">
-				<a class="menu__link" href="#0">Profil</a>
-			</li>
-			<li class="menu__item">
-				<a class="menu__link" href="#0">Profil</a>
-			</li>
-
-			<li class="menu__item">
-				<a class="menu__link" href="#0">Profil</a>
+				<a class="menu__link" href="{{ path('mission') }}">Missions</a>
 			</li>
 
 			{% if app.user %}
 				<li class="menu__item">
-					<a class="menu__link" href="/logout">Déconnexion</a>
+					<a class="menu__link" href="{{ path('user_profile', {'username': app.user.username }) }}">Profil</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="{{ path('app_logout') }}">Déconnexion</a>
 				</li>
 			{% else %}
 				<li class="menu__item">
-					<a class="menu__link" href="/login">Connexion</a>
+					<a class="menu__link" href="{{ path('app_login') }}">Connexion</a>
 				</li>
 				<li class="menu__item">
-					<a class="menu__link" href="/register">Inscription</a>
+					<a class="menu__link" href="{{ path('register') }}">Inscription</a>
 				</li>
 			{% endif %}
 			<p style="color: white;">&copy;Imperial Mobsters 2021 - Version ALPHA</p>
@@ -64,7 +54,7 @@
 			<div class="user-head">
 				<img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=2&head_direction=3&size=n">
 			</div>
-			<div class="user-name">
+			<div class="user-name" onclick="location.href = '/profil/{{ app.user.username }}'" style="cursor: pointer">
 				{{ app.user.username }}&nbsp;
 				<img src="https://files.habboemotion.com/resources/images/icons/edit_badge_button.gif"/>
 			</div>

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EmpruntController!{% endblock %}
+
+{% block body %}
+<div class=" d-flex justify-content-center">
+
+
+    <div class=" d-flex justify-content-center">
+        <div class="card text-center" style="width: 70vh;">
+            <div class="card-header">
+                <img src="https://cdn.discordapp.com/attachments/744281580327010396/809538904188780544/test.png"/>
+                <div class="DescrBBank">
+                    <div class="concierge"></div><br>
+                    <em>"Attention ! Vous ne pouvez pas contracter plusieurs emprunts à la fois.
+                        <br>Réfléchissez-bien avant de faire une demande ! "</em>
+                </div>
+
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success" role="alert">
+                        {{message}}
+                    </div>
+                {% endfor %}
+
+                {% for message in app.flashes('error') %}
+                    <div class="alert alert-danger" role="alert">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="card-body profil_user">
+                <section class="d-flex justify-content-center">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <b>Emprunts</b>
+                        </div>
+
+                        <div class="card-body">
+                            <img src="https://habboemotion.com/resources/images/icons/cash.gif"/>
+                            <p class="card-text">
+                                <em>Les emprunts sont réglementés, seul les banquiers sont habilités à les accepter.<br>
+                                    Ils ne peuvent pas être cumulés, une fois un emprunt accepté il faut le rembourser<br>
+                                    intégralement avant de pouvoir en contracter un autre.</em>
+                            </p>
+
+                            {{ form_start(askEmpruntForm) }}
+                            {{ form_widget(askEmpruntForm) }}
+                            <button type="submit" class="btn btn-primary mb-2">Envoyer ma demande</button>
+                            {{ form_end(askEmpruntForm) }}
+                        </div>
+                    </div>
+                </section>
+            </div>
+{% endblock %}

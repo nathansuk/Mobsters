@@ -40,6 +40,7 @@ class AccountController extends AbstractController
             * We get the sender User object
             */
             $username = $this->getUser()->getUsername();
+
             $sender = $userService->getUserByUsername($username);
             $senderMoney = $userService->getUserMoney($sender);
 
@@ -47,8 +48,12 @@ class AccountController extends AbstractController
              * We get the receiver User object
              */
             $receiver = $userService->getUserByUsername($sendMoneyForm->get('receiver')->getData());
+
+            /*
+             * We check if the receiver exist in database, else we throw an error.
+             */
             if(!$receiver){
-                $this->addFlash('notice', "Cte utilisateur n'existe pas");
+                $this->addFlash('notice', "Cet utilisateur n'existe pas");
                 return $this->redirectToRoute('my_bank_account');
             }
             $receiverMoney = $userService->getUserMoney($receiver);
@@ -64,10 +69,6 @@ class AccountController extends AbstractController
                 return $this->redirectToRoute("my_bank_account");
             }
 
-            /*
-             * We check if the receiver exist in database, else we throw an error.
-             */
-
             $transaction->setSender($username)
                 ->setAmount($amount)
                 ->setReceiver($sendMoneyForm->get('receiver')->getData());
@@ -80,12 +81,26 @@ class AccountController extends AbstractController
             $entityManager->persist($transaction);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Le virement a bien été envoyé !');
+            return $this->redirectToRoute('my_bank_account');
+
+        }
+
+        if($sendMoneyForm->isSubmitted() && !$sendMoneyForm->isValid()) {
+            $this->addFlash('error', "Le formulaire est invalide, veuillez réessayer.");
             return $this->redirectToRoute('my_bank_account');
         }
 
 
+        /*
+         * We get last transactions details
+         */
+
+        $lastTransactions = $userService->getUserTransactions(3, $this->getUser());
+
         return $this->render('account/index.html.twig', [
             'controller_name' => 'AccountController',
+            'lastTransactions' => $lastTransactions,
             'sendMoneyForm' => $sendMoneyForm->createView()
         ]);
     }

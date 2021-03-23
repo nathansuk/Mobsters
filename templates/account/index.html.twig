@@ -3,20 +3,104 @@
 {% block title %}Hello AccountController!{% endblock %}
 
 {% block body %}
-    <h1>Transaction</h1>
-    <h1>Transaction</h1>
-    <h1>Transaction</h1>
+
+<div class=" d-flex justify-content-center">
+    <div class="card text-center" style="width: 70vh; color: black;">
+        <div class="card-header">
+            <img src="https://cdn.discordapp.com/attachments/744281580327010396/809538904188780544/test.png"/>
+
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success" role="alert">
+                    {{message}}
+                </div>
+            {% endfor %}
+
+            {% for message in app.flashes('notice') %}
+                <div class="alert alert-danger" role="alert">
+                    {{message}}
+                </div>
+            {% endfor %}
+        </div>
 
 
-    {% for message in app.flashes('notice') %}
-        <h1 style="color: red;">{{ message }}</h1>
-    {% endfor %}
+        <div class="card-body profil_user">
+            <section class="profil_card_content d-flex justify-content-center">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <b>Mon compte</b>
+                    </div>
+                    <div class="card-body">
+                        <img class="float-left img-fluid" src="https://cdn.discordapp.com/attachments/698515000272093205/803379064353325157/courbes.png"/>
 
-    {{ form_start(sendMoneyForm) }}
+                        <!--Nombre de LS-->
+                        <p class="card-text" style="font-size: 20px;">
+                            <b>{{ app.user.money }}</b>&nbsp;
+                            <img class="livresterlings" src="https://i.servimg.com/u/f29/20/14/94/41/livre_10.png"><br>
+                        </p>
+                        {% if app.user.money > 0 %}
+                        <div class="solde_positif">
+                            <button style="" type="button" class="btn btn-outline-success">Solde positif</button>
+                        </div>
+                        {% else %}
+                        <div class="solde_nul">
+                            <button type="button" class="btn btn-outline-danger">Solde Nul</button>
+                        </div>
 
-    {{ form_widget(sendMoneyForm) }}
-    <button type="submit" class="btn btn-primary">Envoyer</button>
-    {{ form_end(sendMoneyForm) }}
+                        {% endif
+                        %}
+                        <!--Historique des transactions-->
+                        <ul class="list-group transac_box">
+                            <li class="list-group-item active"><img src="https://cdn.discordapp.com/attachments/698515000272093205/803384562863833108/transac.png" class="img-fluid"/><br>
+                                <b>Mes transactions</b>
+                            </li>
 
+                            {% if lastTransactions %}
 
+                            {% for transaction in lastTransactions %}
+                                <li class="list-group-item">
+                                    <em>Virement :
+                                        <b>{{ transaction.amount }}</b>&nbsp;<img class="livresterlings" src="https://i.servimg.com/u/f29/20/14/94/41/livre_10.png">
+                                        à {{ transaction.receiver }}</em>
+                                </li>
+                            {% endfor %}
+
+                            {% else %}
+                            <li class="list-group-item">
+                                <em>Aucune transaction enregistrée</em>
+                            </li>
+
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card banque_actions text-center">
+                    <div class="card-header">
+                        <b>Virements</b>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <em>Les intérêts des virements s'élèvent à 5%</em>
+                        </p>
+                        <img class="img-fluid" src="https://cdn.discordapp.com/attachments/784037187645210626/803415317841838100/portemonaie.png"/><br/>
+                        <!--Virements-->
+
+                        {{ form_start(sendMoneyForm) }}
+                        {{ form_widget(sendMoneyForm) }}
+                        <button type="submit" class="btn btn-primary mb-2">Valider</button>
+                        {{ form_end(sendMoneyForm) }}
+                        <p class="card-text text-danger">
+                            <b>
+                                <em>Attention !
+                                    <br>Cette action est irréversible.</em>
+                            </b>
+                        </p>
+                    </div>
+             </div>
+            </section>
+        </div>
+
+    </div>
+
+</div>
 {% endblock %}

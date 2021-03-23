@@ -12,7 +12,7 @@ class LeaderboardController extends AbstractController
     /**
      * @param LeaderboardService $leaderboardService
      * @return Response
-     * @Route("/forbes", name="leader_board")
+     * @Route("/classement", name="leaderboard")
      */
     public function index(LeaderboardService $leaderboardService): Response
     {

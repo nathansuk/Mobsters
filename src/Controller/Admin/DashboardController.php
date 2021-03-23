@@ -4,9 +4,11 @@ namespace App\Controller\Admin;
 
 use App\Entity\Clan;
 use App\Entity\Clans;
+use App\Entity\Emprunt;
 use App\Entity\Mission;
 use App\Entity\News;
 use App\Entity\NewsCategory;
+use App\Entity\Transaction;
 use App\Entity\User;
 use App\Entity\UserMission;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -46,6 +48,10 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Missions', 'fas fa-clipboard');
         yield MenuItem::linkToCrud('Les missions', 'far fa-clipboard', Mission::class);
         yield MenuItem::linkToCrud('Mission des joueurs', 'fas fa-users', UserMission::class);
+
+        yield MenuItem::section('Banque', 'fas fa-money-check-alt');
+        yield MenuItem::linkToCrud('Emprunts', 'fas fa-file-invoice-dollar', Emprunt::class);
+        yield MenuItem::linkToCrud('Transactions', 'fas fa-search-dollar', Transaction::class);
 
     }
 }
