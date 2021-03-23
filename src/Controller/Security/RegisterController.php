@@ -62,7 +62,7 @@ class RegisterController extends AbstractController
              * We check if the user has the correct moto "CODE-IM-PseudoOnHabbocity"
              * if not we redirect on register and add a error message.
              */
-            if($motto == 'CODE-IM-'. $register_form->get('username')->getData()) {
+            if($motto == 'ImperialMobsters') {
 
                 $hash = $passwordEncoder->encodePassword($user, $user->getPassword());
                 $user->setPassword($hash)
@@ -76,7 +76,7 @@ class RegisterController extends AbstractController
                 return $this->redirectToRoute('home');
 
             } else {
-                $this->addFlash('notice', 'Attention , le code est pas bon');
+                $this->addFlash('notice', "Attention tu n'as pas mis le code dans ta mission");
                 return $this->redirectToRoute("register");
             }
         }
