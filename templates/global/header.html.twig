@@ -1,74 +1,59 @@
 {% block header %}
-
-	<input type="checkbox" id="main-navigation-toggle" class="btn btn--close" title="Toggle main navigation"/>
-
-	<label for="main-navigation-toggle">
-		<span></span>
-	</label>
-
-	<nav id="main-navigation" class="nav-main">
-		<ul class="menu">
-			<li class="menu__item">
-				<a class="menu__link" href="{{ path('home') }}">Accueil</a>
-			</li>
-			<li class="menu__item">
-				<a class="menu__link" href="{{ path('news') }}">The Times</a>
-			</li>
-			<li class="menu__item">
-				<a class="menu__link" href="#">Banque</a>
-				<ul class="submenu">
-					<li class="menu__item">
-						<a class="menu__link" href="{{ path('my_bank_account') }}">Mon compte</a>
-					</li>
-					<li class="menu__item">
-						<a class="menu__link" href="#">Emprunts</a>
-					</li>
-				</ul>
-			</li>
-			<li class="menu__item">
-				<a class="menu__link" href="{{ path('mission') }}">Missions</a>
-			</li>
-
-			{% if app.user %}
-				<li class="menu__item">
-					<a class="menu__link" href="{{ path('user_profile', {'username': app.user.username }) }}">Profil</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="{{ path('app_logout') }}">Déconnexion</a>
-				</li>
-			{% else %}
-				<li class="menu__item">
-					<a class="menu__link" href="{{ path('app_login') }}">Connexion</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="{{ path('register') }}">Inscription</a>
-				</li>
-			{% endif %}
-			<p style="color: white;">&copy;Imperial Mobsters 2021 - Version ALPHA</p>
-
-		</ul>
-	</nav>
-
-	{% if app.user %}
+	<section class="left-side">
 		<div class="user-space">
-			<div class="user-head">
-				<img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=2&head_direction=3&size=n">
+			<div class="user-avatar">
+				<img src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=l">
 			</div>
-			<div class="user-name" onclick="location.href = '/profil/{{ app.user.username }}'" style="cursor: pointer">
-				{{ app.user.username }}&nbsp;
-				<img src="https://files.habboemotion.com/resources/images/icons/edit_badge_button.gif"/>
+			<div class="user-info">
+				<p class="user-name">Galahad</p>
+				<p>Membre</p>
+				<p>Clan : Jugsters</p>
+				<p><img src="{{ asset('img/ls.png') }}">&nbsp;
+					<span class="user-money">138289</span>
+				</p>
 			</div>
-		{% else %}
-			<div class="user-space">
-				<div class="user-head">
-					<img src="https://api.habbocity.me/avatar_image.php?user=PRIMELIA&headonly=0&direction=2&head_direction=3&size=n">
-				</div>
-				<div class="user-name">
-					Visiteur&nbsp;
-					<a href="/login"><img style="top: 0px;" src="https://files.habboemotion.com/resources/images/icons/locked_big.gif"></a>
-				</div>
-			{% endif %}
-
 		</div>
-	</nav>
-</header>{% endblock %}
+
+
+		<div class="menu">
+			<div class="menu-items">
+				<a href="#">
+					<p><img src="{{ asset('img/place_1.gif') }}">&nbsp;Accueil</p>
+				</a>
+				<a href="#">
+					<p><img src="{{ asset('img/place_1.gif') }}">&nbsp;The Times</p>
+				</a>
+				<a href="#">
+					<p><img src="{{ asset('img/place_1.gif') }}">&nbsp;Classement</p>
+				</a>
+				<a href="#">
+					<p><img src="{{ asset('img/place_1.gif') }}">&nbsp;Missions</p>
+				</a>
+				<div class="dropdown-left">
+					<a href="#">
+						<p><img src="{{ asset('img/place_1.gif') }}">&nbsp;Banque</p>
+					</a>
+					<div class="dropdown-content"></div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="buttons">
+			<button class="btn">
+				<img src="{{ asset('img/THI46.gif') }}">&nbsp;<span>Missions</span>
+				<span class="missions-notifs">5</span>
+				>
+			</button>
+		</div>
+
+		<div class="buttons">
+			<button class="btn" style="word-spacing: 30px;">
+				<img src="{{ asset('img/THI46.gif') }}">&nbsp;<span>Notifications</span>
+				<span class="missions-notifs">5</span>
+				>
+			</button>
+		</div>
+	</section>
+{% endblock %}
