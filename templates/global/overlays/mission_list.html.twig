@@ -1,9 +1,7 @@
 {% for mission in userMission %}
-    <div class="liste-mission--item flex-row">
-        <img src="https://habbo.com/habbo-imaging/avatarimage?figure=hr-3531-1407-61.hd-209-20.ch-3498-1409.lg-3058-91.sh-3524-64-110.fa-3344-110.cc-3002-110&size=n&direction=2&head_direction=2&gesture=std&headonly=1"
-             alt="avatar-head"
-             class="mission--avatar-head">
-        <h3>{{ mission }}</h3>
-        <div class="state-dot"></div>
-    </div>
+	<div onclick="openCity('Mission#1')" class="liste-mission--item flex-row">
+		<img src="https://habbo.com/habbo-imaging/avatarimage?figure=hr-3531-1407-61.hd-209-20.ch-3498-1409.lg-3058-91.sh-3524-64-110.fa-3344-110.cc-3002-110&size=n&direction=2&head_direction=2&gesture=std&headonly=1" alt="avatar-head" class="mission--avatar-head">
+		<h3>{{ mission }}</h3>
+		<div class="state-dot"></div>
+	</div>
 {% endfor %}

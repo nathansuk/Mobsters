@@ -9,7 +9,7 @@
 			{% endblock %}
 		</title>
 		{# Run `composer require symfony/webpack-encore-bundle`
-																		           and uncomment the following Encore helpers to start using Symfony UX #}
+																				           and uncomment the following Encore helpers to start using Symfony UX #}
 		{% block stylesheets %}
 			{#{{ encore_entry_link_tags('app') }}#}
 		{% endblock %}
@@ -20,13 +20,13 @@
 
 	<body>
 
-	{% if app.user %}
+		{% if app.user %}
 
-		<div class="overlay" id="overlay">
-			{{ block('missionoverlay', "global/overlays/mission.html.twig") }}
-		</div>
+			<div class="overlay" id="overlay">
+				{{ block('missionoverlay', "global/overlays/mission.html.twig") }}
+			</div>
 
-	{% endif %}
+		{% endif %}
 
 		{% block body %}{% endblock %}
 
@@ -38,20 +38,28 @@
 
 			let overlay = document.getElementById('overlay')
 
-			const openDiv = () => {
-				overlay.style.display = 'block'
-				overlay.style.opacity = '0.90'
-				overlay.style.transition = "opacity 0.5s ease-in"
-			}
+const openDiv = () => {
+overlay.style.display = 'block'
+overlay.style.opacity = '0.90'
+overlay.style.transition = "opacity 0.5s ease-in"
+}
 
-			const closeDiv = () => {
-				overlay.style.display = 'none'
-				overlay.style.opacity = '0'
-				overlay.style.transition = "opacity 0.5s ease-in"
-			}
+const closeDiv = () => {
+overlay.style.display = 'none'
+overlay.style.opacity = '0'
+overlay.style.transition = "opacity 0.5s ease-in"
+}
+		</script>
 
-
-
+		<script type="application/javascript">
+			function openCity(cityName) {
+var i;
+var x = document.getElementsByClassName("city");
+for (i = 0; i < x.length; i++) {
+x[i].style.display = "none";
+}
+document.getElementById(cityName).style.display = "block";
+}
 		</script>
 
 	{% endblock %}
