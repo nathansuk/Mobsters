@@ -1,15 +1,168 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
 * {
   padding: 0;
   margin: 0;
-  font-family: "Ubuntu Condensed", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-weight: bold;
   color: white;
 }
 body {
   background: #474787;
 }
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+.w-100{
+  width: 100%;
+}
+
+//OVERLAY PART
+
+.overlay{
+  width: 100%;
+  height: 100%;
+  background-color: #2A2A50;
+  position: absolute;
+  display: none;
+  opacity: 90%;
+}
+
+.overlay-content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: auto;
+  width: 60%;
+
+  &--title {
+    margin-bottom: 30px;
+  }
+}
+
+.close-overlay-btn {
+  margin: auto;
+  width: 200px;
+  color: white;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 30px;
+  background: none;
+
+  &:focus{
+    outline: none;
+  }
+
+  span{
+    font-size: 20px;
+    text-decoration: underline;
+  }
+}
+
+.mission-module{
+  width: 100%;
+  height: 400px;
+}
+.liste-mission{
+
+  width: 30%;
+  height: 350px;
+  overflow: scroll;
+
+  &--item {
+    width: 100%;
+    height: 50px;
+    background-color: #232342;
+    border-radius: 10px;
+    margin-bottom: 15px;
+
+    h3, .state-dot{
+      position: relative;
+      top: 30%;
+    }
+
+    .state-dot{
+      width: 20px;
+      height: 20px;
+      background-color: #EEBA00;
+      border-radius: 100%;
+      margin-left: 20px;
+    }
+  }
+
+}
+.mission-desc{
+  width: 70%;
+  height: 350px;
+  margin-left: 30px;
+}
+.mission-desc--content{
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  background-color: #232342;
+  padding: 30px;
+
+  .content--bottom {
+    margin-top: 30px;
+    justify-content: space-between;
+  }
+
+  p {
+    margin-top: 15px;
+    font-weight: 400;
+  }
+
+  .btn {
+    height: 40px;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    &:focus{
+      outline: none;
+    }
+  }
+  .btn-askforvalid {
+    width: 200px;
+    background-color: #2E7165;
+  }
+  .btn-abandon {
+    width: 100px;
+    background-color: #B83838;
+  }
+
+  .reward-zone {
+    margin-bottom: 20px;
+  }
+
+  .reward-logo {
+    width: 50px;
+    height: 55px;
+    margin-right: 20px;
+  }
+
+  .time-left-logo {
+    width: 75px;
+    height: 60px;
+    margin-right: 20px;
+    margin-left: -15px;
+  }
+}
+
 
 //LEFT SIDE
 .left-side {
@@ -21,7 +174,7 @@ body {
 }
 
 .user-space {
-  width: 65%;
+  width: 80%;
   height: 108px;
 }
 
@@ -46,6 +199,10 @@ body {
   line-height: 27px;
   font-size: 20px;
 
+  span{
+    font-weight: 400;
+  }
+
   .user-name {
     font-size: 30px;
   }
@@ -61,30 +218,44 @@ body {
 }
 
 .menu {
-  width: 200px;
-  height: 300px;
+  width: 250px;
+  height: 320px;
   border-radius: 20px;
   background-color: #2c2c54;
   margin-top: 30px;
+  box-shadow: 0 5px 50px rgba(31, 31, 60, 0.5);
 
   .menu-items {
-    line-height: 40px;
-    margin-left: 65px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 35px;
     transform: translateY(25%);
+
+    p{
+      font-size: 1.2rem;
+      padding: 10px;
+    }
 
     p img {
       float: left;
-      margin-top: 10px;
+      width: 25px;
+      height: 25px;
+      margin-right: 5px;
     }
 
     a {
       text-decoration: none;
+      transition: 0.2s ease-out;
+    }
+
+    a:hover{
+      transition: 0.2s ease-in;
+      background: #232342;
+      border-radius: 10px 0 0 10px;
     }
   }
 
   p:hover {
-    background: #232342;
-
     .dropdown-content {
       visibility: visible;
     }
@@ -103,13 +274,12 @@ body {
 }
 
 .buttons {
-  width: 260px;
   height: auto;
   margin-top: 30px;
 
   .btn {
-    width: 250px;
-    height: 45px;
+    width: 90%;
+    height: 60px;
     background: #2c2c54;
     border: none;
     font-size: 20px;
@@ -121,14 +291,27 @@ body {
     img {
       position: absolute;
       left: 29px;
-      margin-top: -8px;
+      margin-top: -10px;
+      margin-right: 10px;
+      width: 55px;
+    }
+
+    span{
+      margin-left: -15px;
     }
 
     .missions-notifs {
       font-size: 20px;
-      background: red;
-      padding: 5px;
-      border-radius: 3px;
+      background: #D85555;
+      padding: 5px 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+    }
+
+    .btn-arrow {
+      float: right;
+      margin-right: 10px;
     }
   }
 }

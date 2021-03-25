@@ -6,7 +6,7 @@
 			</div>
 			<div class="user-info">
 				<p class="user-name">Galahad</p>
-				<p>Membre</p>
+				<span>Membre</span>
 				<p>Clan : Jugsters</p>
 				<p><img src="{{ asset('img/ls.png') }}">&nbsp;
 					<span class="user-money">138289</span>
@@ -18,42 +18,40 @@
 		<div class="menu">
 			<div class="menu-items">
 				<a href="#">
-					<p><img src="{{ asset('img/place_1.gif') }}">&nbsp;Accueil</p>
+					<p><img src="https://images.habbo.com/c_images/album1584/FR823.gif">&nbsp;Accueil</p>
 				</a>
 				<a href="#">
-					<p><img src="{{ asset('img/place_1.gif') }}">&nbsp;The Times</p>
+					<p><img src="https://images.habbo.com/c_images/album1584/SMC04.gif">&nbsp;The Times</p>
 				</a>
 				<a href="#">
-					<p><img src="{{ asset('img/place_1.gif') }}">&nbsp;Classement</p>
+					<p><img src="https://images.habbo.com/c_images/album1584/MFT33.gif">&nbsp;Classement</p>
 				</a>
 				<a href="#">
-					<p><img src="{{ asset('img/place_1.gif') }}">&nbsp;Missions</p>
+					<p><img src="https://images.habbo.com/c_images/album1584/PT421.gif">&nbsp;Missions</p>
 				</a>
-				<div class="dropdown-left">
 					<a href="#">
-						<p><img src="{{ asset('img/place_1.gif') }}">&nbsp;Banque</p>
+						<p><img src="https://images.habbo.com/c_images/album1584/FR904.gif">&nbsp;Banque</p>
 					</a>
-					<div class="dropdown-content"></div>
-				</div>
 
 			</div>
 		</div>
 
 
 		<div class="buttons">
-			<button class="btn">
-				<img src="{{ asset('img/THI46.gif') }}">&nbsp;<span>Missions</span>
+			<button class="btn" onclick="openDiv()">
+				<img src="{{ asset('img/THI46.gif') }}"><span>Missions</span>
 				<span class="missions-notifs">5</span>
-				>
+				<span class="btn-arrow"> > </span>
 			</button>
 		</div>
 
 		<div class="buttons">
-			<button class="btn" style="word-spacing: 30px;">
-				<img src="{{ asset('img/THI46.gif') }}">&nbsp;<span>Notifications</span>
+			<button class="btn" style="word-spacing: 30px;" >
+				<img src="{{ asset('img/NOTIF.gif') }}"><span>Notifications</span>
 				<span class="missions-notifs">5</span>
-				>
+				<span class="btn-arrow"> > </span>
 			</button>
 		</div>
 	</section>
 {% endblock %}
+

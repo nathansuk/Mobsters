@@ -14,17 +14,35 @@
 			{#{{ encore_entry_link_tags('app') }}#}
 		{% endblock %}
 
-		{% block javascripts %}
-
-			{#{{ encore_entry_script_tags('app') }}#}
-		{% endblock %}
 	</head>
 
 	{{ block('header', "global/header.html.twig") }}
 
 	<body>
+
+		<div class="overlay" id="overlay">
+			{{ block('missionoverlay', "global/overlays/mission.html.twig") }}
+		</div>
+
 		{% block body %}{% endblock %}
 	</body>
 
+	{% block javascripts %}
+
+		<script type="application/javascript">
+
+			let overlay = document.getElementById('overlay')
+
+			const openDiv = () => {
+				overlay.style.display = 'block'
+			}
+
+			const closeDiv = () => {
+				overlay.style.display = 'none'
+			}
+
+		</script>
+
+	{% endblock %}
 
 </html>
