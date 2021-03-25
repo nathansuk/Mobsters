@@ -82,10 +82,15 @@ body {
 .liste-mission--item {
   width: 100%;
   height: fit-content;
+  transition: 0.2s ease-in;
   background-color: #232342;
   border-radius: 10px;
   margin-bottom: 15px;
   cursor: pointer;
+}
+.liste-mission--item:hover {
+  background-color: #373764;
+  transition: 0.2s ease-in;
 }
 .liste-mission--item h3,
 .liste-mission--item .state-dot {

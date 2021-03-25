@@ -85,10 +85,16 @@ body {
   &--item {
     width: 100%;
     height: fit-content;
+    transition: 0.2s ease-in;
     background-color: #232342;
     border-radius: 10px;
     margin-bottom: 15px;
     cursor: pointer;
+
+    &:hover {
+      background-color: #373764;
+      transition: 0.2s ease-in;
+    }
 
     h3,
     .state-dot {
@@ -113,6 +119,7 @@ body {
 .active[data-tab-content] {
   display: block;
 }
+
 
 
 .mission-desc {
