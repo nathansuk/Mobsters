@@ -15,6 +15,13 @@ body {
   background: #27397e;
 }
 
+.page-container {
+  position: relative;
+  float: right;
+  width: 75%;
+  margin-top: 100px;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
