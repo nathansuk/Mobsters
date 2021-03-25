@@ -76,7 +76,6 @@ class MissionController extends AbstractController
         $userMission = $user->getUserMissions();
 
         return $this->render('global/overlays/mission_list.html.twig', [
-            'user' => $user,
             'userMission' => $userMission
         ]);
     }

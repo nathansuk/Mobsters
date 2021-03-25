@@ -32,19 +32,19 @@
 
 		<div class="menu">
 			<div class="menu-items">
-				<a href="#">
+				<a href="{{ path('home') }}">
 					<p><img src="https://images.habbo.com/c_images/album1584/FR823.gif">&nbsp;Accueil</p>
 				</a>
-				<a href="#">
+				<a href="{{ path('news') }}">
 					<p><img src="https://images.habbo.com/c_images/album1584/SMC04.gif">&nbsp;The Times</p>
 				</a>
-				<a href="#">
+				<a href="{{ path('leaderboard') }}">
 					<p><img src="https://images.habbo.com/c_images/album1584/MFT33.gif">&nbsp;Classement</p>
 				</a>
-				<a href="#" id="expandable" onmouseover="">
+				<a href="{{ path('mission') }}" id="expandable" onmouseover="">
 					<p><img src="https://images.habbo.com/c_images/album1584/PT421.gif">&nbsp;Missions</p>
 				</a>
-					<a href="#" id="expandable" onmouseover="">
+					<a href="{{ path('my_bank_account') }}" id="expandable" onmouseover="">
 						<p><img src="https://images.habbo.com/c_images/album1584/FR904.gif">&nbsp;Banque</p>
 					</a>
 			</div>
@@ -55,7 +55,7 @@
 		<div class="buttons">
 			<button class="btn" onclick="openDiv()">
 				<img src="{{ asset('img/THI46.gif') }}"><span>Missions</span>
-				<span class="missions-notifs">5</span>
+				<span class="missions-notifs">{{ app.user.userMissions.count }}</span>
 				<span class="btn-arrow"> > </span>
 			</button>
 		</div>
