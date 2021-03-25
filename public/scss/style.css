@@ -214,6 +214,7 @@ body {
 .menu .menu-items p {
   font-size: 1.2rem;
   padding: 10px;
+  transition: 0.2s ease-in;
 }
 .menu .menu-items p img {
   float: left;
@@ -229,6 +230,10 @@ body {
   transition: 0.2s ease-in;
   background: #232342;
   border-radius: 10px 0 0 10px;
+}
+.menu .menu-items a:hover > p {
+  padding-left: 15px;
+  transition: 0.2s ease-in;
 }
 .menu p:hover .dropdown-content {
   visibility: visible;
@@ -268,6 +273,10 @@ body {
   height: auto;
   margin-top: 30px;
 }
+.buttons:hover > button > img {
+  transition: 0.2s ease-in;
+  margin-top: -15px;
+}
 .buttons .btn {
   width: 90%;
   height: 60px;
@@ -281,6 +290,7 @@ body {
 }
 .buttons .btn img {
   position: absolute;
+  transition: 0.2s ease-in;
   left: 29px;
   margin-top: -10px;
   margin-right: 10px;
