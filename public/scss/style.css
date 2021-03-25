@@ -92,17 +92,22 @@ body {
   background-color: #373764;
   transition: 0.2s ease-in;
 }
+.liste-mission--item h3 {
+  width: 90%;
+}
 .liste-mission--item h3,
 .liste-mission--item .state-dot {
   position: relative;
   top: 30%;
+  float: right;
 }
 .liste-mission--item .state-dot {
   width: 20px;
-  height: 20px;
+  height: 15px;
   background-color: #eeba00;
   border-radius: 100%;
   margin-left: 20px;
+  margin-right: 10px;
 }
 
 [data-tab-content] {

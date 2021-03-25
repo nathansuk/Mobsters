@@ -96,23 +96,30 @@ body {
     margin-bottom: 15px;
     cursor: pointer;
 
+
     &:hover {
       background-color: #373764;
       transition: 0.2s ease-in;
+    }
+
+    h3{
+      width: 90%;
     }
 
     h3,
     .state-dot {
       position: relative;
       top: 30%;
+      float: right;
     }
 
     .state-dot {
       width: 20px;
-      height: 20px;
+      height: 15px;
       background-color: #eeba00;
       border-radius: 100%;
       margin-left: 20px;
+      margin-right: 10px;
     }
   }
 }
