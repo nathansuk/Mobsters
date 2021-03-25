@@ -2,30 +2,31 @@
 	<section class="left-side">
 
 		{% if app.user %}
-		<div class="user-space">
-			<div class="user-avatar">
-				<img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=2&head_direction=3&size=l">
-			</div>
-			<div class="user-info">
-				<p class="user-name">{{ app.user.username }}</p>
-				<span>Membre</span>
-				<p>Clan : {{ app.user.clan }}</p>
-				<p><img src="{{ asset('img/ls.png') }}">&nbsp;
-					<span class="user-money">{{ app.user.money }}</span>
-				</p>
-			</div>
-		</div>
-
-			{% else %}
-
-				<div class="user-space">
-					<div class="user-avatar">
-						<img src="https://habbo.com/habbo-imaging/avatarimage?figure=hr-3531-1407-61.hd-209-20.ch-3443-1409.lg-3058-91.sh-3524-64-110.fa-3344-110.ha-1015&size=l&direction=2&head_direction=2&gesture=std">
-					</div>
-					<div class="user-info">
-						<p class="user-name">Visiteur</p>
-					</div>
+			<div class="user-space">
+				<div class="user-avatar">
+					<img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=2&head_direction=3&size=l">
 				</div>
+				<div class="user-info">
+					<p class="user-name">{{ app.user.username }}</p>
+					<span>Membre</span>
+					<p>Clan :
+						{{ app.user.clan }}</p>
+					<p><img src="{{ asset('img/ls.png') }}">&nbsp;
+						<span class="user-money">{{ app.user.money }}</span>
+					</p>
+				</div>
+			</div>
+
+		{% else %}
+
+			<div class="user-space">
+				<div class="user-avatar">
+					<img src="https://habbo.com/habbo-imaging/avatarimage?figure=hr-3531-1407-61.hd-209-20.ch-3443-1409.lg-3058-91.sh-3524-64-110.fa-3344-110.ha-1015&size=l&direction=2&head_direction=2&gesture=std">
+				</div>
+				<div class="user-info">
+					<p class="user-name">Visiteur</p>
+				</div>
+			</div>
 
 		{% endif %}
 
@@ -44,33 +45,43 @@
 				<a href="{{ path('mission') }}" id="expandable" onmouseover="">
 					<p><img src="https://images.habbo.com/c_images/album1584/PT421.gif">&nbsp;Missions</p>
 				</a>
-					<a href="{{ path('my_bank_account') }}" id="expandable" onmouseover="">
-						<p><img src="https://images.habbo.com/c_images/album1584/FR904.gif">&nbsp;Banque</p>
-					</a>
+				<a href="{{ path('my_bank_account') }}" id="expandable" onmouseover="">
+					<p><img src="https://images.habbo.com/c_images/album1584/FR904.gif">&nbsp;Banque</p>
+				</a>
 			</div>
 		</div>
 
 
 		{% if app.user %}
-		<div class="buttons">
-			<button class="btn" onclick="openDiv()">
-				<img src="{{ asset('img/THI46.gif') }}"><span>Missions</span>
-				<span class="missions-notifs">{{ app.user.userMissions.count }}</span>
-				<span class="btn-arrow"> > </span>
-			</button>
-		</div>
+			<div class="buttons">
+				<button class="btn" onclick="openDiv()">
+					<img src="{{ asset('img/THI46.gif') }}"><span>Missions</span>
+					<span class="missions-notifs">{{ app.user.userMissions.count }}</span>
+					<span class="btn-arrow">
+						>
+					</span>
+				</button>
+			</div>
 
-		<div class="buttons">
-			<button class="btn" style="word-spacing: 30px;" >
-				<img src="{{ asset('img/NOTIF.gif') }}"><span>Notifications</span>
-				<span class="missions-notifs">5</span>
-				<span class="btn-arrow"> > </span>
-			</button>
-		</div>
+			<div class="buttons">
+				<button class="btn" style="word-spacing: 30px;">
+					<img src="{{ asset('img/NOTIF.gif') }}"><span>Notifications</span>
+					<span class="missions-notifs">5</span>
+					<span class="btn-arrow">
+						>
+					</span>
+				</button>
+			</div>
+
+			<div class="footer">
+				<img src="{{ asset('img/grobberlogo.png')}}">
+				<div class="footer-txt">
+					<span class="ft-app-name">&copy; Imperial Mobsters Network</span><br>
+					<span>Version ALPHA</span>
+				</div>
+			</div>
 
 		{% endif %}
 
 	</section>
 {% endblock %}
-
-
