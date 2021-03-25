@@ -20,11 +20,16 @@
 
 	<body>
 
+	{% if app.user %}
+
 		<div class="overlay" id="overlay">
 			{{ block('missionoverlay', "global/overlays/mission.html.twig") }}
 		</div>
 
+	{% endif %}
+
 		{% block body %}{% endblock %}
+
 	</body>
 
 	{% block javascripts %}
@@ -35,11 +40,17 @@
 
 			const openDiv = () => {
 				overlay.style.display = 'block'
+				overlay.style.opacity = '0.90'
+				overlay.style.transition = "opacity 0.5s ease-in"
 			}
 
 			const closeDiv = () => {
 				overlay.style.display = 'none'
+				overlay.style.opacity = '0'
+				overlay.style.transition = "opacity 0.5s ease-in"
 			}
+
+
 
 		</script>
 

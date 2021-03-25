@@ -233,6 +233,25 @@ body {
 .menu p:hover .dropdown-content {
   visibility: visible;
 }
+.menu #sub-menu-mission {
+  display: none;
+}
+.menu #sub-menu-bank {
+  display: none;
+}
+.menu .sub-menu {
+  height: 320px;
+  width: 250px;
+  background-color: #232342;
+  position: absolute;
+  top: 19.3%;
+  z-index: -1;
+  border-radius: 0 10px 10px 0;
+  margin-left: 200px;
+}
+.menu .sub-menu--item {
+  margin-left: 55px;
+}
 
 .dropdown-content {
   width: 200px;

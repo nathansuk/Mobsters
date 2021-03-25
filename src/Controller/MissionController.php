@@ -69,4 +69,16 @@ class MissionController extends AbstractController
         return $this->redirectToRoute("mission");
     }
 
+    public function showMissionAccepted(UserService $userService): Response
+    {
+
+        $user = $userService->getUserByUsername($this->getUser()->getUsername());
+        $userMission = $user->getUserMissions();
+
+        return $this->render('global/overlays/mission_list.html.twig', [
+            'user' => $user,
+            'userMission' => $userMission
+        ]);
+    }
+
 }
