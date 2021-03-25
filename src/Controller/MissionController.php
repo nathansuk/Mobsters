@@ -69,6 +69,10 @@ class MissionController extends AbstractController
         return $this->redirectToRoute("mission");
     }
 
+    /*
+     * This is used to render mission list on the global template mission
+     */
+
     public function showMissionAccepted(UserService $userService): Response
     {
 

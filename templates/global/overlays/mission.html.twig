@@ -8,60 +8,15 @@
 			<img src="{{ asset('img/THI46.gif') }}"><h1>Missions</h1>
 		</div>
 
-		<div
-			class="flex-row">
+		<div class="flex-row">
 
 			<!-- Liste des missions -->
-			<div class="liste-mission flex-column">
 				{{ render(controller(
                 'App\\Controller\\MissionController::showMissionAccepted'
             )) }}
-			</div>
 
 			<!-- Descriptif de la mission -->
-			<div class="mission-desc flex-column" id="Mission#1" style="display: none;">
 
-				<div class="flex-row">
-					<h1>Mission #1</h1>
-				</div>
-
-				<div class="mission-desc--content flex-column">
-					<h2>Objectif :</h2>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-																								                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</p>
-
-					<div class="content--bottom flex-row w-100">
-
-						<div
-							class="flex-column">
-							<!-- Reward -->
-							<div class="flex-row reward-zone">
-								<img src="{{ asset('img/livre.gif') }}" alt="reward" class="reward-logo">
-								<div class="flex-column">
-									<span>Récompense</span>
-									<h2>1000000</h2>
-								</div>
-							</div>
-
-							<!-- Time Left -->
-							<div class="flex-row">
-								<img src="{{ asset('img/time-left.gif') }}" alt="reward" class="time-left-logo">
-								<div class="flex-column">
-									<span>Temps restant</span>
-									<h2>1 jour</h2>
-								</div>
-							</div>
-						</div>
-						<div class="flex-row">
-							<button type="submit" class="btn btn-abandon">Abandonner</button>
-							<button type="submit" class="btn btn-askforvalid">Marquer comme finie</button>
-						</div>
-
-					</div>
-				</div>
-			</div>
 		</div>
 		<button onclick="closeDiv()" class="close-overlay-btn">
 			<span>Fermer</span>
