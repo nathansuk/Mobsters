@@ -9,7 +9,7 @@
 			{% endblock %}
 		</title>
 		{# Run `composer require symfony/webpack-encore-bundle`
-																				           and uncomment the following Encore helpers to start using Symfony UX #}
+																						           and uncomment the following Encore helpers to start using Symfony UX #}
 		{% block stylesheets %}
 			{#{{ encore_entry_link_tags('app') }}#}
 		{% endblock %}
@@ -35,38 +35,33 @@
 	{% block javascripts %}
 
 		<script type="application/javascript">
-
 			let overlay = document.getElementById('overlay')
-
 const openDiv = () => {
 overlay.style.display = 'block'
 overlay.style.opacity = '0.90'
 overlay.style.transition = "opacity 0.5s ease-in"
 }
-
 const closeDiv = () => {
 overlay.style.display = 'none'
 overlay.style.opacity = '0'
 overlay.style.transition = "opacity 0.5s ease-in"
 }
-
 const tabs = document.querySelectorAll('[data-tab-target]')
 const tabContents = document.querySelectorAll('[data-tab-content]')
 tabs.forEach(tab => {
-	tab.addEventListener('click', () => {
-	const target = document.querySelector(tab.dataset.tabTarget)
-	tabContents.forEach(tabContent => {
-				tabContent.classList.remove('active')
-	})
-		tabs.forEach(tab => {
-			tab.classList.remove('active')
-		})
-	tab.classList.add('active')
-	target.classList.add('active')
-	})
+tab.addEventListener('click', () => {
+const target = document.querySelector(tab.dataset.tabTarget)
+tabContents.forEach(tabContent => {
+tabContent.classList.remove('active')
 })
-
-</script>
+tabs.forEach(tab => {
+tab.classList.remove('active')
+})
+tab.classList.add('active')
+target.classList.add('active')
+})
+})
+		</script>
 
 	{% endblock %}
 

@@ -1,60 +1,60 @@
 <div class="liste-mission flex-column">
 
-{% for mission in userMission %}
+	{% for mission in userMission %}
 
-	<div class="liste-mission--item flex-row" data-tab-target="#mission-{{ mission.mission.id }}">
-		<img src="https://habbo.com/habbo-imaging/avatarimage?figure=hr-3531-1407-61.hd-209-20.ch-3498-1409.lg-3058-91.sh-3524-64-110.fa-3344-110.cc-3002-110&size=n&direction=2&head_direction=2&gesture=std&headonly=1" alt="avatar-head" class="mission--avatar-head">
-		<h3>{{ mission.mission.title }}</h3>
-		<div class="state-dot"></div>
-	</div>
+		<div class="liste-mission--item flex-row" data-tab-target="#mission-{{ mission.mission.id }}">
+			<img src="https://habbo.com/habbo-imaging/avatarimage?figure=hr-3531-1407-61.hd-209-20.ch-3498-1409.lg-3058-91.sh-3524-64-110.fa-3344-110.cc-3002-110&size=n&direction=2&head_direction=2&gesture=std&headonly=1" alt="avatar-head" class="mission--avatar-head">
+			<h3>{{ mission.mission.title }}</h3>
+			<div class="state-dot"></div>
+		</div>
 
-{% endfor %}
+	{% endfor %}
 
 </div>
 
 {% for missions in userMission %}
 
-<div class="mission-desc flex-column" id="mission-{{ missions.mission.id }}" data-tab-content>
+	<div class="mission-desc flex-column" id="mission-{{ missions.mission.id }}" data-tab-content>
 
-	<div class="flex-row">
-		<h1>{{ missions.mission.title }}</h1>
-	</div>
+		<div class="flex-row">
+			<h1>{{ missions.mission.title }}</h1>
+		</div>
 
-	<div class="mission-desc--content flex-column">
-		<h2>Objectif :</h2>
-		<p>
-			{{ missions.mission.description|raw }}
-		</p>
+		<div class="mission-desc--content flex-column">
+			<h2>Objectif :</h2>
+			<p>
+				{{ missions.mission.description|raw }}
+			</p>
 
-		<div class="content--bottom flex-row w-100">
+			<div class="content--bottom flex-row w-100">
 
-			<div
+				<div
 					class="flex-column">
-				<!-- Reward -->
-				<div class="flex-row reward-zone">
-					<img src="{{ asset('img/livre.gif') }}" alt="reward" class="reward-logo">
-					<div class="flex-column">
-						<span>Récompense</span>
-						<h2>1000000</h2>
+					<!-- Reward -->
+					<div class="flex-row reward-zone">
+						<img src="{{ asset('img/livre.gif') }}" alt="reward" class="reward-logo">
+						<div class="flex-column">
+							<span>Récompense</span>
+							<h2>1000000</h2>
+						</div>
+					</div>
+
+					<!-- Time Left -->
+					<div class="flex-row">
+						<img src="{{ asset('img/time-left.gif') }}" alt="reward" class="time-left-logo">
+						<div class="flex-column">
+							<span>Temps restant</span>
+							<h2>1 jour</h2>
+						</div>
 					</div>
 				</div>
-
-				<!-- Time Left -->
 				<div class="flex-row">
-					<img src="{{ asset('img/time-left.gif') }}" alt="reward" class="time-left-logo">
-					<div class="flex-column">
-						<span>Temps restant</span>
-						<h2>1 jour</h2>
-					</div>
+					<button type="submit" class="btn btn-abandon">Abandonner</button>
+					<button type="submit" class="btn btn-askforvalid">Marquer comme finie</button>
 				</div>
-			</div>
-			<div class="flex-row">
-				<button type="submit" class="btn btn-abandon">Abandonner</button>
-				<button type="submit" class="btn btn-askforvalid">Marquer comme finie</button>
-			</div>
 
+			</div>
 		</div>
 	</div>
-</div>
 
 {% endfor %}
