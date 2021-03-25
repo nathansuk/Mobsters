@@ -19,11 +19,15 @@ body {
   background: $bgr;
 }
 
-.page-container{
+.page-container {
   position: relative;
   float: right;
   width: 75%;
   margin-top: 100px;
+
+  @media (max-width: 1600px) {
+    width: 70%;
+  }
 }
 
 .flex-row {
@@ -49,6 +53,7 @@ body {
   position: absolute;
   display: none;
   opacity: 90%;
+  z-index: 100;
 }
 
 .overlay-content {
@@ -103,13 +108,12 @@ body {
     margin-bottom: 15px;
     cursor: pointer;
 
-
     &:hover {
       background-color: #373764;
       transition: 0.2s ease-in;
     }
 
-    h3{
+    h3 {
       width: 90%;
     }
 
@@ -404,5 +408,27 @@ body {
     .ft-app-name {
       font-size: 17px;
     }
+  }
+}
+
+//home
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-article-box {
+  width: 62%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid $border;
+
+  h2 {
+    position: absolute;
+    padding-top: 5px;
+    padding-left: 5px;
+    border-bottom: 7px solid $border;
   }
 }
