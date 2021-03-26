@@ -8,12 +8,71 @@
 {% block body %}
 	<section class="flex-center">
 
-		Discord
 		<div class="home-article-box">
 			<h2>L'Imperial Mobsters ouvre son site internet !</h2>
-			<img style="margin-top: -325px;" src="https://cdn.discordapp.com/attachments/744281580327010396/798590160806739978/test.gif">
+			<a href="#">
+				<span class="hab-button">
+					En savoir plus&nbsp;
+					<img src="https://files.habboemotion.com/resources/images/icons/flashy_arrow.gif"></span>
+			</a>
+			<img src="https://cdn.discordapp.com/attachments/817098488340938793/825111092778500116/unknown.png">
 		</div>
 
-		Discord
+		<iframe style="margin-left: 20px;" src="https://discordapp.com/widget?id=650182494733467656&theme=dark" width="350" height="220" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
+
 	</section>
+
+	<section class="flex-center">
+		<div class="top-players">
+			<h2>
+				Les meilleurs joueurs !</h2>
+			<section class="flex-center">
+				<div class="top-player-box" style="margin-right: 20px;">
+					<img style="position: absolute; margin-left: -36px; margin-top: 31px;" src="https://files.habboemotion.com/resources/images/homestickers/elegant_bling.gif">
+
+					<p class="tpb-title">Top richesse</p>
+					<p class="tpb-pseudo">Galahad</p>
+					<img class="user-body" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
+					<p class="tpb-money">
+						13023327
+						<img class="ls" src="{{ asset('img/ls.png')}}"></p>
+					<p class="go-profil">
+						<a href="#"><img src="https://files.habboemotion.com/resources/images/icons/guide_icon.gif"></a>
+					</p>
+
+				</div>
+
+				<div class="top-player-box">
+					<img style="position: absolute; margin-left: -36px; margin-top: 31px;" src="https://files.habboemotion.com/resources/images/homestickers/elegant_bling.gif">
+					<p class="tpb-title">Top commentaires</p>
+					<p class="tpb-pseudo">Heidegger</p>
+					<img class="user-body" src="https://api.habbocity.me/avatar_image.php?user=Heidegger&headonly=0&direction=2&head_direction=3&size=n">
+					<p>29 commentaires</p>
+					<p class="go-profil">
+						<a href="#"><img src="https://files.habboemotion.com/resources/images/icons/guide_icon.gif"></a>
+					</p>
+				</div>
+
+				<div class="top-player-box" style="margin-left: 20px;">
+					<img style="position: absolute; margin-left: -36px; margin-top: 31px;" src="https://files.habboemotion.com/resources/images/homestickers/elegant_bling.gif">
+					<p class="tpb-title">Top missions</p>
+					<p class="tpb-pseudo">Zunberg</p>
+					<img class="user-body" src="https://api.habbocity.me/avatar_image.php?user=Zunberg&headonly=0&direction=2&head_direction=3&size=n">
+					<p>14 missions</p>
+					<p class="go-profil">
+						<a href="#"><img src="https://files.habboemotion.com/resources/images/icons/guide_icon.gif"></a>
+					</p>
+				</div>
+			</section>
+			<a href="/classement">
+				<span class="tpb-button">Voir la totalité des classements</span>
+			</a>
+		</div>
+	</section>
+
+	<div class="lastmissions-list">
+		<h2>Les dernières missions</h2>
+	</div>
+
 {% endblock %}

@@ -14,6 +14,7 @@ $box-bgr: #1b295f;
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
   color: white;
+  text-decoration: none;
 }
 body {
   background: $bgr;
@@ -22,7 +23,7 @@ body {
 .page-container {
   position: relative;
   float: right;
-  width: 75%;
+  width: 80%;
   margin-top: 100px;
 
   @media (max-width: 1600px) {
@@ -430,5 +431,93 @@ body {
     padding-top: 5px;
     padding-left: 5px;
     border-bottom: 7px solid $border;
+    padding-right: 15px;
+    border-bottom-right-radius: 10px;
+    background: $border;
+    border-top-left-radius: 4px;
   }
+}
+.hab-button {
+  position: absolute;
+  top: 195px;
+  background: $border;
+  padding: 5px;
+  border-bottom-left-radius: 7px;
+}
+
+hr {
+  width: 30%;
+  border: none;
+  background-color: $border;
+  height: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.top-players {
+  width: fit-content;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid $border;
+  background: $bgr;
+  margin-top: 20px;
+
+  h2 {
+    text-align: center;
+  }
+}
+
+.top-player-box {
+  background: $box-bgr;
+  text-align: center;
+  padding: 15px;
+  margin-top: 10px;
+  border: 2px dashed $border;
+  border-radius: 10px;
+
+  .tpb-pseudo {
+    font-weight: normal;
+  }
+
+  .ls {
+    position: absolute;
+    margin-top: -2px;
+    padding-left: 2px;
+  }
+
+  .user-body {
+    margin-top: -20px;
+  }
+
+  .tpb-money {
+    margin-left: -13px;
+  }
+}
+
+.go-profil {
+  margin-top: 10px;
+}
+
+.tpb-button {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  background: $box-bgr;
+  border: 2px dashed $border;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.lastmissions-list {
+  text-align: center;
+  margin-top: 20px;
 }
