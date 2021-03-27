@@ -457,7 +457,6 @@ hr {
 
 .top-players {
   width: fit-content;
-  margin: auto;
   padding: 10px;
   border-radius: 10px;
   border: 2px solid $border;
@@ -520,4 +519,24 @@ hr {
 .lastmissions-list {
   text-align: center;
   margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.mission-box {
+  background: $box-bgr;
+  border: 2px solid $border;
+  padding: 10px;
+  border-radius: 10px;
+  line-height: 35px;
+  padding-left: 20px;
+
+  .mission-title {
+    background: $border;
+  }
+
+  .accept-mission {
+    padding: 5px;
+    background: green;
+    border-radius: 10px;
+  }
 }

@@ -494,7 +494,6 @@ hr {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: auto;
   padding: 10px;
   border-radius: 10px;
   border: 2px solid #4961bd;
@@ -561,5 +560,25 @@ hr {
 .lastmissions-list {
   text-align: center;
   margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.mission-box {
+  background: #1b295f;
+  border: 2px solid #4961bd;
+  padding: 10px;
+  border-radius: 10px;
+  line-height: 35px;
+  padding-left: 20px;
+}
+
+.mission-box .mission-title {
+  background: #4961bd;
+}
+
+.mission-box .accept-mission {
+  padding: 5px;
+  background: green;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=style.css.map */
