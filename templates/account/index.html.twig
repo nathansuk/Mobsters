@@ -36,9 +36,9 @@
 		</div>
 
 
-		<div class="global-card-bank" style="margin-left: 30px;">
+		<div class="global-card-bank" style="margin-left: 30px; height: 377px;">
 			<div class="user-compte">
-				<h1 style="margin-top: 0px;">Actions sur le compte</h1>
+				<h1 style="margin-top: 0px;">Virements</h1>
 			</div>
 
 			<p style="margin-top: 10px;">Mes bénéficiaires</p>
@@ -54,20 +54,58 @@
 				</div>
 			</div>
 			<hr>
-
-			<p style="margin-top: 10px;">Effectuer un virement</p>
-			<em>Intérêts : 5%</em>
-			<div class="virement-form">
-				<form action="/#">
-					<label for="pseudo">Pseudo :</label><br>
-					<input type="text"><br>
-					<label for="lname">Montant de la transaction :</label><br>
-					<input type="text"><br><br>
-					<input class="send-virement" type="submit" value="Envoyer">
-				</form>
+			<div style="margin-top: 10px;">
+				<em>Intérêts : 5%</em>
+				<div class="virement-form">
+					<form action="/#">
+						<label for="pseudo">Pseudo :</label><br>
+						<input type="text"><br>
+						<label for="lname">Montant de la transaction :</label><br>
+						<input type="text"><br><br>
+						<input class="send-virement" type="submit" value="Envoyer">
+					</form>
+				</div>
 			</div>
 		</div>
 
+
+		<div class="global-card-bank" style="margin-left: 30px; height: 377px; width: 260px;">
+			<div class="user-compte">
+				<h1 style="margin-top: 0px;">Emprunts</h1>
+			</div>
+
+			<img style="margin-top: 10px;" src="https://files.habboemotion.com/resources/images/homestickers/money_o.gif">
+			<hr>
+			<div style="margin-top: 10px;">
+				<em>Les emprunts sont soumis à condition, votre banquier est libre de les refuser. Soyez raisonnables sur le motant demandé !</em>
+				<div class="virement-form">
+					<form action="/#">
+						<label for="pseudo">Montant</label><br>
+						<input type="text"><br>
+						<label for="lname">Raison</label><br>
+						<input type="text"><br><br>
+						<input class="send-virement" type="submit" value="Demander un emprunt">
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<section class="flex-center" style="text-align: center;">
+		<div class="global-card-bank">
+			<div class="user-compte">
+				<h1 style="margin-top: 0px;">Historique des actions</h1>
+			</div>
+			<img style="margin-top: 10px;" src="https://files.habboemotion.com/resources/images/icons/cash.gif">
+			<p>27/03/2021 | Demande d'emprunt | Montant : 13 000
+				<img src="{{asset('img/ls.png')}}">
+				- Statut : Accepté</p>
+
+			<p>
+				25/03/2021 | Virement - Bénéficiaire : Leafron | Montant : 200
+				<img src="{{ asset('img/ls.png')}}"></p>
+		</div>
 	</section>
 
 {% endblock %}
