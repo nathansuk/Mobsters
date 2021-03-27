@@ -6,7 +6,15 @@ $box-bgr: #1b295f;
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
 
 ::-webkit-scrollbar {
-  background: none;
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bgr;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $border;
 }
 * {
   padding: 0;
@@ -28,6 +36,7 @@ body {
 
   @media (max-width: 1600px) {
     width: 70%;
+    margin-right: 30px;
   }
 }
 
@@ -517,6 +526,21 @@ hr {
   }
 }
 
+.esp {
+  padding: 10px;
+  width: fit-content;
+  background: $border;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
 .lastmissions-list {
   text-align: center;
   margin-top: 20px;
@@ -539,5 +563,16 @@ hr {
     padding: 5px;
     background: green;
     border-radius: 10px;
+  }
+}
+.rpgmafia {
+  text-align: center;
+  margin-left: 10px;
+  width: 790px;
+  height: 325px;
+  overflow: scroll;
+
+  @media (max-width: 1600px) {
+    height: 365px;
   }
 }
