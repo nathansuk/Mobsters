@@ -4,106 +4,70 @@
 {% endblock %}
 
 {% block body %}
+	<section class="flex-center">
+		<div class="quote">
+			<img class="primelia" src="https://api.habbocity.me/avatar_image.php?user=Primelia&headonly=0&direction=2&head_direction=3&size=n">
+			<p>"La Byron Bank est l'institution qui gère ton argent à l'Imperial Mobsters. Les banquiers sont là pour effectuer les actions que tu leur demande. Attention, réfléchit bien, les actions effectuées ici sont irreversibles."</p>
+		</div>
+	</section>
 
-	<div class=" d-flex justify-content-center">
-		<div class="card text-center" style="width: 70vw; color: black;">
-			<div class="card-header">
-				<img src="https://cdn.discordapp.com/attachments/744281580327010396/809538904188780544/test.png"/>
 
-				{% for message in app.flashes('success') %}
-					<div class="alert alert-success" role="alert">
-						{{message}}
-					</div>
-				{% endfor %}
-
-				{% for message in app.flashes('notice') %}
-					<div class="alert alert-danger" role="alert">
-						{{message}}
-					</div>
-				{% endfor %}
+	<section class="flex-center" style="text-align: center;">
+		<div class="global-card-bank">
+			<img class="bbanklogo" src="https://cdn.discordapp.com/attachments/744281580327010396/803786570565681192/istockphoto-1221945429-170667a.png">
+			<div class="user-compte">
+				<h1>Titulaire du compte : Galahad</h1>
 			</div>
-
-
-			<div class="card-body profil_user">
-				<section class="profil_card_content d-flex justify-content-center">
-					<div class="card text-center">
-						<div class="card-header">
-							<b>Mon compte</b>
-						</div>
-						<div class="card-body">
-							<p class="card-text" style="font-size: 20px;">
-								<b>{{ app.user.money }}</b>&nbsp;
-								<img class="livresterlings" src="https://i.servimg.com/u/f29/20/14/94/41/livre_10.png">
-							</p><br>
-							<img class="img-fluid" src="https://cdn.discordapp.com/attachments/698515000272093205/803379064353325157/courbes.png"/><br><br>
-
-							<!--Nombre de LS-->
-							{% if app.user.money > 0 %}
-								<div class="solde_positif">
-									<button style="" type="button" class="btn btn-outline-success">Solde positif</button>
-								</div>
-							{% else %}
-								<div class="solde_nul">
-									<button type="button" class="btn btn-outline-danger">Solde Nul</button>
-								</div>
-
-							{% endif
-                        %}
-							<!--Historique des transactions-->
-						</div>
-					</div>
-
-					<ul class="list-group transac_box">
-						<li class="list-group-item active"><img src="https://cdn.discordapp.com/attachments/698515000272093205/803384562863833108/transac.png" class="img-fluid"/><br>
-							<b>Mes transactions</b>
-						</li>
-
-						{% if lastTransactions %}
-
-							{% for transaction in lastTransactions %}
-								<li class="list-group-item">
-									<em>Virement :
-										<b>{{ transaction.amount }}</b>&nbsp;<img class="livresterlings" src="https://i.servimg.com/u/f29/20/14/94/41/livre_10.png">
-										à
-										{{ transaction.receiver }}</em>
-								</li>
-							{% endfor %}
-
-						{% else %}
-							<li class="list-group-item">
-								<em>Aucune transaction enregistrée</em>
-							</li>
-
-						{% endif %}
-					</ul>
-
-					<div class="card banque_actions text-center">
-						<div class="card-header">
-							<b>Virements</b>
-						</div>
-						<div class="card-body">
-							<p class="card-text">
-								<em>Les intérêts des virements s'élèvent à 5%</em>
-							</p>
-							<img class="img-fluid" src="https://cdn.discordapp.com/attachments/784037187645210626/803415317841838100/portemonaie.png"/><br/>
-							<!--Virements-->
-
-							{{ form_start(sendMoneyForm) }}
-							{{ form_widget(sendMoneyForm) }}
-							<button type="submit" class="btn btn-primary mb-2">Valider</button>
-							{{ form_end(sendMoneyForm) }}
-							<p class="card-text text-danger">
-								<b>
-									<em>Attention !
-										<br>Cette action est irréversible.</em>
-								</b>
-							</p>
-						</div>
-					</div>
-				</section>
+			<div class="flex-center">
+				<div class="etat-compte" style="margin-top: 10px;">
+					<p>Solde :  + 889900
+						<img src="{{asset('img/ls.png')}}"></p>
+				</div>
 			</div>
-
+			<hr>
+			<div class="flex-center">
+				<div class="mon-banquier" style="margin-top: 10px;">
+					<p>Mon banquier : Thorstein</p>
+					<div class="banquier-avatar">
+						<img src="https://api.habbocity.me/avatar_image.php?user=Thorstein&headonly=0&direction=4&head_direction=3&size=n">
+					</div>
+				</div>
+			</div>
 		</div>
 
-	</div>
+
+		<div class="global-card-bank" style="margin-left: 30px;">
+			<div class="user-compte">
+				<h1 style="margin-top: 0px;">Actions sur le compte</h1>
+			</div>
+
+			<p style="margin-top: 10px;">Mes bénéficiaires</p>
+			<div class="flex-center">
+				<div class="banquier-avatar">
+					<img src="https://api.habbocity.me/avatar_image.php?user=Heidegger&headonly=0&direction=4&head_direction=3&size=n">
+				</div>
+				<div class="banquier-avatar">
+					<img src="https://api.habbocity.me/avatar_image.php?user=Zunberg&headonly=0&direction=4&head_direction=3&size=n">
+				</div>
+				<div class="banquier-avatar">
+					<img src="https://api.habbocity.me/avatar_image.php?user=Honorius&headonly=0&direction=4&head_direction=3&size=n">
+				</div>
+			</div>
+			<hr>
+
+			<p style="margin-top: 10px;">Effectuer un virement</p>
+			<em>Intérêts : 5%</em>
+			<div class="virement-form">
+				<form action="/#">
+					<label for="pseudo">Pseudo :</label><br>
+					<input type="text"><br>
+					<label for="lname">Montant de la transaction :</label><br>
+					<input type="text"><br><br>
+					<input class="send-virement" type="submit" value="Envoyer">
+				</form>
+			</div>
+		</div>
+
+	</section>
+
 {% endblock %}

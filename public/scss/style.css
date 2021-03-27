@@ -11,6 +11,10 @@
   background: #4961bd;
 }
 
+::-webkit-scrollbar-corner {
+  display: none;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -28,7 +32,7 @@ body {
   position: relative;
   float: right;
   width: 80%;
-  margin-top: 100px;
+  margin-top: 30px;
 }
 
 @media (max-width: 1600px) {
@@ -68,7 +72,7 @@ body {
   background-color: #2a2a50;
   position: fixed;
   display: none;
-  opacity: 90%;
+  opacity: 0.97;
   z-index: 100;
 }
 
@@ -497,7 +501,7 @@ hr {
   height: 2px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .top-players {
@@ -621,5 +625,75 @@ hr {
   .rpgmafia {
     height: 365px;
   }
+}
+
+.quote {
+  width: 630px;
+  background: #4961bd;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.quote .primelia {
+  float: left;
+  margin-top: -20px;
+}
+
+.quote p {
+  margin-top: 16px;
+}
+
+.user-compte h1 {
+  background: #4961bd;
+  padding: 5px;
+  border: 2px solid white;
+  margin-top: -30px;
+  font-size: 20px;
+}
+
+.global-card-bank {
+  border: 2px dashed white;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.global-card-bank .bbanklogo {
+  width: 250px;
+  margin-top: -15px;
+}
+
+.global-card-bank .banquier-avatar {
+  background: #4961bd;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.global-card-bank .banquier-avatar img {
+  margin-top: -15px;
+  margin-left: -8px;
+}
+
+.global-card-bank .virement-form {
+  margin-top: 5px;
+}
+
+.global-card-bank .virement-form input {
+  color: black;
+  outline: none;
+}
+
+.global-card-bank .virement-form .send-virement {
+  padding: 10px;
+  background: #4961bd;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

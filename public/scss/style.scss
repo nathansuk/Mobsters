@@ -16,6 +16,10 @@ $box-bgr: #1b295f;
 ::-webkit-scrollbar-thumb {
   background: $border;
 }
+
+::-webkit-scrollbar-corner {
+  display: none;
+}
 * {
   padding: 0;
   margin: 0;
@@ -32,7 +36,7 @@ body {
   position: relative;
   float: right;
   width: 80%;
-  margin-top: 100px;
+  margin-top: 30px;
 
   @media (max-width: 1600px) {
     width: 70%;
@@ -62,7 +66,7 @@ body {
   background-color: #2a2a50;
   position: fixed;
   display: none;
-  opacity: 90%;
+  opacity: 0.97;
   z-index: 100;
 }
 
@@ -462,7 +466,7 @@ hr {
   height: 2px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .top-players {
@@ -574,5 +578,78 @@ hr {
 
   @media (max-width: 1600px) {
     height: 365px;
+  }
+}
+
+//BANK
+.quote {
+  width: 630px;
+  background: $border;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid white;
+
+  .primelia {
+    float: left;
+    margin-top: -20px;
+  }
+
+  p {
+    margin-top: 16px;
+  }
+}
+
+.user-compte {
+  h1 {
+    background: $border;
+    padding: 5px;
+    border: 2px solid white;
+    margin-top: -30px;
+    font-size: 20px;
+  }
+}
+
+.global-card-bank {
+  border: 2px dashed white;
+  margin-top: 20px;
+  padding: 10px;
+
+  .bbanklogo {
+    width: 250px;
+    margin-top: -15px;
+  }
+
+  .banquier-avatar {
+    background: $border;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    border-radius: 50%;
+    border: 2px solid white;
+
+    img {
+      margin-top: -15px;
+      margin-left: -8px;
+    }
+  }
+
+  .virement-form {
+    margin-top: 5px;
+
+    input {
+      color: black;
+      outline: none;
+    }
+
+    .send-virement {
+      padding: 10px;
+      background: $border;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
   }
 }
