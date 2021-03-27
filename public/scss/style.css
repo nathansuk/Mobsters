@@ -194,6 +194,7 @@ body {
   padding-top: 30px;
   padding-left: 30px;
   float: left;
+  position: absolute;
 }
 
 .user-space {
