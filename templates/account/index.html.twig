@@ -104,13 +104,13 @@
 				<h1 style="margin-top: 0px;">Historique des actions</h1>
 			</div>
 			<img style="margin-top: 10px;" src="https://files.habboemotion.com/resources/images/icons/cash.gif">
-			<p>27/03/2021 | Demande d'emprunt | Montant : 13 000
-				<img src="{{asset('img/ls.png')}}">
-				- Statut : Accepté</p>
 
-			<p>
-				25/03/2021 | Virement - Bénéficiaire : Leafron | Montant : 200
-				<img src="{{ asset('img/ls.png')}}"></p>
+			{% for transaction in lastTransactions %}
+				<p>
+					25/03/2021 | Virement - Bénéficiaire : {{ transaction.receiver }} | Montant : {{ transaction.amount }}
+					<img src="{{ asset('img/ls.png')}}">
+				</p>
+			{% endfor %}
 		</div>
 	</section>
 
