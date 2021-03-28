@@ -2,7 +2,9 @@
 
 namespace App\Controller\Bank;
 
+use App\Entity\Emprunt;
 use App\Entity\Transaction;
+use App\Form\EmpruntType;
 use App\Form\TransactionType;
 use App\Services\UserService;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,14 +30,19 @@ class AccountController extends AbstractController
         }
 
         /*
-         * We create the form and handle the request.
+         * TRANSACTION MODULE
+         * We create the Transaction form and handle the request.
          */
         $transaction = new Transaction();
         $sendMoneyForm = $this->createForm(TransactionType::class);
         $sendMoneyForm->handleRequest($request);
 
-        if($sendMoneyForm->isSubmitted() && $sendMoneyForm->isValid()) {
+        if($sendMoneyForm->isSubmitted() && !$sendMoneyForm->isValid()) {
+            $this->addFlash('error', "Le formulaire est invalide, veuillez réessayer.");
+            return $this->redirectToRoute('my_bank_account');
+        }
 
+        if($sendMoneyForm->isSubmitted() && $sendMoneyForm->isValid()) {
             /*
             * We get the sender User object
             */
@@ -43,54 +50,86 @@ class AccountController extends AbstractController
 
             $sender = $userService->getUserByUsername($username);
             $senderMoney = $userService->getUserMoney($sender);
-
             /**
              * We get the receiver User object
              */
             $receiver = $userService->getUserByUsername($sendMoneyForm->get('receiver')->getData());
-
             /*
              * We check if the receiver exist in database, else we throw an error.
              */
             if(!$receiver){
                 $this->addFlash('notice', "Cet utilisateur n'existe pas");
                 return $this->redirectToRoute('my_bank_account');
+            } else {
+                $receiverMoney = $userService->getUserMoney($receiver);
             }
-            $receiverMoney = $userService->getUserMoney($receiver);
-
             /*
             * We get the amount of the transaction
             * And we check if the amount sent is less than the sender's money.
             */
             $amount = $sendMoneyForm->get('amount')->getData();
-
+            /*
+             * If the user dont have enough money
+             */
             if($amount > $senderMoney) {
                 $this->addFlash('notice', "Attention, vous essayez d'envoyer trop d'argent !");
                 return $this->redirectToRoute("my_bank_account");
+            } else {
+                $transaction->setSender($username)
+                    ->setAmount($amount)
+                    ->setReceiver($sendMoneyForm->get('receiver')->getData());
+
+                $newSenderMoney = $sender->setMoney($senderMoney - $amount);
+                $newReceiverMoney = $receiver->setMoney($receiverMoney + $amount);
+
+                $entityManager->persist($newSenderMoney);
+                $entityManager->persist($newReceiverMoney);
+                $entityManager->persist($transaction);
+                $entityManager->flush();
+
+                $this->addFlash('success', 'Le virement a bien été envoyé !');
+                return $this->redirectToRoute('my_bank_account');
             }
+        }
 
-            $transaction->setSender($username)
-                ->setAmount($amount)
-                ->setReceiver($sendMoneyForm->get('receiver')->getData());
+        /*
+         * EMPRUNT MODULE
+         * Here we get the information from the emprunt form
+         */
+        $emprunt = new Emprunt();
+        $askEmpruntForm = $this->createForm(EmpruntType::class);
+        $askEmpruntForm->handleRequest($request);
 
-            $newSenderMoney = $sender->setMoney($senderMoney - $amount);
-            $newReceiverMoney = $receiver->setMoney($receiverMoney + $amount);
+        if($askEmpruntForm->isSubmitted() && !$askEmpruntForm->isValid()){
 
-            $entityManager->persist($newSenderMoney);
-            $entityManager->persist($newReceiverMoney);
-            $entityManager->persist($transaction);
+            $this->addFlash('error', 'Le formulaire est invalide !');
+            return $this->redirectToRoute('my_bank_account');
+
+        }
+
+        if($askEmpruntForm->isSubmitted() && $askEmpruntForm->isValid()) {
+
+            $username = $this->getUser()->getUsername();
+            $user = $userService->getUserByUsername($username);
+
+            $montant = $askEmpruntForm->get('montant')->getData();
+            $motif = $askEmpruntForm->get('motif')->getData();
+            $emprunt->setUser($user)
+                ->setMontant($montant)
+                ->setMotif($motif)
+                ->setIsAccepted(false)
+                ->setIsReimbursed(false)
+                //TO-DO: Le taux sera configurable par les administrateurs.
+                ->setInterets(0.0);
+
+
+            $entityManager->persist($emprunt);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Le virement a bien été envoyé !');
+            $this->addFlash('success', 'Votre demande a bien été envoyée. Consultez cette page régulièrement pour suivre son état.');
             return $this->redirectToRoute('my_bank_account');
 
         }
-
-        if($sendMoneyForm->isSubmitted() && !$sendMoneyForm->isValid()) {
-            $this->addFlash('error', "Le formulaire est invalide, veuillez réessayer.");
-            return $this->redirectToRoute('my_bank_account');
-        }
-
 
         /*
          * We get last transactions details
@@ -101,7 +140,8 @@ class AccountController extends AbstractController
         return $this->render('account/index.html.twig', [
             'controller_name' => 'AccountController',
             'lastTransactions' => $lastTransactions,
-            'sendMoneyForm' => $sendMoneyForm->createView()
+            'sendMoneyForm' => $sendMoneyForm->createView(),
+            'askEmpruntForm' => $askEmpruntForm->createView()
         ]);
     }
 }

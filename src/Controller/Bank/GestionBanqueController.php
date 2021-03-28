@@ -5,6 +5,8 @@ namespace App\Controller\Bank;
 use App\Entity\Emprunt;
 use App\Services\Bank\EmpruntService;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -48,22 +50,27 @@ class GestionBanqueController extends AbstractController
 
         $demande = $empruntService->getEmpruntById($id);
 
-        if($demande->getIsAccepted() == true) {
+        if($demande->getIsAccepted()) {
+
             $this->addFlash('error', 'Cette demande a déjà été acceptée');
             return $this->redirectToRoute('gestion_banque');
-        }
 
-        if($demande->getIsReimbursed() == true) {
+        } elseif($demande->getIsReimbursed()) {
+
             $this->addFlash('error', 'Cette demande a déjà été acceptée');
             return $this->redirectToRoute('gestion_banque');
+
+        } else {
+            $user = $demande->getUser();
+            $demande->setIsAccepted(true);
+            $user->setMoney($user->getMoney() + $demande->getMontant());
+            $entityManager->persist($demande);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'La demande de prêt a bien été acceptée');
+            return $this->redirectToRoute('gestion_banque');
+
         }
-
-        $demande->setIsAccepted(true);
-        $entityManager->persist($demande);
-        $entityManager->flush();
-
-        $this->addFlash('success', 'La demande de prêt a bien été acceptée');
-        return $this->redirectToRoute('gestion_banque');
     }
 
     /**
@@ -77,21 +84,32 @@ class GestionBanqueController extends AbstractController
 
         $emprunt = $empruntService->getEmpruntById($id);
 
-        if($emprunt->getIsAccepted() == false) {
+        $user = $emprunt->getUser();
+
+        /**
+         * Errors case
+         */
+        if(!$emprunt->getIsAccepted()) {
+
             $this->addFlash('error', "L'emprunt n'a pas encore été accordé. Vous devez accorder l'emprunt avant de le valider.");
             return $this->redirectToRoute('gestion_banque');
-        }
 
-        if($emprunt->getIsReimbursed() == true) {
+        } elseif($emprunt->getIsReimbursed()) {
+
             $this->addFlash('error', "Cet emprunt a déjà été remboursé. Vous ne pouvez pas faire cela");
+            return $this->redirectToRoute('gestion_banque');
+
+        } else {
+
+            $emprunt->setIsReimbursed(true);
+
+            $entityManager->persist($emprunt);
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'La demande de prêt a bien été acceptée');
             return $this->redirectToRoute('gestion_banque');
         }
 
-        $emprunt->setIsReimbursed(true);
-        $entityManager->persist($emprunt);
-        $entityManager->flush();
-
-        $this->addFlash('success', 'La demande de prêt a bien été acceptée');
-        return $this->redirectToRoute('gestion_banque');
     }
 }

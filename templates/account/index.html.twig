@@ -4,9 +4,21 @@
 {% endblock %}
 
 {% block body %}
+
+
+
 	<section class="flex-center">
 		<div class="quote">
 			<img class="primelia" src="https://api.habbocity.me/avatar_image.php?user=Primelia&headonly=0&direction=2&head_direction=3&size=n">
+			<p>
+				{% for message in app.flashes('error') %}
+				{{ message }}
+			{% endfor %}
+
+			{% for message in app.flashes('success') %}
+					{{ message }}
+			{% endfor %}
+			</p>
 			<p>"La Byron Bank est l'institution qui gère ton argent à l'Imperial Mobsters. Les banquiers sont là pour effectuer les actions que tu leur demande. Attention, réfléchit bien, les actions effectuées ici sont irreversibles."</p>
 		</div>
 	</section>
@@ -57,13 +69,10 @@
 			<div style="margin-top: 10px;">
 				<em>Intérêts : 5%</em>
 				<div class="virement-form">
-					<form action="/#">
-						<label for="pseudo">Pseudo :</label><br>
-						<input type="text"><br>
-						<label for="lname">Montant de la transaction :</label><br>
-						<input type="text"><br><br>
-						<input class="send-virement" type="submit" value="Envoyer">
-					</form>
+					{{ form_start(sendMoneyForm) }}
+					{{ form_widget(sendMoneyForm) }}
+					<button type="submit" class="btn btn-primary mb-2">Envoyer l'argent</button>
+					{{ form_end(sendMoneyForm) }}
 				</div>
 			</div>
 		</div>
@@ -79,13 +88,10 @@
 			<div style="margin-top: 10px;">
 				<em>Les emprunts sont soumis à condition, votre banquier est libre de les refuser. Soyez raisonnables sur le motant demandé !</em>
 				<div class="virement-form">
-					<form action="/#">
-						<label for="pseudo">Montant</label><br>
-						<input type="text"><br>
-						<label for="lname">Raison</label><br>
-						<input type="text"><br><br>
-						<input class="send-virement" type="submit" value="Demander un emprunt">
-					</form>
+					{{ form_start(askEmpruntForm) }}
+					{{ form_widget(askEmpruntForm) }}
+					<button type="submit" class="btn btn-primary mb-2">Envoyer ma demande</button>
+					{{ form_end(askEmpruntForm) }}
 				</div>
 			</div>
 		</div>
