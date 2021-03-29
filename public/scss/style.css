@@ -137,6 +137,30 @@ body {
   height: 400px;
 }
 
+.mission-card {
+  width: 90%;
+  height: 100px;
+  background-color: #1b295f;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 0 20px;
+}
+.mission-card .card-body {
+  justify-content: space-between;
+  position: relative;
+  top: 35%;
+}
+.mission-card .card-body button {
+  position: relative;
+  top: -10%;
+  width: 100px;
+  height: 50px;
+  background-color: green;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 .liste-mission {
   width: 35%;
   height: 350px;

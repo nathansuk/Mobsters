@@ -66,9 +66,13 @@ class UserService
 
     }
 
-    public function getUserMissions(int $userId): array
+    public function getUserMissionsById(User $user, int $id): UserMission
     {
-        return $this->em->getRepository(UserMission::class)->findBy(['user' => $userId]);
+        return $this->em->getRepository(UserMission::class)->findOneBy(
+            [
+                'user' => $user,
+                'mission' => $id
+            ]);
     }
 
 }
