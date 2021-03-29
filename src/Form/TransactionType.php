@@ -15,8 +15,16 @@ class TransactionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('amount', IntegerType::class)
-            ->add('receiver', TextType::class)
+            ->add('amount', IntegerType::class, [
+                'attr' => [
+                    'placeholder' => 'Montant'
+                ]
+            ])
+            ->add('receiver', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Pseudo du bénéficiaire'
+                ]
+            ])
         ;
     }
 

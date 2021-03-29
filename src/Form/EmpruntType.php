@@ -14,8 +14,16 @@ class EmpruntType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('motif', TextType::class)
-            ->add('montant', IntegerType::class)
+            ->add('motif', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Motif'
+                ]
+            ])
+            ->add('montant', IntegerType::class, [
+                'attr' => [
+                    'placeholder' => 'Montant'
+                ]
+            ])
         ;
     }
 
