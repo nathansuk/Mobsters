@@ -145,11 +145,15 @@ body {
   margin-bottom: 15px;
   padding: 0 20px;
 }
+
 .mission-card .card-body {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: relative;
   top: 35%;
 }
+
 .mission-card .card-body button {
   position: relative;
   top: -10%;
