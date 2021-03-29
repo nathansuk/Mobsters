@@ -85,6 +85,43 @@ class MissionController extends AbstractController
         return $this->redirectToRoute("mission");
     }
 
+    /**
+     * @Route("/mission/abandon/{id}", name="abandon_mission")
+     * @param int $id
+     * @param UserService $userService
+     * @param MissionService $missionService
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
+    public function abandonMission(int $id, UserService $userService, MissionService $missionService, EntityManagerInterface $entityManager): Response {
+
+        if(!$this->getUser()) { $this->addFlash('error', "Vous ne pouvez pas faire ça "); }
+
+        /*
+         * Here we get the current user and the mission that we want to delete
+         */
+        $user = $userService->getUserByUsername($this->getUser()->getUsername());
+        $mission = $missionService->getMissionById($id);
+        $userMissionToDelete = $userService->getUserMissionsById($user, $id);
+
+        /*
+         * Then, we check by using userAlreadyHasMission function (declared by dependency injection)
+         * If the user has already the mission, then return an error, or continue and add in the database.
+         */
+
+        if($userService->userAlreadyHasMission($user, $mission)) {
+           $user->removeUserMission($userMissionToDelete);
+            $entityManager->persist($user);
+            $entityManager->flush();
+            $this->addFlash('success', 'Vous avez abandonné la mission');
+            return $this->redirectToRoute("mission");
+        }
+        else{
+            $this->addFlash('error', 'Vous ne pouvez pas faire cela');
+            return $this->redirectToRoute("mission");
+        }
+    }
+
     /*
      * This is used to render mission list on the global template mission
      */
