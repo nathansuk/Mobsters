@@ -62,7 +62,11 @@ class GestionBanqueController extends AbstractController
 
         } else {
             $user = $demande->getUser();
-            $demande->setIsAccepted(true);
+            $demande
+                ->setIsAccepted(true)
+                ->setAcceptedBy($this->getUser()->getUsername())
+            ;
+
             $user->setMoney($user->getMoney() + $demande->getMontant());
             $entityManager->persist($demande);
             $entityManager->flush();
@@ -101,7 +105,10 @@ class GestionBanqueController extends AbstractController
 
         } else {
 
-            $emprunt->setIsReimbursed(true);
+            $emprunt
+                ->setIsReimbursed(true)
+                ->setValidateBy($this->getUser()->getUsername())
+            ;
 
             $entityManager->persist($emprunt);
             $entityManager->persist($user);

@@ -32,6 +32,11 @@ class Transaction
      */
     private $receiver;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Transaction
     public function setReceiver(string $receiver): self
     {
         $this->receiver = $receiver;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

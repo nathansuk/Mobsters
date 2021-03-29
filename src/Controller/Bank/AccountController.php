@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Date;
 
 class AccountController extends AbstractController
 {
@@ -58,7 +59,7 @@ class AccountController extends AbstractController
              * We check if the receiver exist in database, else we throw an error.
              */
             if(!$receiver){
-                $this->addFlash('notice', "Cet utilisateur n'existe pas");
+                $this->addFlash('error', "Cet utilisateur n'existe pas");
                 return $this->redirectToRoute('my_bank_account');
             } else {
                 $receiverMoney = $userService->getUserMoney($receiver);
@@ -72,12 +73,13 @@ class AccountController extends AbstractController
              * If the user dont have enough money
              */
             if($amount > $senderMoney) {
-                $this->addFlash('notice', "Attention, vous essayez d'envoyer trop d'argent !");
+                $this->addFlash('error', "Attention, vous essayez d'envoyer trop d'argent !");
                 return $this->redirectToRoute("my_bank_account");
             } else {
                 $transaction->setSender($username)
                     ->setAmount($amount)
-                    ->setReceiver($sendMoneyForm->get('receiver')->getData());
+                    ->setReceiver($sendMoneyForm->get('receiver')->getData())
+                    ->setDate(new \DateTime("now"));
 
                 $newSenderMoney = $sender->setMoney($senderMoney - $amount);
                 $newReceiverMoney = $receiver->setMoney($receiverMoney + $amount);
@@ -120,7 +122,8 @@ class AccountController extends AbstractController
                 ->setIsAccepted(false)
                 ->setIsReimbursed(false)
                 //TO-DO: Le taux sera configurable par les administrateurs.
-                ->setInterets(0.0);
+                ->setInterets(0.0)
+                ->setDate(new \DateTime("now"));
 
 
             $entityManager->persist($emprunt);

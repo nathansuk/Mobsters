@@ -48,6 +48,21 @@ class Emprunt
      */
     private $isReimbursed;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $acceptedBy;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $validateBy;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -124,4 +139,41 @@ class Emprunt
 
         return $this;
     }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getAcceptedBy(): ?string
+    {
+        return $this->acceptedBy;
+    }
+
+    public function setAcceptedBy(?string $acceptedBy): self
+    {
+        $this->acceptedBy = $acceptedBy;
+
+        return $this;
+    }
+
+    public function getValidateBy(): ?string
+    {
+        return $this->validateBy;
+    }
+
+    public function setValidateBy(?string $validateBy): self
+    {
+        $this->validateBy = $validateBy;
+
+        return $this;
+    }
+
 }

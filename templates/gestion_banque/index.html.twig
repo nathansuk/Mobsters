@@ -21,7 +21,7 @@
 <ul class="list-group">
     {% for demande in demandes %}
         <li class="list-group-item">
-            <span><span class="badge bg-warning text-dark">{{ demande.user }}</span>
+            <span>{{ demande.date|date("d/m/Y") }} - <span class="badge bg-warning text-dark">{{ demande.user }}</span>
                 souhaite emprunter : <span class="badge bg-light text-dark">{{ demande.montant }}</span>
                 pour : {{ demande.motif }}
                  <a href="{{ path('accept_demande', {'id': demande.id }) }}">

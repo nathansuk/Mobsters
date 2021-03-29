@@ -59,6 +59,26 @@ body {
   width: 100%;
 }
 
+.alert-box{
+  width: 100%;
+  height: 80px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+
+  span {
+    position: relative;
+    top: 35%;
+  }
+}
+
+.error--message{
+  background-color: #c0392b;
+}
+
+.success--message{
+  background-color: green;
+}
 //OVERLAY PART
 
 .overlay {

@@ -27,8 +27,20 @@
 			</div>
 
 		{% endif %}
-
 		<div class="page-container">
+
+			{% for message in app.flashes('error') %}
+				<div class="alert-box error--message">
+					<span>{{ message }}</span>
+				</div>
+			{% endfor %}
+
+			{% for message in app.flashes('success') %}
+				<div class="alert-box success--message">
+					<span>{{ message }}</span>
+				</div>
+			{% endfor %}
+
 
 		{% block body %}{% endblock %}
 
