@@ -6,7 +6,6 @@
 {% block body %}
 
 
-
 	<section class="flex-center">
 		<div class="quote">
 			<img class="primelia" src="https://api.habbocity.me/avatar_image.php?user=Primelia&headonly=0&direction=2&head_direction=3&size=n">
@@ -19,7 +18,8 @@
 		<div class="global-card-bank">
 			<img class="bbanklogo" src="https://cdn.discordapp.com/attachments/744281580327010396/803786570565681192/istockphoto-1221945429-170667a.png">
 			<div class="user-compte">
-				<h1>Titulaire du compte : Galahad</h1>
+				<h1>Titulaire du compte :
+					{{ app.user.username }}</h1>
 			</div>
 			<div class="flex-center">
 				<div class="etat-compte" style="margin-top: 10px;">
@@ -38,71 +38,147 @@
 			</div>
 		</div>
 
-
-		<div class="global-card-bank" style="margin-left: 30px; height: 377px;">
-			<div class="user-compte">
-				<h1 style="margin-top: 0px;">Virements</h1>
+		<div class="global-card-bank" style="margin-left: 30px; height: 377px; width: 400px;">
+			<div class="user-compte" style="margin-top: 30px;">
+				<h1>Ma carte banquaire</h1>
 			</div>
 
-			<p style="margin-top: 10px;">Mes bénéficiaires</p>
-			<div class="flex-center">
-				<div class="banquier-avatar">
-					<img src="https://api.habbocity.me/avatar_image.php?user=Heidegger&headonly=0&direction=4&head_direction=3&size=n">
+
+			<div class="credit-card-black" style="margin-top: 10px;">
+				<section style="z-index: 1;">
+					<div class="cc-name" style="z-index: 1;">Mobsters BlackCard</div>
+					<div class="cc-user-body"><img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=3&head_direction=3&size=n"></div>
+					<img class="crypto" src="https://files.habboemotion.com/resources/images/icons/v22_3(1).gif">
+					<span class="cc-numero-compte" style="z-index: 1;">Numéro de compte :<br>**** ****
+						{{ random(1000, 9000) }}</span>
+					<div class="bottom-cc" style="z-index: 1;">
+						<span class="cc-user-name">{{ app.user.username }}</span>
+						<span class="cc-bbank">&copy; Byron Bank</span>
+					</div>
+				</section>
+
+				<section style="z-index: 0;">
+					<img style="margin-top: -50px; z-index: 0; margin-left: 26px;" src="https://files.habboemotion.com/resources/images/homestickers/sticker_Griffin_L.gif">
+				</section>
+
+<!--
+																																	
+			<div class="credit-card-blue" style="margin-top: 10px;">
+			<section style="z-index: 1;">
+				<div class="cc-name" style="z-index: 1;">Mobsters BlueCard</div>
+				<div class="cc-user-body"><img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=3&head_direction=3&size=n"></div>
+				<img class="crypto" src="https://files.habboemotion.com/resources/images/icons/v22_3(1).gif">
+				<span class="cc-numero-compte" style="z-index: 1;">Numéro de compte :<br>**** ****{{ random(1000, 9000) }}</span>
+																										
+				<div class="bottom-cc" style="z-index: 1;">
+					<span class="cc-user-name">{{ app.user.username }}</span>
+					<span class="cc-bbank">&copy; Byron Bank</span>
 				</div>
-				<div class="banquier-avatar">
-					<img src="https://api.habbocity.me/avatar_image.php?user=Zunberg&headonly=0&direction=4&head_direction=3&size=n">
-				</div>
-				<div class="banquier-avatar">
-					<img src="https://api.habbocity.me/avatar_image.php?user=Honorius&headonly=0&direction=4&head_direction=3&size=n">
-				</div>
+			</section>
+																														
+			<section style="z-index: 0;">
+				<img style="margin-top: -37px; z-index: 0; margin-left: 300px;" src="https://files.habboemotion.com/resources/images/homestickers/money_stash.gif">
+			</section>																											
+																		
+			<div class="credit-card-gold" style="margin-top: 10px;">
+				<section style="z-index: 1;">
+																							<div class="cc-name" style="z-index: 1;">Mobsters GoldCard</div>
+																							<div class="cc-user-body"><img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=3&head_direction=3&size=n"></div>
+																							<img class="crypto" src="https://files.habboemotion.com/resources/images/icons/v22_3(1).gif">
+																							<span class="cc-numero-compte" style="z-index: 1;">Numéro de compte :<br>**** ****
+																								{{ random(1000, 9000) }}</span>
+																		
+																							<div class="bottom-cc" style="z-index: 1;">
+																								<span class="cc-user-name">{{ app.user.username }}</span>
+																								<span class="cc-bbank">&copy; Byron Bank</span>
+																							</div>
+																						</section>
+																		
+																						<section style="z-index: 0;">
+																							<img style="margin-top: -35px; z-index: 0; margin-left: 330px;" src="https://files.habboemotion.com/resources/images/homestickers/limo_front.gif">
+																						</section>
+																		
+-->
+
+
 			</div>
+
 			<hr>
-			<div style="margin-top: 10px;">
-				<em>Intérêts : 5%</em>
-				<div class="virement-form">
-					{{ form_start(sendMoneyForm) }}
-					{{ form_widget(sendMoneyForm) }}
-					<button type="submit" class="btn btn-primary mb-2">Envoyer l'argent</button>
-					{{ form_end(sendMoneyForm) }}
+			<p style="margin-top: 10px;">Carte de niveau 1</p>
+			<p>Intérêts : 10 %</p>
+			<p>Votre carte banquaire évolue avec votre fortune, plus cette dernière est grande, plus votre carte prends de niveau et moins les intérêts sont élevés.</p>
+		</section>
+
+		<section class="flex-center" style="text-align: center;">
+
+
+			<div class="global-card-bank" style="margin-left: 30px; height: 377px;">
+				<div class="user-compte">
+					<h1 style="margin-top: 0px;">Virements</h1>
+				</div>
+
+				<p style="margin-top: 10px;">Mes bénéficiaires</p>
+				<div class="flex-center">
+					<div class="banquier-avatar">
+						<img src="https://api.habbocity.me/avatar_image.php?user=Heidegger&headonly=0&direction=4&head_direction=3&size=n">
+					</div>
+					<div class="banquier-avatar">
+						<img src="https://api.habbocity.me/avatar_image.php?user=Zunberg&headonly=0&direction=4&head_direction=3&size=n">
+					</div>
+					<div class="banquier-avatar">
+						<img src="https://api.habbocity.me/avatar_image.php?user=Honorius&headonly=0&direction=4&head_direction=3&size=n">
+					</div>
+				</div>
+				<hr>
+				<div style="margin-top: 10px;">
+					<em>Intérêts : 5%</em>
+					<div class="virement-form">
+						{{ form_start(sendMoneyForm) }}
+						{{ form_widget(sendMoneyForm) }}
+						<button type="submit" class="btn btn-primary mb-2">Envoyer l'argent</button>
+						{{ form_end(sendMoneyForm) }}
+					</div>
 				</div>
 			</div>
-		</div>
 
 
-		<div class="global-card-bank" style="margin-left: 30px; height: 377px; width: 260px;">
-			<div class="user-compte">
-				<h1 style="margin-top: 0px;">Emprunts</h1>
-			</div>
+			<div class="global-card-bank" style="margin-left: 30px; height: 377px; width: 260px;">
+				<div class="user-compte">
+					<h1 style="margin-top: 0px;">Emprunts</h1>
+				</div>
 
-			<img style="margin-top: 10px;" src="https://files.habboemotion.com/resources/images/homestickers/money_o.gif">
-			<hr>
-			<div style="margin-top: 10px;">
-				<em>Les emprunts sont soumis à condition, votre banquier est libre de les refuser. Soyez raisonnables sur le motant demandé !</em>
-				<div class="virement-form">
-					{{ form_start(askEmpruntForm) }}
-					{{ form_widget(askEmpruntForm) }}
-					<button type="submit" class="btn btn-primary mb-2">Envoyer ma demande</button>
-					{{ form_end(askEmpruntForm) }}
+				<img style="margin-top: 10px;" src="https://files.habboemotion.com/resources/images/homestickers/money_o.gif">
+				<hr>
+				<div style="margin-top: 10px;">
+					<em>Les emprunts sont soumis à condition, votre banquier est libre de les refuser. Soyez raisonnables sur le motant demandé !</em>
+					<div class="virement-form">
+						{{ form_start(askEmpruntForm) }}
+						{{ form_widget(askEmpruntForm) }}
+						<button type="submit" class="btn btn-primary mb-2">Envoyer ma demande</button>
+						{{ form_end(askEmpruntForm) }}
+					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 
-	</section>
+		<section class="flex-center" style="text-align: center;">
+			<div class="global-card-bank">
+				<div class="user-compte">
+					<h1 style="margin-top: 0px;">Historique des actions</h1>
+				</div>
+				<img style="margin-top: 10px;" src="https://files.habboemotion.com/resources/images/icons/cash.gif">
 
-	<section class="flex-center" style="text-align: center;">
-		<div class="global-card-bank">
-			<div class="user-compte">
-				<h1 style="margin-top: 0px;">Historique des actions</h1>
+				{% for transaction in lastTransactions %}
+					<p>
+						25/03/2021 | Virement - Bénéficiaire :
+						{{ transaction.receiver }}
+						| Montant :
+						{{ transaction.amount }}
+						<img src="{{ asset('img/ls.png')}}">
+					</p>
+				{% endfor %}
 			</div>
-			<img style="margin-top: 10px;" src="https://files.habboemotion.com/resources/images/icons/cash.gif">
 
-			{% for transaction in lastTransactions %}
-				<p>
-					25/03/2021 | Virement - Bénéficiaire : {{ transaction.receiver }} | Montant : {{ transaction.amount }}
-					<img src="{{ asset('img/ls.png')}}">
-				</p>
-			{% endfor %}
-		</div>
-	</section>
+		</section>
 
-{% endblock %}
+	{% endblock %}

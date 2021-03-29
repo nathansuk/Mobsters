@@ -59,7 +59,7 @@ body {
   width: 100%;
 }
 
-.alert-box{
+.alert-box {
   width: 100%;
   height: 80px;
   border-radius: 10px;
@@ -72,11 +72,11 @@ body {
   }
 }
 
-.error--message{
+.error--message {
   background-color: #c0392b;
 }
 
-.success--message{
+.success--message {
   background-color: green;
 }
 //OVERLAY PART
@@ -631,9 +631,11 @@ hr {
 }
 
 .global-card-bank {
-  border: 2px dashed white;
+  border: 2px solid black;
   margin-top: 20px;
   padding: 10px;
+  border-radius: 10px;
+  background: $box-bgr;
 
   .bbanklogo {
     width: 250px;
@@ -671,6 +673,165 @@ hr {
       border: none;
       color: white;
       cursor: pointer;
+    }
+  }
+}
+
+.credit-card-black {
+  width: 400px;
+  height: 200px;
+  background: #212121;
+  border-radius: 10px;
+  border: 1px solid black;
+  overflow: hidden;
+
+  .cc-user-body {
+    background: #8c8989;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 7px;
+    margin-top: -13px;
+
+    img {
+      margin-top: -20px;
+      margin-left: -13px;
+    }
+  }
+
+  .crypto {
+    position: absolute;
+    margin-left: 240px;
+    margin-top: -37px;
+  }
+
+  .cc-name {
+    color: #8c8989;
+  }
+
+  .bottom-cc {
+    z-index: 1;
+    position: absolute;
+    margin-top: 71px;
+    padding: 15px;
+    background: RGBA(0, 0, 0, 0.86);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 370px;
+
+    .cc-user-name {
+      float: left;
+    }
+
+    .cc-bbank {
+      float: right;
+    }
+  }
+}
+
+.credit-card-gold {
+  width: 400px;
+  height: 200px;
+  background: #cc9900;
+  border-radius: 10px;
+  border: 1px solid black;
+  overflow: hidden;
+
+  .cc-user-body {
+    background: #f9d464;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 7px;
+    margin-top: -13px;
+
+    img {
+      margin-top: -20px;
+      margin-left: -13px;
+    }
+  }
+
+  .crypto {
+    position: absolute;
+    margin-left: 240px;
+    margin-top: -37px;
+  }
+
+  .cc-name {
+    color: #f9d464;
+  }
+
+  .bottom-cc {
+    z-index: 1;
+    position: absolute;
+    margin-top: 71px;
+    padding: 15px;
+    background: RGBA(185, 139, 75, 0.87);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 370px;
+
+    .cc-user-name {
+      float: left;
+    }
+
+    .cc-bbank {
+      float: right;
+    }
+  }
+}
+
+.credit-card-blue {
+  width: 400px;
+  height: 200px;
+  background: #023a80;
+  border-radius: 10px;
+  border: 1px solid black;
+  overflow: hidden;
+
+  .cc-user-body {
+    background: #2d73ca;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 7px;
+    margin-top: -13px;
+
+    img {
+      margin-top: -20px;
+      margin-left: -13px;
+    }
+  }
+
+  .crypto {
+    position: absolute;
+    margin-left: 240px;
+    margin-top: -37px;
+  }
+
+  .cc-name {
+    color: #2d73ca;
+  }
+
+  .bottom-cc {
+    z-index: 1;
+    position: absolute;
+    margin-top: 71px;
+    padding: 15px;
+    background: RGBA(45, 115, 202, 0.92);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 370px;
+
+    .cc-user-name {
+      float: left;
+    }
+
+    .cc-bbank {
+      float: right;
     }
   }
 }
