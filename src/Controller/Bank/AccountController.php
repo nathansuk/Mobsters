@@ -61,6 +61,9 @@ class AccountController extends AbstractController
             if(!$receiver){
                 $this->addFlash('error', "Cet utilisateur n'existe pas");
                 return $this->redirectToRoute('my_bank_account');
+            } elseif($receiver === $sender){
+                $this->addFlash('error', "Vous ne pouvez pas faire ça");
+                return $this->redirectToRoute('my_bank_account');
             } else {
                 $receiverMoney = $userService->getUserMoney($receiver);
             }
