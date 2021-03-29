@@ -21,12 +21,12 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('email', 'Adresse mail'),
-            TextField::new('username', 'Pseudo'),
-            IntegerField::new('money', 'Livres Sterling'),
-            ArrayField::new('roles', 'Ranks'),
-            AssociationField::new('clan', 'Clan'),
-            AssociationField::new('userMissions', 'Missions assignées')
+            TextField::new('email', 'Adresse mail')->setPermission('ROLE_ADMIN'),
+            TextField::new('username', 'Pseudo')->setPermission('ROLE_ADMIN'),
+            IntegerField::new('money', 'Livres Sterling')->setPermission('ROLE_ADMIN'),
+            ArrayField::new('roles', 'Ranks')->setPermission('ROLE_ADMIN'),
+            AssociationField::new('clan', 'Clan')->setPermission('ROLE_ADMIN'),
+            AssociationField::new('userMissions', 'Missions assignées')->setPermission('ROLE_ADMIN')
         ];
     }
 

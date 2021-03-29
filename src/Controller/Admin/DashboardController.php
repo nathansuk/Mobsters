@@ -41,9 +41,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', NewsCategory::class);
         yield MenuItem::linkToCrud('Articles', 'far fa-newspaper', News::class);
 
-        yield MenuItem::section('Communauté', 'fas fa-wrench');
-        yield MenuItem::linkToCrud('Les Clans', 'fas fa-users', Clans::class);
-        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
+        yield MenuItem::section('Communauté', 'fas fa-wrench')->setPermission("ROLE_ADMIN");
+        yield MenuItem::linkToCrud('Les Clans', 'fas fa-users', Clans::class)->setPermission("ROLE_ADMIN");
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class)->setPermission("ROLE_ADMIN");
 
         yield MenuItem::section('Missions', 'fas fa-clipboard');
         yield MenuItem::linkToCrud('Les missions', 'far fa-clipboard', Mission::class);

@@ -6,4 +6,24 @@
 
     <h1>{{ news.title }}</h1>
 
+    <p>{{ news.content }}</p>
+
+    <span>- {{ news.author }}</span>
+
+    <h1>Commentaires</h1>
+    <div class="w-100 flex-column">
+        {{ form_start(comment_form) }}
+        {{ form_widget(comment_form) }}
+        <button type="submit" class="btn btn-primary mb-2">Commenter</button>
+        {{ form_end(comment_form) }}
+
+    {% for comment in comments|reverse %}
+        <div class="w-100 flex-row">
+        <h2>{{ comment.user.username }}</h2>
+        <span>{{ comment.message }}</span>
+        <span>{{ comment.date|date("d/m/Y") }}
+        </div>
+    {% endfor %}
+    </div>
+
 {% endblock %}

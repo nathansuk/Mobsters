@@ -18,10 +18,10 @@ class ClansCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name', 'Nom du Clan'),
-            TextField::new('description', 'Description'),
-            TextField::new('badge', 'Badge'),
-            AssociationField::new('missions')
+            TextField::new('name', 'Nom du Clan')->setPermission('ROLE_ADMIN'),
+            TextField::new('description', 'Description')->setPermission('ROLE_ADMIN'),
+            TextField::new('badge', 'Badge')->setPermission('ROLE_ADMIN'),
+            AssociationField::new('missions')->setPermission('ROLE_ADMIN')
         ];
     }
 
