@@ -693,6 +693,11 @@ hr {
   input {
     color: black;
     outline: none;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 2px solid $border;
   }
 
   .send-virement {
@@ -702,6 +707,15 @@ hr {
     color: white;
     cursor: pointer;
   }
+}
+
+.virement-global {
+  padding-right: 10px;
+  border-right: 2px solid $border;
+}
+
+.emprunts-global {
+  margin-left: 10px;;
 }
 
 .credit-card-black {

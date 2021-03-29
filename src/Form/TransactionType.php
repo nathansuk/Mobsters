@@ -16,11 +16,13 @@ class TransactionType extends AbstractType
     {
         $builder
             ->add('amount', IntegerType::class, [
+                'label' => false ,
                 'attr' => [
                     'placeholder' => 'Montant'
                 ]
             ])
             ->add('receiver', TextType::class, [
+                'label' => false ,
                 'attr' => [
                     'placeholder' => 'Pseudo du bénéficiaire'
                 ]

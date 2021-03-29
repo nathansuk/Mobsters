@@ -15,11 +15,13 @@ class EmpruntType extends AbstractType
     {
         $builder
             ->add('motif', TextType::class, [
+                'label' => false ,
                 'attr' => [
                     'placeholder' => 'Motif'
                 ]
             ])
             ->add('montant', IntegerType::class, [
+                'label' => false ,
                 'attr' => [
                     'placeholder' => 'Montant'
                 ]

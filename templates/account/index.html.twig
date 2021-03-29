@@ -107,56 +107,46 @@
 			<p>Intérêts : 10 %</p>
 			<p>Votre carte banquaire évolue avec votre fortune, plus cette dernière est grande, plus votre carte prends de niveau et moins les intérêts sont élevés.</p>
 		</section>
-<hr style="margin-top: 20px;">
-		<section class="flex-center" style="text-align: center; margin-top: 15px">
-			<div class="user-compte">
-				<h1 style="margin-top: 0px; width: 500px;">Virements</h1><br>
-			</div>
-		</section>
 
-				<p style="margin-top: 10px;">Mes bénéficiaires</p>
-				<div class="flex-center">
-					<div class="banquier-avatar">
-						<img src="https://api.habbocity.me/avatar_image.php?user=Heidegger&headonly=0&direction=4&head_direction=3&size=n">
-					</div>
-					<div class="banquier-avatar">
-						<img src="https://api.habbocity.me/avatar_image.php?user=Zunberg&headonly=0&direction=4&head_direction=3&size=n">
-					</div>
-					<div class="banquier-avatar">
-						<img src="https://api.habbocity.me/avatar_image.php?user=Honorius&headonly=0&direction=4&head_direction=3&size=n">
-					</div>
+
+<hr style="margin-top: 20px;">
+		
+		<section class="flex-center" style="text-align: center; margin-top: 15px">
+
+			<div class="virement-global">
+				<div class="user-compte">
+					<h1 style="margin-top: 0px; width: 206px;">Virements</h1>
 				</div>
-				<hr>
-				<div style="margin-top: 10px;">
-					<em>Intérêts : 5%</em>
+			<section style="text-align: center; margin-top: 5px;">
+				<em>Intérêts : 5%</em>
+				<div class="v-form-global">
 					<div class="virement-form">
 						{{ form_start(sendMoneyForm) }}
 						{{ form_widget(sendMoneyForm) }}
-						<button type="submit" class="btn btn-primary mb-2">Envoyer l'argent</button>
+						<button type="submit" class="send-virement">Envoyer l'argent</button>
 						{{ form_end(sendMoneyForm) }}
 					</div>
 				</div>
-		</section>
+			</section>
+			</div>
 
 
-			<div class="global-card-bank" style="margin-left: 30px; height: 377px; width: 260px;">
-				<div class="user-compte">
-					<h1 style="margin-top: 0px;">Emprunts</h1>
-				</div>
-
-				<img style="margin-top: 10px;" src="https://files.habboemotion.com/resources/images/homestickers/money_o.gif">
-				<hr>
-				<div style="margin-top: 10px;">
-					<em>Les emprunts sont soumis à condition, votre banquier est libre de les refuser. Soyez raisonnables sur le motant demandé !</em>
+				<div class="emprunts-global">
+					<div class="user-compte">
+						<h1 style="margin-top: 0px; width: 206px;">Emprunts</h1>
+					</div>
+				<section style="text-align: center;">
+					<em>Intérêts : 5%</em>
 					<div class="virement-form">
 						{{ form_start(askEmpruntForm) }}
 						{{ form_widget(askEmpruntForm) }}
-						<button type="submit" class="btn btn-primary mb-2">Envoyer ma demande</button>
+						<button type="submit" class="send-virement">Envoyer ma demande</button>
 						{{ form_end(askEmpruntForm) }}
 					</div>
+				</section>
 				</div>
-			</div>
 		</section>
+
 
 		<section class="flex-center" style="text-align: center;">
 			<div class="global-card-bank">
