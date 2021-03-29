@@ -663,44 +663,44 @@ hr {
   padding: 10px;
   border-radius: 10px;
   background: $box-bgr;
+}
 
-  .bbanklogo {
-    width: 250px;
+.bbanklogo {
+  width: 250px;
+  margin-top: -15px;
+}
+
+.banquier-avatar {
+  background: $border;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  border-radius: 50%;
+  border: 2px solid white;
+
+  img {
     margin-top: -15px;
+    margin-left: -8px;
+  }
+}
+
+.virement-form {
+  margin-top: 5px;
+
+  input {
+    color: black;
+    outline: none;
   }
 
-  .banquier-avatar {
+  .send-virement {
+    padding: 10px;
     background: $border;
-    width: 50px;
-    height: 50px;
-    overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
-    border-radius: 50%;
-    border: 2px solid white;
-
-    img {
-      margin-top: -15px;
-      margin-left: -8px;
-    }
-  }
-
-  .virement-form {
-    margin-top: 5px;
-
-    input {
-      color: black;
-      outline: none;
-    }
-
-    .send-virement {
-      padding: 10px;
-      background: $border;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
+    border: none;
+    color: white;
+    cursor: pointer;
   }
 }
 
