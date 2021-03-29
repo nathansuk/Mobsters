@@ -15,12 +15,13 @@ class MissionService
     }
 
     public function getAvailableMission(): array {
-        return $this->em->getRepository(Mission::class)->findAll();
+         return $this->em->getRepository(Mission::class)->findAll();
     }
 
     public function getMissionById(int $id): ?object {
         return $this->em->getRepository(Mission::class)->find($id);
     }
+
 
 
 }

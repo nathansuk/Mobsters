@@ -15,17 +15,33 @@ use Symfony\Component\Routing\Annotation\Route;
 class MissionController extends AbstractController
 {
     /**
+     * @param UserService $userService
      * @param MissionService $missionService
      * @return Response
      * @Route("/mission", name="mission")
      */
-    public function index(MissionService $missionService): Response
+    public function index(UserService $userService, MissionService $missionService): Response
     {
-        $missionDispo = $missionService->getAvailableMission();
-
+        /*
+         * Here we get the entire list of mission and the user object.
+         */
+        $missionAvailable = $missionService->getAvailableMission();
+        $user = $userService->getUserByUsername($this->getUser()->getUsername());
+        /*
+         * Then we create an empty array, where we will push each mission that user doesnt already have
+         */
+        $missions = array();
+        /*
+         * For each available mission, check if user didnt got it before, and then push into array.
+         */
+        foreach ($missionAvailable as $mission){
+            if (!$userService->userAlreadyHasMission($user, $mission)){
+                array_push($missions, $mission);
+            }
+        }
         return $this->render('mission/index.html.twig', [
             'controller_name' => 'MissionController',
-            'missionDispo' => $missionDispo
+            'missionAvailable' => $missions
         ]);
     }
 

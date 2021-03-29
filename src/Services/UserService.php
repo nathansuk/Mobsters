@@ -42,7 +42,6 @@ class UserService
                 'mission' => $mission
             ]
         );
-
         if($userMission == null) {
             return false;
         } else {
@@ -65,6 +64,11 @@ class UserService
 
         return $this->em->getRepository(Transaction::class)->findBy(['sender' => $user->getUsername()]);
 
+    }
+
+    public function getUserMissions(int $userId): array
+    {
+        return $this->em->getRepository(UserMission::class)->findBy(['user' => $userId]);
     }
 
 }
