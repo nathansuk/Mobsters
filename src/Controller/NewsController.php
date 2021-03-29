@@ -24,6 +24,11 @@ class NewsController extends AbstractController
     public function show(int $id, NewsService $newsService, Request $request, EntityManagerInterface $entityManager, UserService $userService): Response {
 
         $news = $newsService->getNewsById($id);
+
+        if($news == null){
+            $this->addFlash('error', "Cet article n'existe pas !");
+            return $this->redirectToRoute('news');
+        }
         $comments = $news->getComments();
 
         $comment = new Comments();

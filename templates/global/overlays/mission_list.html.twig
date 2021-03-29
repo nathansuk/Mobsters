@@ -2,11 +2,15 @@
 
 	{% for mission in userMission %}
 
+		{% if  mission.isRewarded %}
+
+			{% else %}
 		<div class="liste-mission--item flex-row" data-tab-target="#mission-{{ mission.mission.id }}">
 			<img src="https://habbo.com/habbo-imaging/avatarimage?figure=hr-3531-1407-61.hd-209-20.ch-3498-1409.lg-3058-91.sh-3524-64-110.fa-3344-110.cc-3002-110&size=n&direction=2&head_direction=2&gesture=std&headonly=1" alt="avatar-head" class="mission--avatar-head">
 			<h3>{{ mission.mission.title }}</h3>
 			<div class="state-dot"></div>
 		</div>
+		{% endif %}
 
 	{% endfor %}
 
@@ -14,6 +18,8 @@
 
 {% for missions in userMission %}
 
+	{% if  missions.isRewarded %}
+		{% else %}
 	<div class="mission-desc flex-column" id="mission-{{ missions.mission.id }}" data-tab-content>
 
 		<div class="flex-row">
@@ -35,7 +41,7 @@
 						<img src="{{ asset('img/livre.gif') }}" alt="reward" class="reward-logo">
 						<div class="flex-column">
 							<span>Récompense</span>
-							<h2>1000000</h2>
+							<h2>{{ missions.mission.reward }}</h2>
 						</div>
 					</div>
 
@@ -52,9 +58,9 @@
 					<button type="submit" class="btn btn-abandon" onclick="location.href = '/mission/abandon/{{ missions.mission.id }}'">Abandonner</button>
 					<button type="submit" class="btn btn-askforvalid">Marquer comme finie</button>
 				</div>
-
 			</div>
 		</div>
 	</div>
+	{% endif %}
 
 {% endfor %}

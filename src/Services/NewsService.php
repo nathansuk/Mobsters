@@ -18,7 +18,7 @@ class NewsService
         return $this->em->getRepository(News::class)->findAll();
     }
 
-    public function getNewsById(int $id): News {
+    public function getNewsById(int $id): ?News {
 
         return $this->em->getRepository(News::class)->find($id);
 

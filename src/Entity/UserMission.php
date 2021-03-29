@@ -35,6 +35,16 @@ class UserMission
      */
     private $done;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $reward;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isRewarded;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -79,5 +89,29 @@ class UserMission
     public function __toString(): string
     {
         return $this->getMission()->getTitle();
+    }
+
+    public function getReward(): ?int
+    {
+        return $this->reward;
+    }
+
+    public function setReward(int $reward): self
+    {
+        $this->reward = $reward;
+
+        return $this;
+    }
+
+    public function getIsRewarded(): ?bool
+    {
+        return $this->isRewarded;
+    }
+
+    public function setIsRewarded(bool $isRewarded): self
+    {
+        $this->isRewarded = $isRewarded;
+
+        return $this;
     }
 }

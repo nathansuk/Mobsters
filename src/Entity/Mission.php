@@ -44,6 +44,11 @@ class Mission
      */
     private $userMissions;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $reward;
+
     public function __construct()
     {
         $this->userMissions = new ArrayCollection();
@@ -134,5 +139,17 @@ class Mission
     
     public function __toString(): string {
         return $this->title;
+    }
+
+    public function getReward(): ?int
+    {
+        return $this->reward;
+    }
+
+    public function setReward(int $reward): self
+    {
+        $this->reward = $reward;
+
+        return $this;
     }
 }

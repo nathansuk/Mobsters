@@ -69,12 +69,15 @@ class MissionController extends AbstractController
          * If the user has already the mission, then return an error, or continue and add in the database.
          */
         $check = $userService->userAlreadyHasMission($user, $mission);
+        $mission = $this->getDoctrine()->getRepository(Mission::class)->find($id);
 
         if(!$check) {
             $userMission = new UserMission();
             $userMission->setUser($this->getUser())
-                ->setMission($this->getDoctrine()->getRepository(Mission::class)->find($id))
-                ->setDone(false);
+                ->setMission($mission)
+                ->setDone(false)
+                ->setReward($mission->getReward())
+                ->setIsRewarded(false);
             $entityManager->persist($userMission);
             $entityManager->flush();
         } else {
