@@ -9,8 +9,12 @@
 				<div class="user-info">
 					<p class="user-name">{{ app.user.username }}</p>
 					<span>Membre</span>
-					<p>Clan :
-						{{ app.user.clan }}</p>
+
+					{% if app.user.clan is null %}
+					<p>Civil</p>
+					{% else %}
+					<p>Clan : {{ app.user.clan }}</p>
+					{% endif %}
 					<p><img src="{{ asset('img/ls.png') }}">&nbsp;
 						<span class="user-money">{{ app.user.money }}</span>
 					</p>

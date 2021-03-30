@@ -301,7 +301,7 @@ body {
 }
 
 .user-space {
-  width: 80%;
+  width: 270px;
   height: 108px;
 }
 
@@ -322,9 +322,10 @@ body {
 
 .user-info {
   width: fit-content;
-  float: right;
+  float: left;
   line-height: 27px;
   font-size: 20px;
+  margin-left: 10px;;
 
   span {
     font-weight: 400;
