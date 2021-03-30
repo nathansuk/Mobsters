@@ -4,7 +4,11 @@
 
 		{% if  mission.isRewarded == false %}
 		<div class="liste-mission--item flex-row" data-tab-target="#mission-{{ mission.mission.id }}">
+			{% if mission.waitingConfirmation %}
+				<img src="{{ asset('img/time-left.gif') }}" alt="reward" class="waiting-logo">
+			{% else %}
 			<img src="https://habbo.com/habbo-imaging/avatarimage?figure=hr-3531-1407-61.hd-209-20.ch-3498-1409.lg-3058-91.sh-3524-64-110.fa-3344-110.cc-3002-110&size=n&direction=2&head_direction=2&gesture=std&headonly=1" alt="avatar-head" class="mission--avatar-head">
+				{% endif %}
 			<h3>{{ mission.mission.title }}</h3>
 			<div class="state-dot"></div>
 		</div>
@@ -53,7 +57,18 @@
 				</div>
 				<div class="flex-row">
 					<button type="submit" class="btn btn-abandon" onclick="location.href = '/mission/abandon/{{ missions.mission.id }}'">Abandonner</button>
-					<button type="submit" class="btn btn-askforvalid">Marquer comme finie</button>
+					{% if missions.waitingConfirmation %}
+
+					<button type="submit" disabled class="btn btn-waitingValidation flex-row">
+						<img src="{{ asset('img/time-left.gif') }}" alt="reward" class="waiting-logo">
+						<span>En attente de confirmation</span>
+					</button>
+
+						{% else %}
+
+					<button type="submit" class="btn btn-askforvalid" onclick="location.href = '/mission/markasdone/{{ missions.mission.id }}'">Marquer comme finie</button>
+
+					{% endif %}
 				</div>
 			</div>
 		</div>

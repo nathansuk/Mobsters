@@ -30,6 +30,7 @@ class UserMissionCrudController extends AbstractCrudController
             AssociationField::new('user', 'Utilisateur'),
             AssociationField::new('mission', 'Mission'),
             IntegerField::new('reward', 'Récompense'),
+            BooleanField::new('waitingConfirmation', 'Attends confirmation'),
             BooleanField::new('done', 'Réalisée'),
             BooleanField::new('isRewarded', 'Récompensée')
         ];
@@ -60,7 +61,8 @@ class UserMissionCrudController extends AbstractCrudController
 
         $userMission
             ->setIsRewarded(true)
-            ->setDone(true);
+            ->setDone(true)
+            ->setWaitingConfirmation(false);
         $user->setMoney($user->getMoney() + $userMission->getReward());
 
         $this->persistEntity($this->get('doctrine')->getManagerForClass($context->getEntity()->getFqcn()), $user);

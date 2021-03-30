@@ -45,6 +45,11 @@ class UserMission
      */
     private $isRewarded;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $waitingConfirmation;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -111,6 +116,18 @@ class UserMission
     public function setIsRewarded(bool $isRewarded): self
     {
         $this->isRewarded = $isRewarded;
+
+        return $this;
+    }
+
+    public function getWaitingConfirmation(): ?bool
+    {
+        return $this->waitingConfirmation;
+    }
+
+    public function setWaitingConfirmation(bool $waitingConfirmation): self
+    {
+        $this->waitingConfirmation = $waitingConfirmation;
 
         return $this;
     }

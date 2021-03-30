@@ -171,6 +171,14 @@ body {
     margin-bottom: 15px;
     cursor: pointer;
 
+    .waiting-logo {
+      width: 55px;
+      height: 40px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
+
     &:hover {
       background-color: #373764;
       transition: 0.2s ease-in;
@@ -243,6 +251,21 @@ body {
   .btn-askforvalid {
     width: 200px;
     background-color: #2e7165;
+  }
+
+  .btn-waitingValidation {
+    width: 200px;
+    background-color: #f39c12;
+    cursor: not-allowed;
+
+    .waiting-logo {
+      width: 55px;
+      height: 40px;
+    }
+
+    span {
+      margin-top: 5px;
+    }
   }
   .btn-abandon {
     width: 100px;

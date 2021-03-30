@@ -63,6 +63,11 @@ class MissionController extends AbstractController
         $user = $userService->getUserByUsername($this->getUser()->getUsername());
         $mission = $missionService->getMissionById($id);
 
+        if($mission == null){
+            $this->addFlash('success', 'Il y a eu un probleme');
+            return $this->redirectToRoute("mission");
+        }
+
         /*
          * Then, we check by using userAlreadyHasMission function (declared by dependency injection)
          * If the user has already the mission, then return an error, or continue and add in the database.
@@ -76,7 +81,8 @@ class MissionController extends AbstractController
                 ->setMission($mission)
                 ->setDone(false)
                 ->setReward($mission->getReward())
-                ->setIsRewarded(false);
+                ->setIsRewarded(false)
+                ->setWaitingConfirmation(false);
             $entityManager->persist($userMission);
             $entityManager->flush();
         } else {
@@ -106,6 +112,11 @@ class MissionController extends AbstractController
         $mission = $missionService->getMissionById($id);
         $userMissionToDelete = $userService->getUserMissionsById($user, $id);
 
+        if($mission == null || $userMissionToDelete == null){
+            $this->addFlash('success', 'Il y a eu un probleme');
+            return $this->redirectToRoute("mission");
+        }
+
         /*
          * Then, we check by using userAlreadyHasMission function (declared by dependency injection)
          * If the user has already the mission, then return an error, or continue and add in the database.
@@ -122,6 +133,43 @@ class MissionController extends AbstractController
             $this->addFlash('error', 'Vous ne pouvez pas faire cela');
             return $this->redirectToRoute("mission");
         }
+    }
+
+    /**
+     * @param int $id
+     * @param UserService $userService
+     * @param MissionService $missionService
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     * @Route("/mission/markasdone/{id}", name="abandon_mission")
+     */
+    public function markMissionAsDone(int $id, UserService $userService, MissionService $missionService, EntityManagerInterface $entityManager): Response
+    {
+
+        if(!$this->getUser()) { $this->addFlash('error', "Vous ne pouvez pas faire ça "); }
+
+        $user = $userService->getUserByUsername($this->getUser()->getUsername());
+        $mission = $missionService->getMissionById($id);
+        $missionToMark = $userService->getUserMissionsById($user, $id);
+
+        if($mission == null || $missionToMark == null){
+            $this->addFlash('success', 'Il y a eu un probleme');
+            return $this->redirectToRoute("mission");
+        }
+
+        if($userService->userAlreadyHasMission($user, $mission)) {
+            $missionToMark->setWaitingConfirmation(true);
+            $entityManager->persist($missionToMark);
+            $entityManager->flush();
+            $this->addFlash('success', 'Votre demande a bien été soumise.');
+            return $this->redirectToRoute("mission");
+        } else {
+            $this->addFlash('error', 'Vous ne pouvez pas faire cela');
+            return $this->redirectToRoute("mission");
+        }
+
+
+
     }
 
     /*
