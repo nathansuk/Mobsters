@@ -24,6 +24,7 @@
 
 <div class="list-mission flex-column" style="width: 80%; margin: auto;">
 
+    {% if app.user.clan %}
     <h1>Missions de clan : {{ app.user.clan.name }}</h1>
 
  <div class="mission-list--content">
@@ -41,6 +42,8 @@
         </div>
     {% endif %}
 {% endfor %}
+
+     {% endif %}
  </div>
 </div>
 
