@@ -78,7 +78,14 @@ class AccountController extends AbstractController
             if($amount > $senderMoney) {
                 $this->addFlash('error', "Attention, vous essayez d'envoyer trop d'argent !");
                 return $this->redirectToRoute("my_bank_account");
-            } else {
+            }
+
+            if($amount <= 0 ){
+                $this->addFlash('error', "Le montant indiqué est incorrect");
+                return $this->redirectToRoute("my_bank_account");
+            }
+
+            else {
                 $transaction->setSender($username)
                     ->setAmount($amount)
                     ->setReceiver($sendMoneyForm->get('receiver')->getData())
