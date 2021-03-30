@@ -5,6 +5,7 @@ namespace App\Services\Missions;
 
 
 use App\Entity\Mission;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 
 class MissionService
@@ -21,7 +22,6 @@ class MissionService
     public function getMissionById(int $id): ?object {
         return $this->em->getRepository(Mission::class)->find($id);
     }
-
 
 
 }

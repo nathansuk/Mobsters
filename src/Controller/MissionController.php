@@ -135,7 +135,23 @@ class MissionController extends AbstractController
         $userMission = $user->getUserMissions();
 
         return $this->render('global/overlays/mission_list.html.twig', [
-            'userMission' => $userMission
+            'userMission' => $userMission,
+        ]);
+    }
+
+    public function getMissionModule(UserService $userService): Response{
+
+        $user = $userService->getUserByUsername($this->getUser()->getUsername());
+
+        $userMissionNotFinished = $this->getDoctrine()->getRepository(UserMission::class)->findBy(
+            [
+                'user' => $user,
+                'done' => false,
+                'isRewarded' => false
+            ]);
+
+        return $this->render('global/modules/mission.html.twig', [
+            'userMissionNotFinished' => $userMissionNotFinished
         ]);
     }
 

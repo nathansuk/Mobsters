@@ -53,15 +53,9 @@
 
 
 		{% if app.user %}
-			<div class="buttons">
-				<button class="btn" onclick="openDiv()">
-					<img src="{{ asset('img/THI46.gif') }}"><span>Missions</span>
-					<span class="missions-notifs">{{ app.user.userMissions.count }}</span>
-					<span class="btn-arrow">
-						>
-					</span>
-				</button>
-			</div>
+			{{ render(controller(
+				'App\\Controller\\MissionController::getMissionModule'
+			)) }}
 
 			<div class="buttons">
 				<button class="btn" style="word-spacing: 30px;">

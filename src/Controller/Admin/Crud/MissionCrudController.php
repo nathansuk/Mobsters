@@ -6,6 +6,7 @@ use App\Entity\Mission;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -23,6 +24,7 @@ class MissionCrudController extends AbstractCrudController
             TextField::new('title', 'Intitulé'),
             TextEditorField::new('description', 'Description'),
             TextField::new('type', 'Le Type'),
+            IntegerField::new('reward'),
             AssociationField::new('clan', 'Associé au clan')
 
         ];

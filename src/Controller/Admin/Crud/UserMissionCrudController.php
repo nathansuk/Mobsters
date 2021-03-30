@@ -58,7 +58,9 @@ class UserMissionCrudController extends AbstractCrudController
 
         $user = $this->getDoctrine()->getRepository(User::class)->find($userMission->getUser()->getId());
 
-        $userMission->setIsRewarded(true);
+        $userMission
+            ->setIsRewarded(true)
+            ->setDone(true);
         $user->setMoney($user->getMoney() + $userMission->getReward());
 
         $this->persistEntity($this->get('doctrine')->getManagerForClass($context->getEntity()->getFqcn()), $user);
