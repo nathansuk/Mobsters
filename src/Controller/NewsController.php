@@ -18,6 +18,9 @@ class NewsController extends AbstractController
     /**
      * @param int $id
      * @param NewsService $newsService
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
+     * @param UserService $userService
      * @return Response
      * @Route("/news-{id}", name="show_news")
      */

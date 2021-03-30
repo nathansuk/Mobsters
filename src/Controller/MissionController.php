@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Mission;
-use App\Entity\User;
 use App\Entity\UserMission;
 use App\Services\Missions\MissionService;
 use App\Services\UserService;
