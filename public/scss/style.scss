@@ -1009,3 +1009,43 @@ hr {
 }
 
 }
+
+
+//PROFIL
+.global-profile-box {
+  background: white;
+  text-align: center;
+  width: 800px;
+  padding: 10px;
+  height: 10000px;
+
+  .gpb-header {
+    background: #cacaca;
+    border: 2px solid $box-bgr;
+    padding: 10px;
+    border-radius: 5px;
+
+    h1 {
+      color: $box-bgr;
+    }
+  }
+  .global-profile-info {
+    padding: 10px;
+    margin-top: 15px;
+
+    .user-img {
+      width: 150px;
+      height: 200px;
+      background-image: url(https://t4.ftcdn.net/jpg/01/63/20/53/360_F_163205363_5YgJBWSKY0dbO4ESsGuLpJDQOH3xlg3g.jpg);
+      border: 2px solid $box-bgr;
+      background-size: cover;
+      overflow: hidden;
+      margin-right: 30px;
+    }
+  }
+
+  .punaise {
+    position: absolute;
+    margin-top: -19px;
+  }
+}

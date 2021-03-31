@@ -7,8 +7,43 @@
 {% endblock %}
 
 {% block body %}
-	<h1>{{ user.username }}</h1>
 
+
+<section class="flex-center">
+	
+	<div class="global-profile-box">
+		<div class="gpb-header">
+			<img src="https://i.servimg.com/u/f12/19/02/71/34/interp10.png">
+			<h1>Enquête sur {{user.username}}</h1>
+		</div>
+		<div class="global-profile-info">
+			<img class="punaise" style="margin-left: -227px;" src="https://files.habboemotion.com/resources/images/homestickers/needle_3.gif">
+			<img class="punaise" style="margin-left: -40px;" src="https://files.habboemotion.com/resources/images/homestickers/needle_3.gif">
+			<img class="punaise" style="margin-left: 140px;" src="https://files.habboemotion.com/resources/images/homestickers/needle_3.gif">
+			<section class="flex-center">
+				<div class="user-img">
+					<img src="https://api.habbocity.me/avatar_image.php?user={{user.username}}&headonly=0&direction=1&head_direction=1&size=l" style="margin-top: -25px;">
+				</div>
+				<div class="user-img">
+					<img src="https://api.habbocity.me/avatar_image.php?user={{user.username}}&headonly=0&direction=3&head_direction=3&size=l" style="margin-top: -25px;">
+				</div>
+				<div class="user-img">
+					<img src="https://api.habbocity.me/avatar_image.php?user={{user.username}}&headonly=0&direction=5&head_direction=5&size=l" style="margin-top: -25px;">
+				</div>
+			</section>
+			
+		</div>
+	</div>
+
+</section>
+
+
+
+
+
+
+<!--
+	<h1>{{ user.username }}</h1>
 	<ul class="list-group">
 		{% for mission in userMission %}
 			<li class="list-group-item">{{ mission }}
@@ -21,4 +56,6 @@
 
 		{% endfor %}
 	</ul>
+
+-->
 {% endblock %}

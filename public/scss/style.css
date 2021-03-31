@@ -1053,4 +1053,43 @@ hr {
   margin-top: 17px;
   margin-right: 30px;
 }
+
+.global-profile-box {
+  background: white;
+  text-align: center;
+  width: 800px;
+  padding: 10px;
+  height: 10000px;
+}
+
+.global-profile-box .gpb-header {
+  background: #cacaca;
+  border: 2px solid #1b295f;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.global-profile-box .gpb-header h1 {
+  color: #1b295f;
+}
+
+.global-profile-box .global-profile-info {
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.global-profile-box .global-profile-info .user-img {
+  width: 150px;
+  height: 200px;
+  background-image: url(https://t4.ftcdn.net/jpg/01/63/20/53/360_F_163205363_5YgJBWSKY0dbO4ESsGuLpJDQOH3xlg3g.jpg);
+  border: 2px solid #1b295f;
+  background-size: cover;
+  overflow: hidden;
+  margin-right: 30px;
+}
+
+.global-profile-box .punaise {
+  position: absolute;
+  margin-top: -19px;
+}
 /*# sourceMappingURL=style.css.map */

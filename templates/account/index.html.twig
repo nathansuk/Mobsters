@@ -23,7 +23,7 @@
 			</div>
 			<div class="flex-center">
 				<div class="etat-compte" style="margin-top: 10px;">
-					<p>Solde :  + 889900
+					<p>Solde :  {{ app.user.money }}
 						<img src="{{asset('img/ls.png')}}"></p>
 				</div>
 			</div>
@@ -157,7 +157,7 @@
 
 				{% for transaction in lastTransactions %}
 					<p>
-						25/03/2021 | Virement - Bénéficiaire :
+						{{ "now"|date("d/m/Y") }} | Virement - Bénéficiaire :
 						{{ transaction.receiver }}
 						| Montant :
 						{{ transaction.amount }}
