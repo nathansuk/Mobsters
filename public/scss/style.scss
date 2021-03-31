@@ -1013,7 +1013,7 @@ hr {
 
 //PROFIL
 .global-profile-box {
-  background: white;
+  background: url(https://www.designbolts.com/wp-content/uploads/2013/02/Shine-Dotted-Grey-Seamless-Pattern-For-Website-Background.jpg);
   text-align: center;
   width: 800px;
   padding: 10px;
@@ -1047,5 +1047,15 @@ hr {
   .punaise {
     position: absolute;
     margin-top: -19px;
+  }
+
+.info-1 {
+      background: #a2a2a2;
+      padding: 10px;
+      text-align: center;
+      border: 2px solid $box-bgr;
+      margin-bottom: 5px;
+      width: 177px;
+      margin-top: 10px;
   }
 }
