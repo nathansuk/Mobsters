@@ -11,86 +11,33 @@
                 <h1>Podium</h1>
                 <div class="rang3">
                     <p class="position">TOP 3</p>
-                    <p>Sadsquatch</p>
-                    <p>13328793 <img src="{{ asset('img/ls.png') }}"></p>
-                    <img style="margin-left: -20px; margin-top: -40px;" src="https://api.habbocity.me/avatar_image.php?user=Sadsquatch&headonly=0&direction=2&head_direction=3&size=l">
+                    <p>{{ leaderboard[2].username }}</p>
+                    <p>{{ leaderboard[2].money }} <img src="{{ asset('img/ls.png') }}"></p>
+                    <img style="margin-left: -20px; margin-top: -40px;" src="https://api.habbocity.me/avatar_image.php?user={{ leaderboard[2].username }}&headonly=0&direction=2&head_direction=3&size=l">
                 </div>
                 <div class="rang2">
                     <p class="position">TOP 2</p>
-                    <p>Heidegger</p>
-                    <p>13328793 <img src="{{ asset('img/ls.png') }}"></p>
-                    <img style="margin-left: -7px; margin-top: -40px;" src="https://api.habbocity.me/avatar_image.php?user=Heidegger&headonly=0&direction=4&head_direction=3&size=l">
+                    <p>{{ leaderboard[1].username }}</p>
+                    <p>{{ leaderboard[1].money }} <img src="{{ asset('img/ls.png') }}"></p>
+                    <img style="margin-left: -7px; margin-top: -40px;" src="https://api.habbocity.me/avatar_image.php?user={{ leaderboard[1].username }}&headonly=0&direction=4&head_direction=3&size=l">
                 </div>
                 <div class="rang1">
                     <p class="position">MVP</p>
-                    <p>Devana</p>
-                    <p>13328793 <img src="{{ asset('img/ls.png') }}"></p>
-                    <img style="margin-top: -40px; margin-left: -13px;" src="https://api.habbocity.me/avatar_image.php?user=Devana&headonly=0&direction=3&head_direction=3&size=l&action=wav">
+                    <p>{{ leaderboard[0].username }}</p>
+                    <p>{{ leaderboard[0].money }} <img src="{{ asset('img/ls.png') }}"></p>
+                    <img style="margin-top: -40px; margin-left: -13px;" src="https://api.habbocity.me/avatar_image.php?user={{ leaderboard[0].username }}&headonly=0&direction=3&head_direction=3&size=l&action=wav">
                 </div>
             </div>
+
+            {% for user in leaderboard[3:] %}
             <div class="lgb-out-podium">
                 <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content">Galahad : 123293 <img src="{{ asset('img/ls.png') }}"> </div >
+                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user={{ user.username }}&headonly=0&direction=2&head_direction=3&size=n">
+                    <div  class="content">{{ user.username }} : {{ user.money }} <img src="{{ asset('img/ls.png') }}"> </div >
                     <div  class="position">4</div>
                 </div>
             </div>
-
-            <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content">Galahad : 123293 <img src="{{ asset('img/ls.png') }}"> </div >
-                    <div  class="position">5</div>
-                </div>
-            </div>
-
-            <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content">Galahad : 123293 <img src="{{ asset('img/ls.png') }}"> </div >
-                    <div  class="position">6</div>
-                </div>
-            </div>
-
-            <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content">Galahad : 123293 <img src="{{ asset('img/ls.png') }}"> </div >
-                    <div  class="position">7</div>
-                </div>
-            </div>
-
-            <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content">Galahad : 123293 <img src="{{ asset('img/ls.png') }}"> </div >
-                    <div  class="position">8</div>
-                </div>
-            </div>
-
-            <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content">Galahad : 123293 <img src="{{ asset('img/ls.png') }}"> </div >
-                    <div  class="position">9</div>
-                </div>
-            </div>
-
-                        <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content">Galahad : 123293 <img src="{{ asset('img/ls.png') }}"> </div >
-                    <div  class="position">10</div>
-                </div>
-            </div>
-
-                        <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content">Galahad : 123293 <img src="{{ asset('img/ls.png') }}"> </div >
-                    <div  class="position">11</div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
 
 
