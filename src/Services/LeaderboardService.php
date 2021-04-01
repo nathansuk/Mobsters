@@ -14,12 +14,12 @@ class LeaderboardService
         $this->em = $em;
     }
 
-    public function getRichestUsers(int $max): array
+    public function getRichestUsers(?int $max): array
     {
         return $this->em->getRepository(User::class)->findBy(array(), ['money' => 'DESC'], $max);
     }
 
-    public function getBestMissionUser(int $max): array
+    public function getBestMissionUser(?int $max): array
     {
         return $this->em->getRepository(User::class)->findBy(array(), ['finishedMission' => 'DESC'], $max);
 
