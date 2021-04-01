@@ -34,7 +34,7 @@
                 <div class="out-box">
                     <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user={{ user.username }}&headonly=0&direction=2&head_direction=3&size=n">
                     <div  class="content">{{ user.username }} : {{ user.money }} <img src="{{ asset('img/ls.png') }}"> </div >
-                    <div  class="position">4</div>
+                    <div  class="position">{{ loop.index + 3 }}</div>
                 </div>
             </div>
             {% endfor %}
@@ -47,86 +47,33 @@
                 <h1>Podium</h1>
                 <div class="rang3">
                     <p class="position">TOP 3</p>
-                    <p>Thorstein</p>
-                    <p>90 missions</p>
-                    <img style="margin-left: -20px; margin-top: -40px;" src="https://api.habbocity.me/avatar_image.php?user=Thorstein&headonly=0&direction=2&head_direction=3&size=l">
+                    <p>{{ leaderboardMission[2].username }}</p>
+                    <p>{{ leaderboardMission[2].finishedMission }} missions</p>
+                    <img style="margin-left: -20px; margin-top: -40px;" src="https://api.habbocity.me/avatar_image.php?user={{ leaderboardMission[2].username }}&headonly=0&direction=2&head_direction=3&size=l">
                 </div>
                 <div class="rang2">
                     <p class="position">TOP 2</p>
-                    <p>Honorius</p>
-                    <p>99 missions</p>
-                    <img style="margin-left: -7px; margin-top: -40px;" src="https://api.habbocity.me/avatar_image.php?user=Honorius&headonly=0&direction=4&head_direction=3&size=l">
+                    <p>{{ leaderboardMission[1].username }}</p>
+                    <p>{{ leaderboardMission[1].finishedMission }} missions</p>
+                    <img style="margin-left: -20px; margin-top: -40px;" src="https://api.habbocity.me/avatar_image.php?user={{ leaderboardMission[1].username }}&headonly=0&direction=2&head_direction=3&size=l">
                 </div>
                 <div class="rang1">
                     <p class="position">MVP</p>
-                    <p>Budd</p>
-                    <p>112 missions</p>
-                    <img style="margin-top: -40px; margin-left: -13px;" src="https://api.habbocity.me/avatar_image.php?user=Budd&headonly=0&direction=3&head_direction=3&size=l&action=wav">
+                    <p>{{ leaderboardMission[0].username }}</p>
+                    <p>{{ leaderboardMission[0].finishedMission }} missions</p>
+                    <img style="margin-top: -40px; margin-left: -13px;" src="https://api.habbocity.me/avatar_image.php?user={{ leaderboardMission[0].username }}&headonly=0&direction=3&head_direction=3&size=l&action=wav">
                 </div>
             </div>
+            {% for user in leaderboardMission[3:] %}
             <div class="lgb-out-podium">
                 <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content2">Galahad : 12 missions</div >
-                    <div  class="position">4</div>
+                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user={{ user.username }}&headonly=0&direction=2&head_direction=3&size=n">
+                    <div  class="content2">{{ user.username }} : {{ user.finishedMission }} missions</div >
+                    <div  class="position">{{ loop.index + 3 }}</div> <!-- Weird but works, coz loop starts at 0-->
                 </div>
             </div>
+            {% endfor %}
 
-            <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content2">Galahad : 12 missions</div >
-                    <div  class="position">5</div>
-                </div>
-            </div>
-
-            <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content2">Galahad : 12 missions</div >
-                    <div  class="position">6</div>
-                </div>
-            </div>
-
-            <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content2">Galahad : 12 missions</div >
-                    <div  class="position">7</div>
-                </div>
-            </div>
-
-            <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content2">Galahad : 12 missions</div >
-                    <div  class="position">8</div>
-                </div>
-            </div>
-
-            <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content2">Galahad : 12 missions</div >
-                    <div  class="position">9</div>
-                </div>
-            </div>
-
-                        <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content2">Galahad : 12 missions</div >
-                    <div  class="position">10</div>
-                </div>
-            </div>
-
-                        <div class="lgb-out-podium">
-                <div class="out-box">
-                    <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n">
-                    <div  class="content2">Galahad : 12 missions</div >
-                    <div  class="position">11</div>
-                </div>
-            </div>
         </div>
 
     </section>

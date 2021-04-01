@@ -20,10 +20,12 @@ class LeaderboardController extends AbstractController
          * On recupere le leaderboard en passant $max en argument (nombre de personnes affichées dans le leaderboard)
          */
         $leaderboard = $leaderboardService->getRichestUsers(20);
+        $leaderboardMission = $leaderboardService->getBestMissionUser(20);
 
         return $this->render('leaderboard/index.html.twig', [
             'controller_name' => 'LeaderboardController',
-            'leaderboard' => $leaderboard
+            'leaderboard' => $leaderboard,
+            'leaderboardMission' => $leaderboardMission
         ]);
     }
 }

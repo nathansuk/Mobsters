@@ -26,7 +26,8 @@ class UserCrudController extends AbstractCrudController
             IntegerField::new('money', 'Livres Sterling')->setPermission('ROLE_ADMIN'),
             ArrayField::new('roles', 'Ranks')->setPermission('ROLE_ADMIN'),
             AssociationField::new('clan', 'Clan')->setPermission('ROLE_ADMIN'),
-            AssociationField::new('userMissions', 'Missions assignées')->setPermission('ROLE_ADMIN')
+            AssociationField::new('userMissions', 'Missions assignées')->setPermission('ROLE_ADMIN'),
+            IntegerField::new("finishedMission")->setPermission('ROLE_ADMIN')
         ];
     }
 

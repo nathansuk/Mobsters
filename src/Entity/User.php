@@ -81,6 +81,11 @@ class User implements UserInterface
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $finishedMission;
+
     public function __construct()
     {
         $this->userMissions = new ArrayCollection();
@@ -307,6 +312,18 @@ class User implements UserInterface
                 $comment->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFinishedMission(): ?int
+    {
+        return $this->finishedMission;
+    }
+
+    public function setFinishedMission(int $finishedMission): self
+    {
+        $this->finishedMission = $finishedMission;
 
         return $this;
     }
