@@ -16,7 +16,9 @@
 			<img src="https://i.servimg.com/u/f12/19/02/71/34/interp10.png">
 			<h1>Enquête sur {{user.username}}</h1>
 		</div>
+		
 		<div class="global-profile-info">
+		
 			<img class="punaise" style="margin-left: -227px;" src="https://files.habboemotion.com/resources/images/homestickers/needle_3.gif">
 			<img class="punaise" style="margin-left: -40px;" src="https://files.habboemotion.com/resources/images/homestickers/needle_3.gif">
 			<img class="punaise" style="margin-left: 140px;" src="https://files.habboemotion.com/resources/images/homestickers/needle_3.gif">
@@ -31,12 +33,45 @@
 					<img src="https://api.habbocity.me/avatar_image.php?user={{user.username}}&headonly=0&direction=5&head_direction=5&size=l" style="margin-top: -25px;">
 				</div>
 			</section>
-			<div class="info-1">
-						<img style="float: left;position: absolute;  margin-top: -10px; margin-left: -67px; background: #004580; padding: 1px;" src="{{ asset('img/pseudo.png')}}">
-						{{user.username}}
-					</div>
+			<section class="flex-center">
+				<div class="info-1">
+					<img style="float: left;position: absolute;  margin-top: -10px; margin-left: -68px; background: #004580; padding: 1px;" src="{{ asset('img/pseudo.png')}}">
+					{{user.username}}
 				</div>
-		</div>
+
+				<div class="info-1">
+					<img style="float: left;position: absolute;  margin-top: -10px; margin-left: -12px; background: #004580; padding: 3px; margin-right: 10px;" src="{{ asset('img/orgaicon.png')}}">
+					<span style="margin-left: 35px;">Imperial Mobsters</span>
+				</div>
+
+				<div class="info-1">
+					<img style="float: left;position: absolute;  margin-top: -10px; margin-left: -62px; background: #004580; padding: 10px; margin-right: 10px;" src="{{ asset('img/ls.png')}}">
+					{{user.money}}
+				</div>
+			</section>
+
+			<section class="flex-center;" style="margin-top: 20px;">
+				<h1 style="color: #004580;">Informations banquaires</h1>
+			<!--GOLDCARD-->
+				<section style="z-index: 0;">
+					<img style=" position: absolute;margin-top: 59px; z-index: 0; margin-left: 54px; opacity: 0.5;" src="https://files.habboemotion.com/resources/images/homestickers/money_stash.gif">
+				</section>
+
+				<div class="credit-card-gold" style="margin-top: 10px; margin-right: auto; margin-left: auto;">
+				<section style="z-index: 1;">
+					<div class="cc-name" style="z-index: 1;">Mobsters GoldCard</div>
+					<div class="cc-user-body"><img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=3&head_direction=3&size=n"></div>
+					<img class="crypto" src="https://files.habboemotion.com/resources/images/icons/v22_3(1).gif">
+					<span class="cc-numero-compte" style="z-index: 1;">Numéro de compte :<br>**** ****{{ random(1000, 9000) }}</span>
+																		
+					<div class="bottom-cc" style="z-index: 1;">
+						<span class="cc-user-name">{{ app.user.username }}</span>
+						<span class="cc-bbank">&copy; Byron Bank</span>
+					</div>
+				</section>
+
+
+			</section>
 	</div>
 
 </section>
