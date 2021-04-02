@@ -27,6 +27,7 @@ $box-bgr: #1b295f;
   font-weight: bold;
   color: white;
   text-decoration: none;
+  image-rendering: pixelated;
 }
 body {
   background: $bgr;
@@ -88,7 +89,7 @@ body {
   background-color: #2a2a50;
   position: fixed;
   display: none;
-  opacity: 0.97;
+  opacity: 90%;
   z-index: 100;
 }
 
@@ -937,7 +938,7 @@ hr {
 
 .lgb-podium { 
   margin-top: 20px;
-  height: 200;
+  height: 200px;
   background: $border;
   border-radius: 10px;
   padding: 10px;
@@ -1060,3 +1061,143 @@ hr {
       margin-right: 10px;
   }
 }
+
+.news-content{
+  height: auto;
+  padding: 10px;
+  background-color: #1b295f;
+  border-radius: 10px;
+
+  .news-top-image{
+    width: 100%;
+    background-size: cover;
+    margin: auto;
+    border-radius: 10px;
+    height: 100px;
+    text-align: center;
+  }
+
+  .news-title{
+    position: relative;
+    top: 30%;
+  }
+
+  .news-content{
+    margin-top: 30px;
+  }
+
+}
+
+.comment-space, .other-news-space{
+  margin-top: 30px;
+}
+
+.section-title{
+  margin-bottom: 15px;
+}
+
+.comment-space{
+  width: 50%;
+
+  label{
+    display: none;
+  }
+}
+
+#comment_message {
+  width: 100%;
+  height: 50px;
+  color: white;
+  border-radius: 10px;
+  background-color: #2a2a50;
+  padding-left: 20px;
+  border: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-comment{
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  margin-top: 10px;
+  color: white;
+  background-color: #2a2a50;
+  border: none;
+  position: relative;
+  float: right;
+  margin-bottom: 20px;
+}
+
+.comment-item{
+  width: 100%;
+  height: 100px;
+  background-color: #2a2a50;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  &:hover > .user-comment-avatar {
+    transition: 0.2s ease-in;
+    margin-top: -25px;
+  }
+
+  .comment-content--top{
+    margin-bottom: 10px;
+  }
+
+  .comment--content--message{
+    font-weight: 400;
+  }
+
+  .user-comment-avatar{
+    transition: 0.2s ease-in;
+    width: 100px;
+    height: 170px;
+    margin-top: -20px;
+    margin-right: 10px;
+  }
+
+}
+
+.comment--content{
+  position: relative;
+  top: 15%;
+  width: 70%;
+}
+
+.comment--date{
+  position: relative;
+  top: 30%;
+}
+
+.other-news-space{
+  width: 49%;
+
+  .other-news--item{
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    background-color: red;
+    margin-bottom: 10px;
+    background-size: cover;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+
+    &:hover{
+      transition: 0.2s ease-in;
+      height: 105px;
+    }
+
+    h2{
+      margin: auto;
+    }
+  }
+}
+

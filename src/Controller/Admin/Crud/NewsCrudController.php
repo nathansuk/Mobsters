@@ -29,8 +29,7 @@ class NewsCrudController extends AbstractCrudController
                 ->setLabel('Contenu'),
             TextField::new('author', 'Auteur'),
             TextField::new('topstory', 'Image'),
-            AssociationField::new('category', 'Catégorie'),
-            CollectionField::new('comments')
+            AssociationField::new('category', 'Catégorie')
         ];
     }
 

@@ -57,10 +57,13 @@ class NewsController extends AbstractController
 
         }
 
+        $newsList = $newsService->getAllNews();
+
         return $this->render('news/show.html.twig', [
            'news' => $news,
             'comments' => $comments,
-            'comment_form' => $comment_form->createView()
+            'comment_form' => $comment_form->createView(),
+            'other_news' => $newsList
         ]);
 
     }
