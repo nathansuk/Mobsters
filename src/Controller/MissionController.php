@@ -68,6 +68,12 @@ class MissionController extends AbstractController
             return $this->redirectToRoute("mission");
         }
 
+        if($mission->getClan() !== null){
+            if($user->getClan() != $mission->getClan()){
+                $this->addFlash('error', 'Vous ne faites pas partie de ce clan');
+                return $this->redirectToRoute("mission");
+            }
+        }
         /*
          * Then, we check by using userAlreadyHasMission function (declared by dependency injection)
          * If the user has already the mission, then return an error, or continue and add in the database.
