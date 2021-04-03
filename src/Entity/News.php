@@ -50,7 +50,7 @@ class News
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="article")
+     * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="article", cascade={"remove"}, orphanRemoval=true)
      */
     private $comments;
 
