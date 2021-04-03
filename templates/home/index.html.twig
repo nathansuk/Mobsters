@@ -2,7 +2,7 @@
 
 {% block title %}
 	{{ sitename }}
-	: Accueil
+	: {{ controller_name }}
 {% endblock %}
 
 {% block body %}
@@ -96,47 +96,25 @@
 		<h2>Les dernières missions</h2>
 		<section class="flex-center">
 
-			<div class="mission-box" style="margin-right: 20px;">
-				<p class="mission-title">Opération C.I.A</p>
-				<img src="https://files.habboemotion.com/resources/images/homestickers/hw_inmate.gif">
-				<div style="text-align: start;">
-					<p>Type : Espionnage</p>
-					<p>Récompense : 13 000
-						<img src="{{ asset('img/ls.png')}}">
-					</p>
+			{% for mission in missions[:6] %}
+				{% if mission.clan == null %}
+				<div class="mission-box" style="margin-right: 20px;">
+					<p class="mission-title">{{ mission.title }}</p>
+					<img src="https://files.habboemotion.com/resources/images/homestickers/hw_inmate.gif">
+					<div style="text-align: start;">
+						<p>Type : {{ mission.type }}
+						</p>
+						<p>Récompense : {{ mission.reward }}
+							<img src="{{ asset('img/ls.png')}}">
+						</p>
+					</div>
+					<a href="{{ path('mission') }}">
+						<img src="https://files.habboemotion.com/resources/images/icons/arrow_7.gif">
+					</a>
 				</div>
-				<a href="#">
-					<img src="https://files.habboemotion.com/resources/images/icons/arrow_7.gif">
-				</a>
-			</div>
+				{% endif %}
+			{% endfor %}
 
-			<div class="mission-box">
-				<p class="mission-title">Objectif destruction</p>
-				<img src="https://files.habboemotion.com/resources/images/homestickers/hw_inmate.gif">
-				<div style="text-align: start;">
-					<p>Type : Saccage</p>
-					<p>Récompense : 13 000
-						<img src="{{ asset('img/ls.png')}}">
-					</p>
-				</div>
-				<a href="#">
-					<img src="https://files.habboemotion.com/resources/images/icons/arrow_7.gif">
-				</a>
-			</div>
-
-			<div class="mission-box" style="margin-left: 20px;">
-				<p class="mission-title">Casse-lui la gueule !</p>
-				<img src="https://files.habboemotion.com/resources/images/homestickers/hw_inmate.gif">
-				<div style="text-align: start;">
-					<p>Type : Passage à tabac</p>
-					<p>Récompense : 13 000
-						<img src="{{ asset('img/ls.png')}}">
-					</p>
-				</div>
-				<a href="#">
-					<img src="https://files.habboemotion.com/resources/images/icons/arrow_7.gif">
-				</a>
-			</div>
 
 		</section>
 	</div>

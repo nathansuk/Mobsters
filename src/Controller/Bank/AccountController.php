@@ -151,7 +151,7 @@ class AccountController extends AbstractController
         $lastTransactions = $userService->getUserTransactions(3, $this->getUser());
 
         return $this->render('account/index.html.twig', [
-            'controller_name' => 'AccountController',
+            'controller_name' => 'Compte en banque',
             'lastTransactions' => $lastTransactions,
             'sendMoneyForm' => $sendMoneyForm->createView(),
             'askEmpruntForm' => $askEmpruntForm->createView()

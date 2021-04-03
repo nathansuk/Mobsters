@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello GestionBanqueController!{% endblock %}
+{% block title %}
+    {{ sitename }}
+    : {{ controller_name }}
+{% endblock %}
 
 {% block body %}
 
@@ -39,6 +42,7 @@
             <span><span class="badge bg-warning text-dark">{{ demande.user }}</span>
                 Montant : <span class="badge bg-light text-dark">{{ demande.montant }}</span>
                 Motif : {{ demande.motif }}
+                Accordé par  {{ demande.acceptedBy }}
                 <a href="{{ path('valider_emprunt', {'id': demande.id }) }}">
                     <button type="button" class="btn btn-success">Marquer comme payé</button>
                 </a>
@@ -54,6 +58,7 @@
             <span><span class="badge bg-warning text-dark">{{ demande.user }}</span>
                 Montant : <span class="badge bg-light text-dark">{{ demande.montant }}</span>
                 Motif : {{ demande.motif }}
+                Marqué payé par  {{ demande.validateBy }}
             </span>
         </li>
     {% endfor %}

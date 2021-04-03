@@ -30,7 +30,7 @@ class GestionBanqueController extends AbstractController
         $this->isGranted('ROLE_BANQUIER');
 
         return $this->render('gestion_banque/index.html.twig', [
-            'controller_name' => 'GestionBanqueController',
+            'controller_name' => 'Espace banquier',
             'demandes' => $demandeEmprunt,
             'demandes_acceptees' => $demandeAcceptee,
             'empruntsRembourses' => $empruntsRembourses

@@ -23,7 +23,7 @@ class LeaderboardController extends AbstractController
         $leaderboardMission = $leaderboardService->getBestMissionUser(20);
 
         return $this->render('leaderboard/index.html.twig', [
-            'controller_name' => 'LeaderboardController',
+            'controller_name' => 'Classement',
             'leaderboard' => $leaderboard,
             'leaderboardMission' => $leaderboardMission
         ]);

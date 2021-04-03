@@ -39,7 +39,7 @@ class MissionController extends AbstractController
             }
         }
         return $this->render('mission/index.html.twig', [
-            'controller_name' => 'MissionController',
+            'controller_name' => 'Les missions',
             'missionAvailable' => $missions
         ]);
     }
