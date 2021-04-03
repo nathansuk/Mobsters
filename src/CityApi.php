@@ -22,7 +22,7 @@ class CityApi {
     public function __construct($userName) {
         $this->userName = $userName;
         $this->apiKey = getenv('API_KEY');
-        $this->data = CityApi::cURL("https://api.habbocity.me/avatar_info.php?key=Cr53Rcgt67&user=".$this->userName."&selectedBadges&wealth&rooms&lastTweets");
+        $this->data = CityApi::cURL("https://api.habbocity.me/avatar_info.php?key=Cr53Rcgt67&user=".$this->userName."&selectedBadges&groups&rooms&lastTweets");
         $this->checkErreur();
     }
 
@@ -72,7 +72,7 @@ class CityApi {
 
     public function getListGroupe(): ?array {
         if($this->erreur != null) return null;
-        return json_decode(json_encode($this->data->joinGroup),true);
+        return json_decode(json_encode($this->data->groups),true);
     }
 
     private function checkErreur(): void {

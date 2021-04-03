@@ -347,11 +347,13 @@ body {
   top: 15px;
 
   .spinput {
-    padding: 5px;
+    padding: 15px;
     outline: none;
     background: $box-bgr;
     border: 2px solid $border;
     color: white;
+    width: 70%;
+    border-radius: 10px;
   }
 }
 .user-info {
@@ -1132,7 +1134,7 @@ hr {
 
 .appart-id {
   width: 875px;
-  height: 180px;
+  height: fit-content;
   background: #f5ead3;
   margin-top: 10px;
   border: 2px solid black;
@@ -1150,6 +1152,7 @@ hr {
   background: #9e8e6f;
   border: 2px solid black;
   margin-right: 10px;
+  margin-bottom: 10px;
   overflow: hidden;
 
   p {
@@ -1301,4 +1304,8 @@ hr {
       margin: auto;
     }
   }
+}
+
+.list-room{
+  flex-flow: row wrap;
 }

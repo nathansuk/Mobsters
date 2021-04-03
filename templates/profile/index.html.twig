@@ -8,7 +8,7 @@
 
 
 {% block body %}
-<h1 style="padding: 10px; background:#f5ead3; width: 852px; margin: auto; color: black; border: 2px solid black;">Dossier numéro {{ random(10000, 999999) }}</h1>
+<h1 style="padding: 10px; background:#f5ead3; width: 852px; margin: auto; color: black; border: 2px solid black;">Dossier numéro {{ user.id }}</h1>
 	<section class="flex-center" style="margin-top: 10px;">
 		<div class="img-carte-id">
 			<div class="pseudo-id">{{user.username}}</div>
@@ -17,16 +17,15 @@
 			</div>
 			<div class="humeur-city">Imperial Mobsters, Ace</div>
 			<div class="ls-id"><img style="position: relative; top: 4px;" src="{{ asset('img/ls.png')}}">&nbsp; {{user.money}}</div>
-			<div class="diamond-id"><img style="position: relative; top: 3px; height: 16px;" src="{{ asset('img/diamond.png')}}">&nbsp; 12768326</div>
+			<div class="diamond-id"><img style="position: relative; top: 3px; height: 16px;" src="{{ asset('img/diamond.png')}}">&nbsp;
+				{{ cityUser['diamonds'] }}</div>
 			<div class="cp-id">&copy;&nbsp;London City Council</div>
 			<section class="flex-center">
 				<div class="tattoo-listing">
-					<img src="https://i.servimg.com/u/f12/19/02/71/34/badge_29.png">
-					<img src="https://i.servimg.com/u/f12/19/02/71/34/badge_24.png">
-					<img src="https://i.servimg.com/u/f12/19/02/71/34/badge_31.png">
-					<img src="https://i.servimg.com/u/f12/19/02/71/34/badge_32.png">
-					<img src="https://i.servimg.com/u/f16/18/76/94/83/badge_13.png">
-					<img src="https://i.servimg.com/u/f12/19/02/71/34/badge_27.png">
+
+					{% for badge in cityUser['badges'] %}
+					<img src="https://swf.habbocity.me/c_images/album1584/{{ badge.code }}.gif">
+					{% endfor %}
 				</div>
 			</section>
 		</div>
@@ -35,97 +34,40 @@
 			<img style="position: relative; top: 30px; left: 10px;" src="https://i.servimg.com/u/f12/19/02/71/34/interp10.png">
 			<p class="cj-title">Casier Judiciaire</p>
 			<div class="listing-cj">
-				<p>Mission #1</p>
-				<p>Mission #2</p>
-				<p>Mission #3</p>
-				<p>Mission #4</p>
-				<p>Mission #5</p>
-				<p>Mission #6</p>
-				<p>Mission #7</p>
-				<p>Mission #8</p>
-				<p>Mission #9</p>
-				<p>Mission #10</p>
-				<p>Mission #11</p>
-				<p>Mission #12</p>
-				<p>Mission #13</p>
-				<p>Mission #14</p>
-				<p>Mission #15</p>
-				<p>Mission #16</p>
-				<p>Mission #17</p>
-				<p>Mission #18</p>
-				<p>Mission #19</p>
-				<p>Mission #20</p>
-				<p>Mission #21</p>
+
+				{% for mission in missions %}
+					<p>{{ mission.mission.title }}</p>
+				{% endfor %}
 			</div>
 		</div>
 	</section>
 
-	<section class="flex-center">
+	<section class="flex-center flex-row">
 		<div class="appart-id">
 			<div class="appart-id-title">Patrimoine immobilier</div>
-			<section class="flex-center">
+			<section class="flex-center list-room">
+				{% for room in cityUser['rooms'] %}
 				<div class="idappart-box">
 					<img style="position: relative; left: -5px; top: -10px;" src="{{ asset('img/idroom.png')}}">
-					<p>Appart 1</p>
+					<p>{{ room.name }}</p>
 				</div>
-
-				<div class="idappart-box">
-					<img style="position: relative; left: -5px; top: -10px;" src="{{ asset('img/idroom.png')}}">
-					<p>Appart 2</p>
-				</div>
-
-				<div class="idappart-box">
-					<img style="position: relative; left: -5px; top: -10px;" src="{{ asset('img/idroom.png')}}">
-					<p>Appart 3</p>
-				</div>
-
-				<div class="idappart-box">
-					<img style="position: relative; left: -5px; top: -10px;" src="{{ asset('img/idroom.png')}}">
-					<p>Appart 4</p>
-				</div>
-
-				<div class="idappart-box">
-					<img style="position: relative; left: -5px; top: -10px;" src="{{ asset('img/idroom.png')}}">
-					<p>Appart 5</p>
-				</div>
+				{% endfor %}
+			</section>
+		</div>
 	</section>
-
 
 	<section class="flex-center" style="margin-top: 20px;">
 		<div class="appart-id" style="height: 100px;">
 			<div class="appart-id-title">Groupements</div>
 			<section class="flex-center">
+				{% for group in cityUser['groups'] %}
 				<div class="groupe-id">
-					<img src="https://swf.habbocity.me/habbo-imaging/badge-groupe/b6106s61064s56014s32067.gif">
+					<img src="{{ group.badge }}" alt="{{ group.name }}">
 				</div>
-				<div class="groupe-id">
-					<img src="https://swf.habbocity.me/habbo-imaging/badge-groupe/b6106s61064s56014s32067.gif">
-				</div>
-				<div class="groupe-id">
-					<img src="https://swf.habbocity.me/habbo-imaging/badge-groupe/b6106s61064s56014s32067.gif">
-				</div>
-				<div class="groupe-id">
-					<img src="https://swf.habbocity.me/habbo-imaging/badge-groupe/b6106s61064s56014s32067.gif">
-				</div>
+				{% endfor %}
 			</section>
+		</div>
+	</section>
 
-</div>
-</section>
 
-	<!--
-								<h1>{{ user.username }}</h1>
-								<ul class="list-group">
-									{% for mission in userMission %}
-										<li class="list-group-item">{{ mission }}
-											{% if mission.done %}
-												<span class="badge bg-success">Terminée</span>
-											{% else %}
-												<span class="badge bg-warning">En cours</span>
-											{% endif %}
-										</li>
-							
-									{% endfor %}
-								</ul>
-							
-							-->
 {% endblock %}

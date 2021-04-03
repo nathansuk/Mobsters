@@ -1,13 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
-::-webkit-input-placeholder {
-  color: white;
-}
-:-ms-input-placeholder {
-  color: white;
-}
-::-ms-input-placeholder {
-  color: white;
-}
 ::placeholder {
   color: white;
 }
@@ -34,11 +25,7 @@
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
   text-decoration: none;
-  -ms-interpolation-mode: nearest-neighbor;
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: -moz-crisp-edges;
-      image-rendering: -o-pixelated;
-      image-rendering: pixelated;
+  image-rendering: pixelated;
 }
 
 body {
@@ -53,7 +40,6 @@ body {
   margin-top: 30px;
   margin-right: 30px;
 }
-
 @media (max-width: 1600px) {
   .page-container {
     width: 70%;
@@ -62,23 +48,13 @@ body {
 }
 
 .flex-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 .flex-column {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .w-100 {
@@ -92,7 +68,6 @@ body {
   margin-bottom: 20px;
   text-align: center;
 }
-
 .alert-box span {
   position: relative;
   top: 35%;
@@ -119,12 +94,10 @@ body {
 .overlay-content {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   margin: auto;
   width: 60%;
 }
-
 .overlay-content--title {
   margin-bottom: 30px;
 }
@@ -140,11 +113,9 @@ body {
   margin-top: 100px;
   background: none;
 }
-
 .close-overlay-btn:focus {
   outline: none;
 }
-
 .close-overlay-btn span {
   font-size: 20px;
   text-decoration: underline;
@@ -163,15 +134,11 @@ body {
   margin-bottom: 15px;
   padding: 0 20px;
 }
-
 .mission-card .card-body {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   position: relative;
   top: 35%;
 }
-
 .mission-card .card-body button {
   position: relative;
   top: -10%;
@@ -189,20 +156,15 @@ body {
   overflow: scroll;
   overflow-x: hidden;
 }
-
 .liste-mission--item {
   width: 100%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
-  -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
   background-color: #232342;
   border-radius: 10px;
   margin-bottom: 15px;
   cursor: pointer;
 }
-
 .liste-mission--item .waiting-logo {
   width: 55px;
   height: 40px;
@@ -210,24 +172,19 @@ body {
   margin-bottom: 10px;
   margin-right: 10px;
 }
-
 .liste-mission--item:hover {
   background-color: #373764;
-  -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
 }
-
 .liste-mission--item h3 {
   width: 90%;
 }
-
 .liste-mission--item h3,
 .liste-mission--item .state-dot {
   position: relative;
   top: 30%;
   float: right;
 }
-
 .liste-mission--item .state-dot {
   width: 20px;
   height: 15px;
@@ -259,19 +216,14 @@ body {
   background-color: #232342;
   padding: 30px;
 }
-
 .mission-desc--content .content--bottom {
   margin-top: 30px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
-
 .mission-desc--content p {
   margin-top: 15px;
   font-weight: 400;
 }
-
 .mission-desc--content .btn {
   height: 40px;
   color: white;
@@ -280,46 +232,37 @@ body {
   cursor: pointer;
   margin-right: 10px;
 }
-
 .mission-desc--content .btn:focus {
   outline: none;
 }
-
 .mission-desc--content .btn-askforvalid {
   width: 200px;
   background-color: #2e7165;
 }
-
 .mission-desc--content .btn-waitingValidation {
   width: 200px;
   background-color: #f39c12;
   cursor: not-allowed;
 }
-
 .mission-desc--content .btn-waitingValidation .waiting-logo {
   width: 55px;
   height: 40px;
 }
-
 .mission-desc--content .btn-waitingValidation span {
   margin-top: 5px;
 }
-
 .mission-desc--content .btn-abandon {
   width: 100px;
   background-color: #b83838;
 }
-
 .mission-desc--content .reward-zone {
   margin-bottom: 20px;
 }
-
 .mission-desc--content .reward-logo {
   width: 50px;
   height: 55px;
   margin-right: 20px;
 }
-
 .mission-desc--content .time-left-logo {
   width: 75px;
   height: 60px;
@@ -350,7 +293,6 @@ body {
   border: 4px solid #4961bd;
   overflow: hidden;
 }
-
 .user-avatar img {
   margin-top: -42px;
   margin-left: -14px;
@@ -378,38 +320,33 @@ body {
   position: relative;
   top: 15px;
 }
-
 .searchprofil .spinput {
-  padding: 5px;
+  padding: 15px;
   outline: none;
   background: #1b295f;
   border: 2px solid #4961bd;
   color: white;
+  width: 70%;
+  border-radius: 10px;
 }
 
 .user-info {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   float: left;
   line-height: 27px;
   font-size: 20px;
   margin-left: 10px;
 }
-
 .user-info span {
   font-weight: 400;
 }
-
 .user-info .user-name {
   font-size: 30px;
 }
-
 .user-info img {
   position: absolute;
   margin-top: 4px;
 }
-
 .user-info .user-money {
   margin-left: 12px;
 }
@@ -420,69 +357,48 @@ body {
   border-radius: 20px;
   background-color: #1b295f;
   margin-top: 30px;
-  -webkit-box-shadow: 0 5px 50px rgba(31, 31, 60, 0.5);
-          box-shadow: 0 5px 50px rgba(31, 31, 60, 0.5);
+  box-shadow: 0 5px 50px rgba(31, 31, 60, 0.5);
 }
-
 .menu .menu-items {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin-left: 35px;
-  -webkit-transform: translateY(25%);
-          transform: translateY(25%);
+  transform: translateY(25%);
 }
-
 .menu .menu-items p {
   font-size: 1.2rem;
   padding: 10px;
-  -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
   color: white;
 }
-
 .menu .menu-items p img {
   float: left;
   width: 25px;
   height: 25px;
   margin-right: 5px;
 }
-
 .menu .menu-items a {
   text-decoration: none;
-  -webkit-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
 }
-
 .menu .menu-items a:hover {
-  -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
   background: #232342;
   border-radius: 10px 0 0 10px;
 }
-
 .menu .menu-items a:hover > p {
   padding-left: 15px;
-  -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
 }
-
 .menu p:hover .dropdown-content {
   visibility: visible;
 }
-
 .menu #sub-menu-mission {
   display: none;
 }
-
 .menu #sub-menu-bank {
   display: none;
 }
-
 .menu .sub-menu {
   height: 320px;
   width: 250px;
@@ -493,7 +409,6 @@ body {
   border-radius: 0 10px 10px 0;
   margin-left: 200px;
 }
-
 .menu .sub-menu--item {
   margin-left: 55px;
 }
@@ -514,13 +429,10 @@ body {
   margin-top: 30px;
   color: white;
 }
-
 .buttons:hover > button > img {
-  -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
   margin-top: -15px;
 }
-
 .buttons .btn {
   width: 90%;
   height: 60px;
@@ -532,22 +444,18 @@ body {
   outline: none;
   cursor: pointer;
 }
-
 .buttons .btn img {
   position: absolute;
-  -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
   left: 40px;
   margin-top: -7px;
   margin-right: 10px;
   width: 40px;
 }
-
 .buttons .btn span {
   margin-left: -15px;
   color: white;
 }
-
 .buttons .btn .missions-notifs {
   font-size: 20px;
   background: #d85555;
@@ -556,7 +464,6 @@ body {
   height: 20px;
   border-radius: 100%;
 }
-
 .buttons .btn .btn-arrow {
   float: right;
   margin-right: 10px;
@@ -566,31 +473,22 @@ body {
   height: 100px;
   margin-top: 30px;
 }
-
 .footer img {
   float: left;
 }
-
 .footer .footer-txt {
   float: right;
   margin-top: 13px;
   margin-right: 30px;
 }
-
 .footer .footer-txt .ft-app-name {
   font-size: 17px;
 }
 
 .flex-center {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-article-box {
@@ -600,7 +498,6 @@ body {
   border-radius: 10px;
   border: 2px solid #4961bd;
 }
-
 .home-article-box h2 {
   position: absolute;
   padding-top: 5px;
@@ -632,8 +529,6 @@ hr {
 }
 
 .top-players {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   padding: 10px;
   border-radius: 10px;
@@ -641,7 +536,6 @@ hr {
   background: #27397e;
   margin-top: 20px;
 }
-
 .top-players h2 {
   text-align: center;
 }
@@ -653,21 +547,17 @@ hr {
   margin-top: 10px;
   border-radius: 10px;
 }
-
 .top-player-box .tpb-pseudo {
   font-weight: normal;
 }
-
 .top-player-box .ls {
   position: absolute;
   margin-top: -2px;
   padding-left: 2px;
 }
-
 .top-player-box .user-body {
   margin-top: -20px;
 }
-
 .top-player-box .tpb-money {
   margin-left: -13px;
 }
@@ -677,8 +567,6 @@ hr {
 }
 
 .tpb-button {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
@@ -687,20 +575,15 @@ hr {
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   color: white;
 }
-
 .tpb-button:hover {
   opacity: 0.5;
 }
 
 .esp {
   padding: 10px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   background: #4961bd;
   border-radius: 10px;
@@ -709,7 +592,6 @@ hr {
   margin-right: auto;
   cursor: pointer;
 }
-
 .esp:hover {
   opacity: 0.7;
 }
@@ -728,11 +610,9 @@ hr {
   line-height: 35px;
   padding-left: 20px;
 }
-
 .mission-box .mission-title {
   background: #4961bd;
 }
-
 .mission-box .accept-mission {
   padding: 5px;
   background: green;
@@ -745,7 +625,6 @@ hr {
   width: 927px;
   height: 317px;
 }
-
 @media (max-width: 1600px) {
   .rpgmafia {
     height: 365px;
@@ -760,17 +639,14 @@ hr {
   border: 2px solid white;
   width: 740px;
 }
-
 .quote .primelia {
   float: left;
   margin-top: -20px;
 }
-
 .quote .mobcorp {
   float: right;
   margin-top: -20px;
 }
-
 .quote p {
   margin-top: 16px;
 }
@@ -816,7 +692,6 @@ hr {
   border-radius: 50%;
   border: 2px solid white;
 }
-
 .banquier-avatar img {
   margin-top: -15px;
   margin-left: -8px;
@@ -825,7 +700,6 @@ hr {
 .virement-form {
   margin-top: 5px;
 }
-
 .virement-form input {
   color: black;
   outline: none;
@@ -835,7 +709,6 @@ hr {
   margin-bottom: 10px;
   border: 2px solid #4961bd;
 }
-
 .virement-form .send-virement {
   padding: 10px;
   background: #4961bd;
@@ -861,7 +734,6 @@ hr {
   border: 1px solid black;
   overflow: hidden;
 }
-
 .credit-card-black .cc-user-body {
   background: #8c8989;
   width: 40px;
@@ -871,22 +743,18 @@ hr {
   margin-left: 7px;
   margin-top: -13px;
 }
-
 .credit-card-black .cc-user-body img {
   margin-top: -20px;
   margin-left: -13px;
 }
-
 .credit-card-black .crypto {
   position: absolute;
   margin-left: 240px;
   margin-top: -37px;
 }
-
 .credit-card-black .cc-name {
   color: #8c8989;
 }
-
 .credit-card-black .bottom-cc {
   z-index: 1;
   position: absolute;
@@ -897,11 +765,9 @@ hr {
   border-bottom-right-radius: 10px;
   width: 370px;
 }
-
 .credit-card-black .bottom-cc .cc-user-name {
   float: left;
 }
-
 .credit-card-black .bottom-cc .cc-bbank {
   float: right;
 }
@@ -914,7 +780,6 @@ hr {
   border: 1px solid black;
   overflow: hidden;
 }
-
 .credit-card-gold .cc-user-body {
   background: #f9d464;
   width: 40px;
@@ -924,22 +789,18 @@ hr {
   margin-left: 7px;
   margin-top: -13px;
 }
-
 .credit-card-gold .cc-user-body img {
   margin-top: -20px;
   margin-left: -13px;
 }
-
 .credit-card-gold .crypto {
   position: absolute;
   margin-left: 240px;
   margin-top: -37px;
 }
-
 .credit-card-gold .cc-name {
   color: #f9d464;
 }
-
 .credit-card-gold .bottom-cc {
   z-index: 1;
   position: absolute;
@@ -950,11 +811,9 @@ hr {
   border-bottom-right-radius: 10px;
   width: 370px;
 }
-
 .credit-card-gold .bottom-cc .cc-user-name {
   float: left;
 }
-
 .credit-card-gold .bottom-cc .cc-bbank {
   float: right;
 }
@@ -967,7 +826,6 @@ hr {
   border: 1px solid black;
   overflow: hidden;
 }
-
 .credit-card-blue .cc-user-body {
   background: #2d73ca;
   width: 40px;
@@ -977,22 +835,18 @@ hr {
   margin-left: 7px;
   margin-top: -13px;
 }
-
 .credit-card-blue .cc-user-body img {
   margin-top: -20px;
   margin-left: -13px;
 }
-
 .credit-card-blue .crypto {
   position: absolute;
   margin-left: 240px;
   margin-top: -37px;
 }
-
 .credit-card-blue .cc-name {
   color: #2d73ca;
 }
-
 .credit-card-blue .bottom-cc {
   z-index: 1;
   position: absolute;
@@ -1003,11 +857,9 @@ hr {
   border-bottom-right-radius: 10px;
   width: 370px;
 }
-
 .credit-card-blue .bottom-cc .cc-user-name {
   float: left;
 }
-
 .credit-card-blue .bottom-cc .cc-bbank {
   float: right;
 }
@@ -1020,21 +872,18 @@ hr {
   border: 2px solid black;
   padding: 10px;
 }
-
 .leaderboard-global-box .lgb-title {
   background: #4961bd;
   padding: 5px;
   font-size: 20px;
   border-radius: 10px;
 }
-
 .leaderboard-global-box .lgb-podium {
   margin-top: 20px;
   background: #4961bd;
   border-radius: 10px;
   padding: 10px;
 }
-
 .leaderboard-global-box .lgb-podium .rang3 {
   height: 200px;
   background: #c25123;
@@ -1044,7 +893,6 @@ hr {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-
 .leaderboard-global-box .lgb-podium .rang2 {
   height: 200px;
   background: #bbb;
@@ -1054,17 +902,13 @@ hr {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-
 .leaderboard-global-box .lgb-podium .rang1 {
   height: 200px;
   background: #faba3c;
   overflow: hidden;
 }
-
 .leaderboard-global-box .lgb-podium .position {
   background: #4961bd;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
   padding: 5px;
@@ -1072,7 +916,6 @@ hr {
   margin-top: 10px;
   border: 2px solid white;
 }
-
 .leaderboard-global-box .out-box {
   background: #4961bd;
   border-radius: 10px;
@@ -1080,17 +923,14 @@ hr {
   overflow: hidden;
   margin-top: 10px;
 }
-
 .leaderboard-global-box .out-box .avatar {
   float: left;
   margin-top: -20px;
 }
-
 .leaderboard-global-box .out-box .content {
   margin-top: 13px;
   margin-right: 30px;
 }
-
 .leaderboard-global-box .out-box .position {
   float: right;
   padding-right: 10px;
@@ -1098,7 +938,6 @@ hr {
   background: #27397e;
   padding: 6px;
 }
-
 .leaderboard-global-box .out-box .content2 {
   margin-top: 17px;
   margin-right: 30px;
@@ -1191,7 +1030,7 @@ hr {
 
 .appart-id {
   width: 875px;
-  height: 180px;
+  height: fit-content;
   background: #f5ead3;
   margin-top: 10px;
   border: 2px solid black;
@@ -1209,9 +1048,9 @@ hr {
   background: #9e8e6f;
   border: 2px solid black;
   margin-right: 10px;
+  margin-bottom: 10px;
   overflow: hidden;
 }
-
 .idappart-box p {
   text-align: center;
   position: relative;
@@ -1230,7 +1069,6 @@ hr {
   background-color: #1b295f;
   border-radius: 10px;
 }
-
 .news-content .news-top-image {
   width: 100%;
   background-size: cover;
@@ -1239,12 +1077,10 @@ hr {
   height: 100px;
   text-align: center;
 }
-
 .news-content .news-title {
   position: relative;
   top: 30%;
 }
-
 .news-content .news-content {
   margin-top: 30px;
 }
@@ -1261,7 +1097,6 @@ hr {
 .comment-space {
   width: 50%;
 }
-
 .comment-space label {
   display: none;
 }
@@ -1275,9 +1110,9 @@ hr {
   padding-left: 20px;
   border: none;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 #comment_message:focus {
   outline: none;
 }
@@ -1303,23 +1138,17 @@ hr {
   margin-bottom: 10px;
   overflow: hidden;
 }
-
 .comment-item:hover > .user-comment-avatar {
-  -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
   margin-top: -25px;
 }
-
 .comment-item .comment-content--top {
   margin-bottom: 10px;
 }
-
 .comment-item .comment--content--message {
   font-weight: 400;
 }
-
 .comment-item .user-comment-avatar {
-  -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
   width: 100px;
   height: 170px;
@@ -1341,7 +1170,6 @@ hr {
 .other-news-space {
   width: 49%;
 }
-
 .other-news-space .other-news--item {
   width: 100%;
   height: 100px;
@@ -1350,24 +1178,21 @@ hr {
   margin-bottom: 10px;
   background-size: cover;
   text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  align-items: center;
   display: flex;
   cursor: pointer;
-  -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
 }
-
 .other-news-space .other-news--item:hover {
-  -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
   height: 105px;
 }
-
 .other-news-space .other-news--item h2 {
   margin: auto;
 }
+
+.list-room {
+  flex-flow: row wrap;
+}
+
 /*# sourceMappingURL=style.css.map */
