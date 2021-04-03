@@ -1,4 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+::-webkit-input-placeholder {
+  color: white;
+}
+:-ms-input-placeholder {
+  color: white;
+}
+::-ms-input-placeholder {
+  color: white;
+}
+::placeholder {
+  color: white;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -343,6 +356,37 @@ body {
   margin-left: -14px;
 }
 
+.login-button {
+  text-align: center;
+  background: #1b295f;
+  margin-top: 10px;
+  border: 2px solid #4961bd;
+  color: white;
+}
+
+.logout-btn {
+  color: white;
+  background: red;
+  padding: 5px;
+  position: relative;
+  top: 10px;
+  left: 120px;
+}
+
+.searchprofil {
+  margin-top: 10px;
+  position: relative;
+  top: 15px;
+}
+
+.searchprofil .spinput {
+  padding: 5px;
+  outline: none;
+  background: #1b295f;
+  border: 2px solid #4961bd;
+  color: white;
+}
+
 .user-info {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -607,7 +651,6 @@ hr {
   text-align: center;
   padding: 15px;
   margin-top: 10px;
-  border: 2px dashed #4961bd;
   border-radius: 10px;
 }
 
@@ -641,7 +684,6 @@ hr {
   margin-right: auto;
   margin-top: 20px;
   background: #1b295f;
-  border: 2px dashed #4961bd;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
@@ -700,9 +742,8 @@ hr {
 .rpgmafia {
   text-align: center;
   margin-left: 10px;
-  width: 790px;
-  height: 325px;
-  overflow: scroll;
+  width: 927px;
+  height: 317px;
 }
 
 @media (max-width: 1600px) {
