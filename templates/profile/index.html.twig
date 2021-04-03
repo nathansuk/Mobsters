@@ -8,8 +8,8 @@
 
 
 {% block body %}
-	<section class="flex-center">
-		
+<h1 style="padding: 10px; background:#f5ead3; width: 852px; margin: auto; color: black; border: 2px solid black;">Dossier numéro {{ random(10000, 999999) }}</h1>
+	<section class="flex-center" style="margin-top: 10px;">
 		<div class="img-carte-id">
 			<div class="pseudo-id">{{user.username}}</div>
 			<div class="avatar-id-global">
@@ -59,6 +59,58 @@
 			</div>
 		</div>
 	</section>
+
+	<section class="flex-center">
+		<div class="appart-id">
+			<div class="appart-id-title">Patrimoine immobilier</div>
+			<section class="flex-center">
+				<div class="idappart-box">
+					<img style="position: relative; left: -5px; top: -10px;" src="{{ asset('img/idroom.png')}}">
+					<p>Appart 1</p>
+				</div>
+
+				<div class="idappart-box">
+					<img style="position: relative; left: -5px; top: -10px;" src="{{ asset('img/idroom.png')}}">
+					<p>Appart 2</p>
+				</div>
+
+				<div class="idappart-box">
+					<img style="position: relative; left: -5px; top: -10px;" src="{{ asset('img/idroom.png')}}">
+					<p>Appart 3</p>
+				</div>
+
+				<div class="idappart-box">
+					<img style="position: relative; left: -5px; top: -10px;" src="{{ asset('img/idroom.png')}}">
+					<p>Appart 4</p>
+				</div>
+
+				<div class="idappart-box">
+					<img style="position: relative; left: -5px; top: -10px;" src="{{ asset('img/idroom.png')}}">
+					<p>Appart 5</p>
+				</div>
+	</section>
+
+
+	<section class="flex-center" style="margin-top: 20px;">
+		<div class="appart-id" style="height: 100px;">
+			<div class="appart-id-title">Groupements</div>
+			<section class="flex-center">
+				<div class="groupe-id">
+					<img src="https://swf.habbocity.me/habbo-imaging/badge-groupe/b6106s61064s56014s32067.gif">
+				</div>
+				<div class="groupe-id">
+					<img src="https://swf.habbocity.me/habbo-imaging/badge-groupe/b6106s61064s56014s32067.gif">
+				</div>
+				<div class="groupe-id">
+					<img src="https://swf.habbocity.me/habbo-imaging/badge-groupe/b6106s61064s56014s32067.gif">
+				</div>
+				<div class="groupe-id">
+					<img src="https://swf.habbocity.me/habbo-imaging/badge-groupe/b6106s61064s56014s32067.gif">
+				</div>
+			</section>
+
+</div>
+</section>
 
 	<!--
 								<h1>{{ user.username }}</h1>
