@@ -10,9 +10,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\BooleanFilter;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Router\CrudUrlGenerator;
 use JetBrains\PhpStorm\Pure;
 
@@ -21,6 +23,16 @@ class UserMissionCrudController extends AbstractCrudController
     public static function getEntityFqcn(): string
     {
         return UserMission::class;
+    }
+
+    public function configureFilters(Filters $filters): Filters
+    {
+        return $filters
+            ->add(EntityFilter::new('user', 'Utilisateur'))
+            ->add(BooleanFilter::new('done', 'Finie'))
+            ->add(BooleanFilter::new('isRewarded', 'Récompensée'))
+            ->add(BooleanFilter::new('waitingConfirmation', 'En attente de confirmation'))
+            ;
     }
 
 
@@ -47,8 +59,16 @@ class UserMissionCrudController extends AbstractCrudController
 
 
         return $actions
-            ->add(Crud::PAGE_INDEX, $giveReward);
+            ->add(Crud::PAGE_INDEX, $giveReward)
+            ->disable(Action::NEW)
+            ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
+                return $action->setLabel('Supprimer');
+            })
+            ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
+                return $action->setLabel('Modifier');
+            });
     }
+
 
 
     #[Pure] public function giveReward(AdminContext $context)
