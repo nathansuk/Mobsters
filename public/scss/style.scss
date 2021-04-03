@@ -1098,6 +1098,41 @@ hr {
   overflow: scroll;
   overflow-x: hidden;
 }
+
+.appart-id {
+  width: 875px;
+  height: 180px;
+  background: #f5ead3;
+  margin-top: 10px;
+  border: 2px solid black;
+  color: black;
+}
+
+.appart-id-title {
+  text-align: center;
+  padding: 10px;
+}
+
+.idappart-box {
+  width: 100px;
+  height: 120px;
+  background: #9e8e6f;
+  border: 2px solid black;
+  margin-right: 10px;
+  overflow: hidden;
+
+  p {
+    text-align: center;
+    position: relative;
+    top: -21px;
+    background: #665e50;
+    padding: 5px;
+  }
+}
+
+.groupe-id {
+  margin-right: 10px;
+}
 //NEWS
 .news-content {
   height: auto;
