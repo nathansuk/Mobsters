@@ -3,6 +3,7 @@
 namespace App\Controller\Admin\Crud;
 
 use App\Entity\Emprunt;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -20,6 +21,13 @@ class EmpruntCrudController extends AbstractCrudController
         return Emprunt::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setPageTitle('index', 'Les Emprunts')
+            ;
+    }
+
 
     public function configureFields(string $pageName): iterable
     {
@@ -27,7 +35,7 @@ class EmpruntCrudController extends AbstractCrudController
             AssociationField::new('user'),
             TextField::new('motif'),
             IntegerField::new('montant'),
-            BooleanField::new('isAccepted'),
+            BooleanField::new('isAccepted', 'Accordé'),
             NumberField::new('interets')
         ];
     }
