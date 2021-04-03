@@ -20,7 +20,6 @@
   margin: 0;
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
-  color: white;
   text-decoration: none;
   -ms-interpolation-mode: nearest-neighbor;
       image-rendering: -webkit-optimize-contrast;
@@ -31,6 +30,7 @@
 
 body {
   background: #27397e;
+  color: white;
 }
 
 .page-container {
@@ -398,6 +398,7 @@ body {
   padding: 10px;
   -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
+  color: white;
 }
 
 .menu .menu-items p img {
@@ -467,6 +468,7 @@ body {
 .buttons {
   height: auto;
   margin-top: 30px;
+  color: white;
 }
 
 .buttons:hover > button > img {
@@ -499,6 +501,7 @@ body {
 
 .buttons .btn span {
   margin-left: -15px;
+  color: white;
 }
 
 .buttons .btn .missions-notifs {
@@ -571,6 +574,7 @@ body {
   background: #4961bd;
   padding: 5px;
   border-bottom-left-radius: 7px;
+  color: white;
 }
 
 hr {
@@ -644,6 +648,7 @@ hr {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  color: white;
 }
 
 .tpb-button:hover {
@@ -1058,54 +1063,12 @@ hr {
   margin-right: 30px;
 }
 
-.global-profile-box {
-  background: url(https://www.designbolts.com/wp-content/uploads/2013/02/Shine-Dotted-Grey-Seamless-Pattern-For-Website-Background.jpg);
-  text-align: center;
-  width: 800px;
-  padding: 10px;
-  height: 10000px;
-}
-
-.global-profile-box .gpb-header {
-  background: #cacaca;
-  border: 2px solid #1b295f;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.global-profile-box .gpb-header h1 {
-  color: #1b295f;
-}
-
-.global-profile-box .global-profile-info {
-  padding: 10px;
-  margin-top: 15px;
-}
-
-.global-profile-box .global-profile-info .user-img {
-  width: 150px;
-  height: 200px;
-  background-image: url(https://t4.ftcdn.net/jpg/01/63/20/53/360_F_163205363_5YgJBWSKY0dbO4ESsGuLpJDQOH3xlg3g.jpg);
-  border: 2px solid #1b295f;
+.img-carte-id {
+  background-image: url("../../img/identite.png");
   background-size: cover;
-  overflow: hidden;
-  margin-right: 30px;
-}
-
-.global-profile-box .punaise {
-  position: absolute;
-  margin-top: -19px;
-}
-
-.global-profile-box .info-1 {
-  background: #a2a2a2;
-  padding: 10px;
-  text-align: center;
-  border: 2px solid #1b295f;
-  margin-bottom: 5px;
-  width: 177px;
-  margin-top: 10px;
-  margin-right: 10px;
+  height: 250px;
+  width: 432px;
+  color: black;
 }
 
 .news-content {
@@ -1133,7 +1096,8 @@ hr {
   margin-top: 30px;
 }
 
-.comment-space, .other-news-space {
+.comment-space,
+.other-news-space {
   margin-top: 30px;
 }
 
