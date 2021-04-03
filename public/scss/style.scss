@@ -1021,6 +1021,83 @@ hr {
   width: 432px;
   color: black;
 }
+
+.pseudo-id {
+  position: relative;
+  top: 27px;
+  left: 20px;
+}
+
+.avatar-id-global {
+  width: 76px;
+  height: 76px;
+  position: relative;
+  top: 70px;
+  left: 19px;
+  overflow: hidden;
+}
+
+.avatar-id {
+  position: relative;
+  top: -41px;
+  left: -28px;
+}
+
+.humeur-city {
+  position: relative;
+  top: -2px;
+  left: 100px;
+}
+
+.ls-id {
+  position: relative;
+  left: 100px;
+  top: 1px;
+}
+
+.diamond-id {
+  position: relative;
+  left: 100px;
+  top: 8px;
+}
+
+.cp-id {
+  position: relative;
+  left: 20px;
+  top: 16px;
+}
+
+.tattoo-listing {
+  position: relative;
+  top: 20px;
+}
+
+.casier-judiciaire {
+  background: #f5ead3;
+  width: 432px;
+  height: 246px;
+  border: 2px solid black;
+  margin-left: 10px;
+  color: black;
+}
+
+.cj-title {
+  text-align: center;
+  position: relative;
+  top: -160px;
+}
+
+.listing-cj {
+  width: 250px;
+  height: 160px;
+  background: #9e8e6f;
+  position: relative;
+  top: -145px;
+  left: 155px;
+  border: 2px solid #665e50;
+  overflow: scroll;
+  overflow-x: hidden;
+}
 //NEWS
 .news-content {
   height: auto;

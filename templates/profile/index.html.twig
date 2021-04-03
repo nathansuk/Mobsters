@@ -9,8 +9,54 @@
 
 {% block body %}
 	<section class="flex-center">
+		
 		<div class="img-carte-id">
-			<span class="pseudo-id">{{user.username}}</span>
+			<div class="pseudo-id">{{user.username}}</div>
+			<div class="avatar-id-global">
+				<div class="avatar-id"><img src="https://api.habbocity.me/avatar_image.php?user={{user.username}}&headonly=1&direction=1&head_direction=2&size=l"></div>
+			</div>
+			<div class="humeur-city">Imperial Mobsters, Ace</div>
+			<div class="ls-id"><img style="position: relative; top: 4px;" src="{{ asset('img/ls.png')}}">&nbsp; {{user.money}}</div>
+			<div class="diamond-id"><img style="position: relative; top: 3px; height: 16px;" src="{{ asset('img/diamond.png')}}">&nbsp; 12768326</div>
+			<div class="cp-id">&copy;&nbsp;London City Council</div>
+			<section class="flex-center">
+				<div class="tattoo-listing">
+					<img src="https://i.servimg.com/u/f12/19/02/71/34/badge_29.png">
+					<img src="https://i.servimg.com/u/f12/19/02/71/34/badge_24.png">
+					<img src="https://i.servimg.com/u/f12/19/02/71/34/badge_31.png">
+					<img src="https://i.servimg.com/u/f12/19/02/71/34/badge_32.png">
+					<img src="https://i.servimg.com/u/f16/18/76/94/83/badge_13.png">
+					<img src="https://i.servimg.com/u/f12/19/02/71/34/badge_27.png">
+				</div>
+			</section>
+		</div>
+
+		<div class="casier-judiciaire">
+			<img style="position: relative; top: 30px; left: 10px;" src="https://i.servimg.com/u/f12/19/02/71/34/interp10.png">
+			<p class="cj-title">Casier Judiciaire</p>
+			<div class="listing-cj">
+				<p>Mission #1</p>
+				<p>Mission #2</p>
+				<p>Mission #3</p>
+				<p>Mission #4</p>
+				<p>Mission #5</p>
+				<p>Mission #6</p>
+				<p>Mission #7</p>
+				<p>Mission #8</p>
+				<p>Mission #9</p>
+				<p>Mission #10</p>
+				<p>Mission #11</p>
+				<p>Mission #12</p>
+				<p>Mission #13</p>
+				<p>Mission #14</p>
+				<p>Mission #15</p>
+				<p>Mission #16</p>
+				<p>Mission #17</p>
+				<p>Mission #18</p>
+				<p>Mission #19</p>
+				<p>Mission #20</p>
+				<p>Mission #21</p>
+			</div>
 		</div>
 	</section>
 
