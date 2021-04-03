@@ -119,7 +119,7 @@ class MissionController extends AbstractController
         $userMissionToDelete = $userService->getUserMissionsById($user, $id);
 
         if($mission == null || $userMissionToDelete == null){
-            $this->addFlash('success', 'Il y a eu un probleme');
+            $this->addFlash('success', 'Il y a eu un problème');
             return $this->redirectToRoute("mission");
         }
 
@@ -147,11 +147,10 @@ class MissionController extends AbstractController
      * @param MissionService $missionService
      * @param EntityManagerInterface $entityManager
      * @return Response
-     * @Route("/mission/markasdone/{id}", name="abandon_mission")
+     * @Route("/mission/markasdone/{id}", name="mark_mission")
      */
     public function markMissionAsDone(int $id, UserService $userService, MissionService $missionService, EntityManagerInterface $entityManager): Response
     {
-
         if(!$this->getUser()) { $this->addFlash('error', "Vous ne pouvez pas faire ça "); }
 
         $user = $userService->getUserByUsername($this->getUser()->getUsername());
@@ -173,9 +172,6 @@ class MissionController extends AbstractController
             $this->addFlash('error', 'Vous ne pouvez pas faire cela');
             return $this->redirectToRoute("mission");
         }
-
-
-
     }
 
     /*
