@@ -309,6 +309,10 @@ body {
   padding-left: 30px;
   float: left;
   position: fixed;
+
+  @media (max-width: 800px) {
+    width: 295px;
+  }
 }
 
 .user-space {

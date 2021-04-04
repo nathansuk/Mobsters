@@ -284,6 +284,11 @@ body {
   float: left;
   position: fixed;
 }
+@media (max-width: 800px) {
+  .left-side {
+    width: 295px;
+  }
+}
 
 .user-space {
   width: 270px;
