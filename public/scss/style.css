@@ -43,7 +43,13 @@ body {
 @media (max-width: 1600px) {
   .page-container {
     width: 70%;
-    margin-right: 30px;
+    margin-right: 20px;
+  }
+}
+@media (max-width: 800px) {
+  .page-container {
+    width: fit-content;
+    margin-right: -533px;
   }
 }
 
@@ -490,6 +496,20 @@ body {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 800px) {
+  .flex-center {
+    display: block;
+  }
+}
+
+.discord-iframe {
+  display: block;
+}
+@media (max-width: 1200px) {
+  .discord-iframe {
+    display: none;
+  }
+}
 
 .home-article-box {
   width: 62%;
@@ -497,6 +517,17 @@ body {
   overflow: hidden;
   border-radius: 10px;
   border: 2px solid #4961bd;
+}
+@media (max-width: 1700px) {
+  .home-article-box {
+    width: 70%;
+  }
+}
+@media (max-width: 800px) {
+  .home-article-box {
+    width: 600px;
+    margin-left: 85px;
+  }
 }
 .home-article-box h2 {
   position: absolute;
@@ -535,6 +566,13 @@ hr {
   border: 2px solid #4961bd;
   background: #27397e;
   margin-top: 20px;
+  height: 317px;
+}
+@media (max-width: 1700px) {
+  .top-players {
+    height: 365px;
+    padding-bottom: 0px;
+  }
 }
 .top-players h2 {
   text-align: center;
@@ -546,6 +584,7 @@ hr {
   padding: 15px;
   margin-top: 10px;
   border-radius: 10px;
+  height: 220px;
 }
 .top-player-box .tpb-pseudo {
   font-weight: normal;
@@ -570,13 +609,18 @@ hr {
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
-  background: #1b295f;
-  padding: 10px;
+  margin-top: 3px;
+  padding: 6px;
   border-radius: 10px;
   cursor: pointer;
   display: flex;
   color: white;
+}
+@media (max-width: 1700px) {
+  .tpb-button {
+    margin-top: 10px;
+    font-size: 13px;
+  }
 }
 .tpb-button:hover {
   opacity: 0.5;
@@ -625,7 +669,7 @@ hr {
   width: 927px;
   height: 317px;
 }
-@media (max-width: 1600px) {
+@media (max-width: 1700px) {
   .rpgmafia {
     height: 365px;
   }
