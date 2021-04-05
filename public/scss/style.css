@@ -658,6 +658,7 @@ hr {
   border-radius: 10px;
   line-height: 35px;
   padding-left: 20px;
+  height: 250px;
 }
 .mission-box .mission-title {
   background: #4961bd;
