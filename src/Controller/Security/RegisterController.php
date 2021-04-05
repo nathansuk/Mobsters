@@ -46,11 +46,12 @@ class RegisterController extends AbstractController
              * If the API throw an error, then the user isn't registered on Habbocity
              * Then we redirect and add an error message
              */
+            try {
                 $api = new CityApi($register_form->get('username')->getData());
-                if($api->getName() == null){
-                    $this->addFlash('error', 'Oops cet utilisateur semble ne pas exister sur Habbocity');
-                    return $this->redirectToRoute('register');
-                }
+            } catch (\Exception $exception){
+                $this->addFlash('error', 'Cet utilisateur ne semble pas exister sur Habbocity');
+                return $this->redirectToRoute('register');
+            }
             /**
              * We check if the user has the correct moto "CODE-IM-PseudoOnHabbocity"
              * if not we redirect on register and add a error message.
