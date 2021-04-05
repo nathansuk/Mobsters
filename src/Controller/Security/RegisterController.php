@@ -48,6 +48,7 @@ class RegisterController extends AbstractController
              */
             try {
                 $api = new CityApi($register_form->get('username')->getData());
+                $motto = $api->getMission();
             } catch (\Exception $exception){
                 $this->addFlash('error', 'Cet utilisateur ne semble pas exister sur Habbocity');
                 return $this->redirectToRoute('register');
@@ -56,7 +57,6 @@ class RegisterController extends AbstractController
              * We check if the user has the correct moto "CODE-IM-PseudoOnHabbocity"
              * if not we redirect on register and add a error message.
              */
-            $motto = $api->getMission();
             if($motto == 'ImperialMobsters') {
 
                 $hash = $passwordEncoder->encodePassword($user, $user->getPassword());
