@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+<<<<<<< HEAD
+    <data-source source="LOCAL" name="Imperial Mobsters" uuid="00af8a5a-7f39-43b6-a852-4172a788a027">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://mysql-imperialmobsters.alwaysdata.net:3306/imperialmobsters_symfony</jdbc-url>
+=======
     <data-source source="LOCAL" name="imperial_mobsters@localhost" uuid="dc18b78f-d713-4dd3-bfe4-dcb8f29f67cf">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/imperial_mobsters</jdbc-url>
+>>>>>>> origin/master
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
