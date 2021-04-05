@@ -62,7 +62,8 @@ class RegisterController extends AbstractController
                 $user->setPassword($hash)
                     ->setCreatedAt(new \DateTime("now"))
                     ->setMoney(0)
-                    ->setRoles(['ROLE_USER']);
+                    ->setRoles(['ROLE_USER'])
+                    ->setFinishedMission(0);
 
                 $entityManager->persist($user);
                 $entityManager->flush();
