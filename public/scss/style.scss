@@ -1352,3 +1352,75 @@ hr {
 .list-room{
   flex-flow: row wrap;
 }
+
+//Missions
+.mlb-global {
+  background: $box-bgr;
+  padding: 10px;
+  width: 350px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid $border;
+  margin-right: 10px;
+  height: 80px;
+
+  .mlb-title {
+    font-size: 17px;
+    position: relative;
+    top: -45px;
+    left: 53px;
+  }
+
+  .mlb-author {
+    float: left;
+    position: relative;
+    top: -20px;
+  }
+
+  .mlb-author-speach {
+    background: url("../../img/bubble.png");
+    width: 127px;
+    height: 40px;
+    position: relative;
+    left: 55px;
+    top: -2px;
+  }
+
+  .mlb-reward {
+    position: relative;
+    color: black;
+    top: 8px;
+    left: -23px;
+
+    img {
+      position: relative;
+      top: 3px;
+    }
+  }
+
+  .mlb-descr {
+    width: 120px;
+    position: relative;
+    top: -40px;
+    left: 204px;
+    height: 100px;
+
+    div {
+      position: relative;
+      top: -50px;
+    }
+  }
+
+  .mlb-accept {
+    position: relative;
+    top: -110px;
+    left: -50px;
+    border: none;
+    padding: 5px;
+    background: $border;
+    color: white;
+    outline: none;
+    cursor: pointer;
+  }
+
+}

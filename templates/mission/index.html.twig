@@ -7,7 +7,40 @@
 
 {% block body %}
 
+    <section class="flex-center">
+        <div class="quote">
+            <img class="primelia" src="https://api.habbocity.me/avatar_image.php?user=Primelia&headonly=0&direction=2&head_direction=3&size=n">
+            <p>"Les missions sont attribuées par les Knights de l'Empire. Acceptez les missions les plus intéressantes et faites en sorte de les réussir : elles rapportent gros."</p>
+        </div>
+    </section>
 
+        <h1 style="margin-top: 20px; text-align: center;">Missions générales</h1>
+    {% for mission in missionAvailable %}
+    {% if mission.clan == null %}
+    <section class="flex-center" style="margin-top: 10px;">
+        <div class="mlb-global">
+            <img class="mlb-author" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n&gesture=spk&action=wav">
+            <div class="mlb-author-speach">
+                <div class="mlb-reward">
+                    300&nbsp;<img src="{{ asset('img/ls.png') }}">
+                </div>
+            </div>
+            <div class="mlb-title">
+                {{ mission.title }}
+            </div>
+            <div class="mlb-descr">
+                {{ mission.description |raw }}
+            </div>
+            <a href="{{ path('accept_mission', {'id': mission.id }) }}">
+                <button type="button" class="mlb-accept">Accepter la mission</button>
+            </a>
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+
+
+<!--
 <div class="list-mission flex-column" style=" width: 90%; margin: auto; height: 500px; overflow: scroll">
     <h1>Missions classiques</h1><br>
     {% for mission in missionAvailable %}
@@ -47,5 +80,5 @@
      {% endif %}
  </div>
 </div>
-
+-->
 {% endblock %}
