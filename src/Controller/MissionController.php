@@ -21,13 +21,11 @@ class MissionController extends AbstractController
      */
     public function index(UserService $userService, MissionService $missionService): Response
     {
-        /*
-         * Here we get the entire list of mission and the user object.
-         */
+
         $missionAvailable = $missionService->getAvailableMission();
         $user = $userService->getUserByUsername($this->getUser()->getUsername());
         /*
-         * Then we create an empty array, where we will push each mission that user doesnt already have
+         *  we create an empty array, where we will put each mission that user doesnt already have
          */
         $missions = array();
         /*
@@ -49,16 +47,11 @@ class MissionController extends AbstractController
      * @param int $id
      * @param UserService $userService
      * @param MissionService $missionService
-     * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function acceptMission(int $id, UserService $userService, MissionService $missionService, EntityManagerInterface $entityManager): Response {
+    public function acceptMission(int $id, UserService $userService, MissionService $missionService): Response {
 
         if(!$this->getUser()) { $this->addFlash('error', "Vous ne pouvez pas faire ça "); }
-
-        /*
-         * Here we get the current user and the mission that we want to add
-         */
 
         $user = $userService->getUserByUsername($this->getUser()->getUsername());
         $mission = $missionService->getMissionById($id);
@@ -68,29 +61,18 @@ class MissionController extends AbstractController
             return $this->redirectToRoute("mission");
         }
 
+        /*
+         * If the mission has is specific to a clan, this check if the user belongs it.
+         */
         if($mission->getClan() !== null){
-            if($user->getClan() != $mission->getClan()){
+            if($user->getClan() !== $mission->getClan()){
                 $this->addFlash('error', 'Vous ne faites pas partie de ce clan');
                 return $this->redirectToRoute("mission");
             }
         }
-        /*
-         * Then, we check by using userAlreadyHasMission function (declared by dependency injection)
-         * If the user has already the mission, then return an error, or continue and add in the database.
-         */
-        $check = $userService->userAlreadyHasMission($user, $mission);
-        $mission = $this->getDoctrine()->getRepository(Mission::class)->find($id);
 
-        if(!$check) {
-            $userMission = new UserMission();
-            $userMission->setUser($this->getUser())
-                ->setMission($mission)
-                ->setDone(false)
-                ->setReward($mission->getReward())
-                ->setIsRewarded(false)
-                ->setWaitingConfirmation(false);
-            $entityManager->persist($userMission);
-            $entityManager->flush();
+        if(!$userService->userAlreadyHasMission($user, $mission)) {
+            $missionService->addUserMission($this->getUser(), $mission);
         } else {
             $this->addFlash('error', 'Vous avez déjà accepté cette mission !');
             return $this->redirectToRoute('mission');
@@ -104,38 +86,28 @@ class MissionController extends AbstractController
      * @param int $id
      * @param UserService $userService
      * @param MissionService $missionService
-     * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function abandonMission(int $id, UserService $userService, MissionService $missionService, EntityManagerInterface $entityManager): Response {
+    public function abandonMission(int $id, UserService $userService, MissionService $missionService): Response {
 
         if(!$this->getUser()) { $this->addFlash('error', "Vous ne pouvez pas faire ça "); }
 
-        /*
-         * Here we get the current user and the mission that we want to delete
-         */
         $user = $userService->getUserByUsername($this->getUser()->getUsername());
         $mission = $missionService->getMissionById($id);
         $userMissionToDelete = $userService->getUserMissionsById($user, $id);
 
         if($mission == null || $userMissionToDelete == null){
-            $this->addFlash('success', 'Il y a eu un problème');
+            $this->addFlash('error', 'Il y a eu un problème');
             return $this->redirectToRoute("mission");
         }
-
-        /*
-         * Then, we check by using userAlreadyHasMission function (declared by dependency injection)
-         * If the user has already the mission, then return an error, or continue and add in the database.
-         */
 
         if($userService->userAlreadyHasMission($user, $mission)) {
-           $user->removeUserMission($userMissionToDelete);
-            $entityManager->persist($user);
-            $entityManager->flush();
+
+            $missionService->removeMission($user, $userMissionToDelete);
             $this->addFlash('success', 'Vous avez abandonné la mission');
             return $this->redirectToRoute("mission");
-        }
-        else{
+
+        } else {
             $this->addFlash('error', 'Vous ne pouvez pas faire cela');
             return $this->redirectToRoute("mission");
         }
@@ -145,11 +117,10 @@ class MissionController extends AbstractController
      * @param int $id
      * @param UserService $userService
      * @param MissionService $missionService
-     * @param EntityManagerInterface $entityManager
      * @return Response
      * @Route("/mission/markasdone/{id}", name="mark_mission")
      */
-    public function markMissionAsDone(int $id, UserService $userService, MissionService $missionService, EntityManagerInterface $entityManager): Response
+    public function markMissionAsDone(int $id, UserService $userService, MissionService $missionService): Response
     {
         if(!$this->getUser()) { $this->addFlash('error', "Vous ne pouvez pas faire ça "); }
 
@@ -163,11 +134,11 @@ class MissionController extends AbstractController
         }
 
         if($userService->userAlreadyHasMission($user, $mission)) {
-            $missionToMark->setWaitingConfirmation(true);
-            $entityManager->persist($missionToMark);
-            $entityManager->flush();
+
+            $missionService->markMissionAsFinished($missionToMark);
             $this->addFlash('success', 'Votre demande a bien été soumise.');
             return $this->redirectToRoute("mission");
+
         } else {
             $this->addFlash('error', 'Vous ne pouvez pas faire cela');
             return $this->redirectToRoute("mission");
@@ -175,21 +146,19 @@ class MissionController extends AbstractController
     }
 
     /*
-     * This is used to render mission list on the global template mission
+     * This is used to render mission list on the global/overlay/mission template
      */
 
-    public function showMissionAccepted(UserService $userService): Response
-    {
+    public function showMissionAccepted(UserService $userService): Response {
 
         $user = $userService->getUserByUsername($this->getUser()->getUsername());
         $userMission = $user->getUserMissions();
-
         return $this->render('global/overlays/mission_list.html.twig', [
             'userMission' => $userMission,
         ]);
     }
 
-    public function getMissionModule(UserService $userService): Response{
+    public function getMissionModule(UserService $userService): Response {
 
         $user = $userService->getUserByUsername($this->getUser()->getUsername());
 

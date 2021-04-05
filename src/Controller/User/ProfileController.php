@@ -3,7 +3,6 @@
 namespace App\Controller\User;
 
 use App\CityApi;
-use App\Entity\UserMission;
 use App\Services\Missions\MissionService;
 use App\Services\UserService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,9 +17,12 @@ class ProfileController extends AbstractController
      * @return Response
      * @Route("/profil/{username}", name="user_profile")
      */
-    public function show(string $username, UserService $userService, MissionService $missionService): Response
+    public function show(string $username, UserService $userService): Response
     {
         $user = $userService->getUserByUsername($username);
+        $rewardedMission = $userService->getUsersRewardedMission($user);
+        $user = $userService->getUserByUsername($username);
+        $userMission = $userService->getUserById($user->getId());
 
         if(!$user){
             $this->addFlash('error', "Cet utilisateur n'existe pas");
@@ -36,20 +38,12 @@ class ProfileController extends AbstractController
           'groups' => $api->getListGroupe()
         );
 
-        $missions = $this->getDoctrine()->getRepository(UserMission::class)->findBy([
-            'user' => $user,
-            'isRewarded' => true
-        ]);
-
-        $user = $userService->getUserByUsername($username);
-        $userMission = $userService->getUserById($user->getId());
 
         return $this->render('profile/index.html.twig', [
-            'controller_name' => 'Profil',
             'user' => $user,
             'userMission' => $userMission,
             'cityUser' => $cityUser,
-            'missions' => $missions
+            'missions' => $rewardedMission
         ]);
     }
 }
