@@ -8,6 +8,7 @@ use App\CityApi;
 use App\Entity\User;
 use App\Form\RegistrationType;
 use App\Security\LoginFormAuthenticator;
+use App\Services\UserService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,7 +29,7 @@ class RegisterController extends AbstractController
      * @param GuardAuthenticatorHandler $guardAuthenticatorHandler
      * @return Response
      */
-    public function registration(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder, LoginFormAuthenticator $loginAuthenticator, GuardAuthenticatorHandler $guardAuthenticatorHandler): Response
+    public function registration(UserService $userService, Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder, LoginFormAuthenticator $loginAuthenticator, GuardAuthenticatorHandler $guardAuthenticatorHandler): Response
     {
 
         if ($this->getUser()) {
@@ -48,15 +49,23 @@ class RegisterController extends AbstractController
              */
             try {
                 $api = new CityApi($register_form->get('username')->getData());
+                $motto = $api->getMission();
             } catch (\Exception $exception){
                 $this->addFlash('error', 'Cet utilisateur ne semble pas exister sur Habbocity');
                 return $this->redirectToRoute('register');
             }
+
             /**
              * We check if the user has the correct moto "CODE-IM-PseudoOnHabbocity"
              * if not we redirect on register and add a error message.
              */
-            $motto = $api->getMission();
+
+            $checkUsername = $userService->getUserByUsername($register_form->get('username')->getData());
+
+            if($checkUsername !== null){
+                $this->addFlash('error', 'Cet utilisateur est déjà inscrit.');
+                return $this->redirectToRoute('register');
+            }
             if($motto == 'ImperialMobsters') {
 
                 $hash = $passwordEncoder->encodePassword($user, $user->getPassword());
