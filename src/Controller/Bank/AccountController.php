@@ -9,12 +9,11 @@ use App\Form\TransactionType;
 use App\Services\Bank\EmpruntService;
 use App\Services\Bank\TransactionService;
 use App\Services\UserService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\Date;
 
 class AccountController extends AbstractController
 {
@@ -26,6 +25,7 @@ class AccountController extends AbstractController
      * @param EmpruntService $empruntService
      * @return Response
      * @Route("/banque", name="my_bank_account")
+     * @Security("is_granted('ROLE_USER')", statusCode=404)
      */
     public function index(
         UserService $userService,
@@ -58,26 +58,14 @@ class AccountController extends AbstractController
 
             $receiver = $userService->getUserByUsername($sendMoneyForm->get('receiver')->getData());
             $amount = $sendMoneyForm->get('amount')->getData();
-            /*
-             * We check if the receiver exist in database, else we throw an error.
-             */
-            if(!$receiver){
-                $this->addFlash('error', "Cet utilisateur n'existe pas");
+
+            if(!$receiver || $receiver === $user){
+                $this->addFlash('error', "Oops, vous ne pouvez pas envoyer d'argent à cet utilisateur");
                 return $this->redirectToRoute('my_bank_account');
             }
 
-            if($receiver === $user){
-                $this->addFlash('error', "Vous ne pouvez pas faire ça");
-                return $this->redirectToRoute('my_bank_account');
-            }
-
-            if($amount > $user->getMoney()) {
-                $this->addFlash('error', "Attention, vous essayez d'envoyer trop d'argent !");
-                return $this->redirectToRoute("my_bank_account");
-            }
-
-            if($amount <= 0 ){
-                $this->addFlash('error', "Le montant indiqué est incorrect");
+            if($amount > $user->getMoney() || $amount <= 0) {
+                $this->addFlash('error', "Attention, le montant indiqué est trop élevé ou est incorrect");
                 return $this->redirectToRoute("my_bank_account");
             }
 
@@ -103,6 +91,11 @@ class AccountController extends AbstractController
 
             $montant = $askEmpruntForm->get('montant')->getData();
             $motif = $askEmpruntForm->get('motif')->getData();
+
+            if($montant <= 0){
+                $this->addFlash('error', 'Le montant que vous souhaité emprunter est invalide');
+                return $this->redirectToRoute('my_bank_account');
+            }
 
             $empruntService->newEmprunt($emprunt, $user, $montant, $motif);
             $this->addFlash('success', 'Votre demande a bien été envoyée. Consultez cette page régulièrement pour suivre son état.');
