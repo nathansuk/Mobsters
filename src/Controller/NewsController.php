@@ -27,6 +27,8 @@ class NewsController extends AbstractController
     public function show(int $id, NewsService $newsService, Request $request, EntityManagerInterface $entityManager, UserService $userService): Response {
 
         $news = $newsService->getNewsById($id);
+        $user = $userService->getUserByUsername($this->getUser()->getUsername());
+        $newsList = $newsService->getAllNews();
 
         if($news == null){
             $this->addFlash('error', "Cet article n'existe pas !");
@@ -44,20 +46,16 @@ class NewsController extends AbstractController
         }
 
         if($comment_form->isSubmitted() && $comment_form->isValid()){
-            $user = $userService->getUserByUsername($this->getUser()->getUsername());
-            $comment->setArticle($news)
-                ->setUser($user)
-                ->setDate(new \DateTime("now"));
 
-            $entityManager->persist($comment);
-            $entityManager->flush();
+            if($user == null){
+                $this->addFlash('error', 'Il y a eu une erreur');
+                return $this->redirectToRoute('show_news', ['id' => $id]);
+            }
 
+            $newsService->postComment($comment, $news, $user);
             $this->addFlash('success', 'Votre commentaire a été publié');
             return $this->redirectToRoute('show_news', ['id' => $id]);
-
         }
-
-        $newsList = $newsService->getAllNews();
 
         return $this->render('news/show.html.twig', [
            'news' => $news,
@@ -75,7 +73,7 @@ class NewsController extends AbstractController
      */
     public function index(NewsService $newsService): Response
     {
-        $newsList = array_reverse($newsService->getAllNews());
+        $newsList = $newsService->getAllNews();
 
         return $this->render('news/index.html.twig', [
             'controller_name' => 'Le times',

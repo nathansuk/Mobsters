@@ -16,13 +16,11 @@ class UserService
         $this->em = $em;
     }
 
-    public function getUserByUsername(string $username): ?User
-    {
+    public function getUserByUsername(string $username): ?User {
         return $this->em->getRepository(User::class)->findOneBy(['username' => $username]);
     }
 
-    public function getUserById($id): array
-    {
+    public function getUserById($id): array {
         return $this->em->getRepository(UserMission::class)->findBy(['user' => $id]);
     }
 
@@ -30,7 +28,6 @@ class UserService
      * @param object $user
      * @param object $mission
      * @return bool
-     *
      * This function help to know if user already has the mission ($mission)
      * we check if usermission contains the user and the mission.
      * If this return null ( the mission hasnt been already accepted by user) then return false.
@@ -49,30 +46,23 @@ class UserService
         }
     }
 
-    /*
-     * Money
-     */
-
-    public function getUserMoney(object $user): int {
-
-        return $user->getMoney();
-
-    }
-
-
     public function getUserTransactions(int $max, object $user): array {
-
         return $this->em->getRepository(Transaction::class)->findBy(['sender' => $user->getUsername()]);
-
     }
 
-    public function getUserMissionsById(User $user, int $id): UserMission
-    {
+    public function getUserMissionsById(User $user, int $id): ?UserMission {
         return $this->em->getRepository(UserMission::class)->findOneBy(
             [
                 'user' => $user,
                 'mission' => $id
             ]);
+    }
+
+    public function getUsersRewardedMission(User $user): array {
+        return $this->em->getRepository(UserMission::class)->findBy([
+            'user' => $user,
+            'isRewarded' => true
+        ]);
     }
 
 }

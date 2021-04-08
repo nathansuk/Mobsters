@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\News;
 use App\Services\LeaderboardService;
 use App\Services\Missions\MissionService;
 use App\Services\NewsService;
@@ -14,13 +13,13 @@ class HomeController extends AbstractController
 {
     /**
      * @param LeaderboardService $leaderboardService
+     * @param MissionService $missionService
      * @return Response
      * @Route("/", name="home")
      */
-    public function index(LeaderboardService $leaderboardService, MissionService $missionService): Response
+    public function index(LeaderboardService $leaderboardService, MissionService $missionService, NewsService $newsService): Response
     {
-        $lastNews = $this->getDoctrine()->getRepository(News::class)->findBy(array(), ['createdAt' => 'DESC']);
-
+        $lastNews = $newsService->getAllNews();
         $richestUser = $leaderboardService->getRichestUsers(1);
         $bestMissionUser = $leaderboardService->getBestMissionUser(1);
         $missions = $missionService->getAvailableMission();
