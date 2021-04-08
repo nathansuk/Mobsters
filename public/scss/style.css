@@ -1248,18 +1248,18 @@ hr {
 .mlb-global {
   background: #1b295f;
   padding: 10px;
-  width: 350px;
+  width: 400px;
   border-radius: 10px;
   text-align: center;
   border: 2px solid #4961bd;
   margin-right: 10px;
-  height: 80px;
+  height: 90px;
 }
 .mlb-global .mlb-title {
   font-size: 17px;
   position: relative;
   top: -45px;
-  left: 53px;
+  left: 70px;
 }
 .mlb-global .mlb-author {
   float: left;
@@ -1288,7 +1288,7 @@ hr {
   width: 120px;
   position: relative;
   top: -40px;
-  left: 204px;
+  left: 235px;
   height: 100px;
 }
 .mlb-global .mlb-descr div {
@@ -1298,7 +1298,7 @@ hr {
 .mlb-global .mlb-accept {
   position: relative;
   top: -110px;
-  left: -50px;
+  left: -65px;
   border: none;
   padding: 5px;
   background: #4961bd;

@@ -1357,18 +1357,18 @@ hr {
 .mlb-global {
   background: $box-bgr;
   padding: 10px;
-  width: 350px;
+  width: 400px;
   border-radius: 10px;
   text-align: center;
   border: 2px solid $border;
   margin-right: 10px;
-  height: 80px;
+  height: 90px;
 
   .mlb-title {
     font-size: 17px;
     position: relative;
     top: -45px;
-    left: 53px;
+    left: 70px;
   }
 
   .mlb-author {
@@ -1402,7 +1402,7 @@ hr {
     width: 120px;
     position: relative;
     top: -40px;
-    left: 204px;
+    left: 235px;
     height: 100px;
 
     div {
@@ -1414,7 +1414,7 @@ hr {
   .mlb-accept {
     position: relative;
     top: -110px;
-    left: -50px;
+    left: -65px;
     border: none;
     padding: 5px;
     background: $border;
