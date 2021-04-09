@@ -45,8 +45,67 @@
 				<h1>Ma carte banquaire</h1>
 			</div>
 
+			{% if app.user.money < 50000 %}
+			<div class="credit-card-blue" style="margin-top: 10px;">
+				<section style="z-index: 1;">
+					<div class="cc-name" style="z-index: 1;">Mobsters BlueCard</div>
+					<div class="cc-user-body"><img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=3&head_direction=3&size=n"></div>
+					<img class="crypto" src="https://files.habboemotion.com/resources/images/icons/v22_3(1).gif">
+					<span class="cc-numero-compte" style="z-index: 1;">Numéro de compte :<br>**** ****{{ random(1000, 9000) }}</span>
 
-			<div class="credit-card-black" style="margin-top: 10px;">
+					<div class="bottom-cc" style="z-index: 1;">
+						<span class="cc-user-name">{{ app.user.username }}</span>
+						<span class="cc-bbank">&copy; Byron Bank</span>
+					</div>
+				</section>
+
+				<section style="z-index: 0;">
+					<img style="margin-top: -37px; z-index: 0; margin-left: 300px;" src="https://files.habboemotion.com/resources/images/homestickers/money_stash.gif">
+				</section>
+
+				{% elseif 50000 < app.user.money < 100000 %}
+			<div class="credit-card-gold" style="margin-top: 10px;">
+				<section style="z-index: 1;">
+					<div class="cc-name" style="z-index: 1;">Mobsters GoldCard</div>
+					<div class="cc-user-body"><img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=3&head_direction=3&size=n"></div>
+					<img class="crypto" src="https://files.habboemotion.com/resources/images/icons/v22_3(1).gif">
+					<span class="cc-numero-compte" style="z-index: 1;">Numéro de compte :<br>**** ****{{ random(1000, 9000) }}</span>
+
+					<div class="bottom-cc" style="z-index: 1;">
+						<span class="cc-user-name">{{ app.user.username }}</span>
+						<span class="cc-bbank">&copy; Byron Bank</span>
+					</div>
+				</section>
+
+				<section style="z-index: 0;">
+					<img style="margin-top: -35px; z-index: 0; margin-left: 330px;" src="https://files.habboemotion.com/resources/images/homestickers/limo_front.gif">
+				</section>
+
+				{% elseif app.user.money >= 100000 %}
+				<div class="credit-card-black" style="margin-top: 10px;">
+					<section style="z-index: 1;">
+						<div class="cc-name" style="z-index: 1;">Mobsters BlackCard</div>
+						<div class="cc-user-body"><img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=3&head_direction=3&size=n"></div>
+						<img class="crypto" src="https://files.habboemotion.com/resources/images/icons/v22_3(1).gif">
+						<span class="cc-numero-compte" style="z-index: 1;">Numéro de compte :<br>**** ****
+						{{ random(1000, 9000) }}</span>
+						<div class="bottom-cc" style="z-index: 1;">
+							<span class="cc-user-name">{{ app.user.username }}</span>
+							<span class="cc-bbank">&copy; Byron Bank</span>
+						</div>
+					</section>
+
+					<section style="z-index: 0;">
+						<img style="margin-top: -50px; z-index: 0; margin-left: 26px;" src="https://files.habboemotion.com/resources/images/homestickers/sticker_Griffin_L.gif">
+					</section>
+
+					{% endif %}
+
+
+
+				<!--
+
+							<div class="credit-card-black" style="margin-top: 10px;">
 				<section style="z-index: 1;">
 					<div class="cc-name" style="z-index: 1;">Mobsters BlackCard</div>
 					<div class="cc-user-body"><img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=3&head_direction=3&size=n"></div>
@@ -64,7 +123,6 @@
 				</section>
 
 
-				<!--																											
 			<div class="credit-card-blue" style="margin-top: 10px;">
 			<section style="z-index: 1;">
 				<div class="cc-name" style="z-index: 1;">Mobsters BlueCard</div>
