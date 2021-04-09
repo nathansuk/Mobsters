@@ -29,16 +29,26 @@
                 {{ mission.title }}
             </div>
             <div class="mlb-descr">
-                {{ mission.description |raw }}
+                <div>
+                    <a class="btn" href="#open-modal">En savoir plus...
+                    <img style="position: relative; top: 4px; left: -6px;" src="https://files.habboemotion.com/resources/images/homestickers/eyeright.gif">
+                    </a>
+                </div>
             </div>
             <a href="{{ path('accept_mission', {'id': mission.id }) }}">
                 <button type="button" class="mlb-accept">Accepter la mission</button>
             </a>
 
-           <div class="mlb-popup">
-               <p>En savoir plus...</p>
-           </div>
+            <div id="open-modal" class="modal-window">
+                <div>
+                    <a href="#" title="Close" class="modal-close">X</a>
+                    <h1>Descriptif Complet</h1>
+                    <div>{{ mission.description |raw }}</div>
+                    <a style="position: relative; top: 15px;" href="{{ path('accept_mission', {'id': mission.id }) }}" target="_blank">Accepter</div>
+            </div>
         </div>
+
+
     </section>
     {% endif %}
     {% endfor %}
