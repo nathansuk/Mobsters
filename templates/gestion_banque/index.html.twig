@@ -19,51 +19,43 @@
         </div>
     {% endfor %}
 
-<h1 style="color: red;">Demandes en attente</h1>
+    <div class="info-bulle-bank">
 
+        <span>Bienvenue cher banquier ! Ici tu a l'accès à l'interface de gestion de banque, où tu peux accepter/refuser et accorder des demandes de prêts
+        Dans l'espace "Demandes en attenteé tu verras toutes les demandes d'emprunts émises par les clients, consulter le motif ainsi que le joueur émetteur.
+        Lorsque vous cliquerez sur "accorder" alors l'argent demandé sera reversé au joueur.</span>
+
+    </div>
+
+<h1 style="color: #3B3B98;">Demandes en attente</h1>
 <ul class="list-group">
     {% for demande in demandes %}
-        <li class="list-group-item">
+        <li class="list-group-item demandes-box waiting">
             <span>{{ demande.date|date("d/m/Y") }} - <span class="badge bg-warning text-dark">{{ demande.user }}</span>
                 souhaite emprunter : <span class="badge bg-light text-dark">{{ demande.montant }}</span>
                 pour : {{ demande.motif }}
                  <a href="{{ path('accept_demande', {'id': demande.id }) }}">
-                    <button type="button" class="btn btn-success">Accorder</button>
+                    <button type="button" class="btn btn-success demandes-btn">Accorder</button>
                 </a>
             </span>
         </li>
     {% endfor %}
 </ul>
 
-    <h1 style="color: yellow;">Demandes acceptées</h1>
-<ul class="list-group">
+    <h1 style="color: #EAB543;">Demandes acceptées</h1>
+<ul class="list-group ">
     {% for demande in demandes_acceptees %}
-        <li class="list-group-item">
-            <span><span class="badge bg-warning text-dark">{{ demande.user }}</span>
-                Montant : <span class="badge bg-light text-dark">{{ demande.montant }}</span>
-                Motif : {{ demande.motif }}
-                Accordé par  {{ demande.acceptedBy }}
-                <a href="{{ path('valider_emprunt', {'id': demande.id }) }}">
-                    <button type="button" class="btn btn-success">Marquer comme payé</button>
-                </a>
+        <li class="list-group-item demandes-box accepted">
+            <span class="flex-column">
+                <span>Demandeur : {{ demande.user }}</span>
+                <span>Montant : {{ demande.montant }}</span>
+                <span>Motif : {{ demande.motif }}</span>
+                <span>Accordé par : {{ demande.acceptedBy }}</span>
             </span>
+            <a href="{{ path('valider_emprunt', {'id': demande.id }) }}">
+                <button type="button" class="btn btn-success demandes-btn">Marquer comme payé</button>
+            </a>
         </li>
     {% endfor %}
 </ul>
-
-    <h1 style="color: green;">Emprunts payés </h1>
-<ul class="list-group">
-    {% for demande in empruntsRembourses %}
-        <li class="list-group-item list-group-item-success">
-            <span><span class="badge bg-warning text-dark">{{ demande.user }}</span>
-                Montant : <span class="badge bg-light text-dark">{{ demande.montant }}</span>
-                Motif : {{ demande.motif }}
-                Marqué payé par  {{ demande.validateBy }}
-            </span>
-        </li>
-    {% endfor %}
-</ul>
-
-
-
 {% endblock %}

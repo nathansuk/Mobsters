@@ -6,24 +6,49 @@
 {% endblock %}
 
 {% block body %}
-	<section class="container">
+	<section class="flex-center">
+	<div class="flex-row">
+
+	<section class="login-container">
 		<div class="connexion">
 			<form method="post">
 				{% if error %}
 					<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 				{% endif %}
-				<h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
+				<h2>Imperial</h2>
+				<h1>Mobsters</h1>
 				<label for="inputEmail">Pseudo</label><br>
 				<input type="text" value="{{ last_username }}" name="username" id="inputEmail" class="form-control" required autofocus><br><br>
 				<label for="inputPassword">Mot de passe</label><br>
 				<input type="password" name="password" id="inputPassword" class="form-control" required><br><br>
-
 				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-				<button class="btn btn-lg btn-primary" type="submit">
+				<button class="btn btn-lg btn-primary btn-connexion" type="submit">
 					Se connecter
 				</button>
 			</form>
 		</div>
+	</section>
+
+		<div class="separator"></div>
+
+		<div class="login-infos flex-column">
+			<div class="flex-row login-details-content">
+			<img src="http://localhost:8000/img/grobberlogo.png" alt="Mobsters">
+			<div class="flex-column login-details">
+			<h2>En te connectant ...</h2>
+			<span>
+				<h3>Tu pourras: </h3><br>
+				<i>- Avoir accès aux missions</i><br>
+				<i>- Gérer, emprunter, et envoyer ton argent</i><br>
+				<i>- Commenter notre actualité</i><br>
+				<i>- Rejoindre un de nos clans</i><br>
+				<br>
+			</span>
+			</div>
+			</div>
+		</div>
+
+	</div>
 	</section>
 {% endblock %}

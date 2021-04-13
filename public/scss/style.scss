@@ -28,7 +28,6 @@ $box-bgr: #1b295f;
   padding: 0;
   margin: 0;
   font-family: "Ubuntu", sans-serif;
-  font-weight: bold;
   text-decoration: none;
   image-rendering: pixelated;
 }
@@ -99,7 +98,7 @@ body {
   background-color: #2a2a50;
   position: fixed;
   display: none;
-  opacity: 90%;
+  opacity: 1;
   z-index: 100;
 }
 
@@ -235,7 +234,8 @@ body {
   height: 250px;
   border-radius: 10px;
   position: relative;
-  background-color: #232342;
+  background-image: url("https://i.servimg.com/u/f12/19/02/71/34/12405211.gif");
+  background-size: cover;
   padding: 30px;
 
   .content--bottom {
@@ -393,6 +393,7 @@ body {
 }
 
 .menu {
+  font-weight: bold;
   width: 250px;
   height: 320px;
   border-radius: 20px;
@@ -490,6 +491,7 @@ body {
 
   .btn {
     width: 90%;
+    font-weight: bold;
     height: 60px;
     background: $box-bgr;
     border: none;
@@ -550,6 +552,23 @@ body {
 }
 
 //home
+
+.d-flex{
+  display: flex;
+}
+
+.align-left{
+  text-align: left;
+}
+
+.align-right{
+  text-align: right;
+}
+
+.text-img{
+  position: relative;
+}
+
 .flex-center {
   display: flex;
   align-items: center;
@@ -613,12 +632,16 @@ hr {
   margin-top: 10px;
 }
 
+.home-box{
+  margin-top: 30px;
+}
+
 .top-players {
-  width: fit-content;
+  width: 300px;
   padding: 10px;
   border-radius: 10px;
-  border: 2px solid $border;
-  background: $bgr;
+  background-color: $box-bgr;
+  box-shadow: 0 5px 50px rgba(31, 31, 60, 0.5);
   margin-top: 20px;
   height: 317px;
 
@@ -683,6 +706,15 @@ hr {
   }
 }
 
+.home-box-title--image{
+  position: relative;
+  top: 10px;
+}
+
+.link-to-leaderboard{
+  color: white;
+}
+
 .esp {
   padding: 10px;
   width: fit-content;
@@ -699,6 +731,7 @@ hr {
 }
 
 .lastmissions-list {
+  width: 100%;
   text-align: center;
   margin-top: 20px;
   padding-bottom: 20px;
@@ -707,6 +740,7 @@ hr {
 .mission-box {
   background: $box-bgr;
   border: 2px solid $border;
+  width: 200px;
   padding: 10px;
   border-radius: 10px;
   line-height: 35px;
@@ -733,6 +767,123 @@ hr {
     height: 365px;
   }
 
+}
+
+.list-group{
+  list-style: none;
+}
+
+.demandes-box{
+  display: flex;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  span{
+    margin-left: 20px;
+    width: 100%;
+  }
+}
+
+.list-group{
+  margin-top: 20px;
+}
+
+.info-bulle-bank{
+  margin: auto;
+  width: 70%;
+  height: 100px;
+  background-color: #1b295f;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 10px;
+
+  span{
+    margin: auto;
+  }
+}
+
+.waiting{
+  background-color: #3B3B98;
+}
+
+.accepted{
+  background-color: #EAB543;
+}
+
+.paid{
+  background-color: #58B19F;
+}
+
+.demandes-btn{
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+//News
+
+.category-badge{
+  display: flex;
+  width: 150px;
+  text-align: center;
+  height: 30px;
+  border-radius: 0 10px 0 10px;
+  background-color: #1b1e21;
+  color: white;
+  position: relative;
+  float: right;
+
+  p{
+    margin: auto;
+  }
+}
+.news-topstory{
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  background-size: cover;
+  margin-bottom: 15px;
+  transition: 0.2s ease-in;
+
+  &:hover{
+    transition: 0.2s ease-in;
+    height: 210px;
+  }
+}
+
+.news-title-box{
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 100%;
+  background-color: black;
+  opacity: 0.8;
+  width: 50%;
+  height: 30%;
+  border-radius: 0 10px 0 10px;
+
+  span {
+   margin-left: 10px;
+  }
+}
+
+.btn-read-news{
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  color: white;
+  text-decoration: underline;
 }
 
 //BANK
@@ -1349,15 +1500,82 @@ hr {
   }
 }
 
+.m-45{
+  width: 48%
+}
+
 .list-room{
   flex-flow: row wrap;
 }
 
 //Missions
+.mission-detail-box{
+  transition: 0.2s ease-in;
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+  background-color: #1b295f;
+  overflow: hidden;
+  margin-bottom: 10px;
+
+  &:hover{
+    transition: 0.2s ease-in;
+    background-color: #394da0;
+  }
+
+  &:hover > .mission-side-image{
+    transition: 0.2s ease-in;
+    margin-top: 5px;
+  }
+
+  .mission-side-image{
+    transition: 0.2s ease-in;
+    margin-right: 20px;
+    width: 150px;
+    height: 130px;
+    margin-top: 10px;
+  }
+}
+
+.mission-description{
+  position: relative;
+  top: 20%;
+  margin-left: 30px;
+  box-sizing: border-box;
+  width: 70%;
+}
+
+.accept-mission-btn{
+  position: relative;
+  top: 30%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: green;
+  cursor: pointer;
+}
+
+.mission-bubble{
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  top: 30%;
+  img{
+    margin-top: 5px;
+  }
+}
 .mlb-global {
   background: $box-bgr;
   padding: 10px;
-  width: 350px;
+  width: 70%;
   border-radius: 10px;
   text-align: center;
   border: 2px solid $border;
@@ -1423,4 +1641,93 @@ hr {
     cursor: pointer;
   }
 
+}
+
+.login-container{
+  position: relative;
+  top: 50%;
+  transform: translateY(50%);
+  text-align: center;
+
+  h2{
+    font-size: 3rem;
+    font-weight: lighter;
+  }
+
+  h1{
+    font-size: 4rem;
+  }
+
+  label{
+    display: none;
+  }
+
+  input{
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding-left: 5px;
+    width: 100%;
+    height: 50px;
+
+    &:focus{
+      outline: none;
+    }
+  }
+}
+
+.separator{
+  position: relative;
+  top: 50%;
+  transform: translateY(50%);
+  margin-left: 80px;
+  margin-right: 80px;
+  width: 1px;
+  height: 350px;
+  background-color: grey;
+}
+
+.login-infos{
+  padding: 20px;
+  width: 450px;
+  height: 280px;
+  border-radius: 10px;
+  background-color: $box-bgr;
+  margin-top: 30px;
+  box-shadow: 0 5px 50px rgba(31, 31, 60, 0.5);
+  position: relative;
+  top: 50%;
+  transform: translateY(50%);
+  overflow-x: hidden;
+  display: flex;
+  align-content: center;
+
+  img{
+    width: 200px;
+    height: 100%;
+    margin-left: -50px;
+  }
+
+  .login-details{
+    margin-left: 10px;
+  }
+
+  .login-details-content{
+    position: relative;
+    top: 20%;
+  }
+}
+
+.btn-connexion{
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #f39c12;
+  border: none;
+  color: white;
+  cursor: pointer;
+
+  &:focus{
+    outline: none;
+  }
 }

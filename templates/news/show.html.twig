@@ -27,7 +27,7 @@
         <div class="comment-item w-100 flex-row">
         <img alt="comment avatar" class="user-comment-avatar" src="https://api.habbocity.me/avatar_image.php?user={{ comment.user.username }}&headonly=0&direction=2&head_direction=3&size=n">
             <div class="flex-column comment--content">
-                 <span class="comment-content--top">{{ comment.user.username }} - {{ comment.date|date("d/m/Y") }} </span>
+                <span class="comment-content--top"><strong>{{ comment.user.username }}</strong> - {{ comment.date|date("d/m/Y") }} </span>
                 <span class="comment--content--message">{{ comment.message }}</span>
             </div>
         </div>

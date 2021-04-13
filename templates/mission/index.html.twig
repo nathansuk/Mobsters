@@ -14,71 +14,56 @@
         </div>
     </section>
 
-        <h1 style="margin-top: 20px; text-align: center;">Missions générales</h1>
+<div class="flex-row" style="justify-content: space-between;">
+
+<div class="flex-column m-45">
+    <h1 style="margin-top: 20px; margin-bottom: 20px;">Missions générales</h1>
     {% for mission in missionAvailable %}
     {% if mission.clan == null %}
-    <section class="flex-center" style="margin-top: 10px;">
-        <div class="mlb-global">
-            <img class="mlb-author" src="https://api.habbocity.me/avatar_image.php?user=GALAHAD&headonly=0&direction=2&head_direction=3&size=n&gesture=spk&action=wav">
-            <div class="mlb-author-speach">
-                <div class="mlb-reward">
-                    300&nbsp;<img src="{{ asset('img/ls.png') }}">
-                </div>
+        <div class="flex-row mission-detail-box">
+            <img class="mission-side-image" src="https://images.habbo.com/c_images/album1584/ITC81.png">
+            <div class="flex-column">
+            <div class="mission-bubble">
+                <span>{{ mission.reward }} <img src="{{ asset('img/ls.png') }}"> </span>
             </div>
-            <div class="mlb-title">
-                {{ mission.title }}
+                <button class="accept-mission-btn" onclick="location.href= '/mission/accept/{{ mission.id }}'">Accepter</button>
             </div>
-            <div class="mlb-descr">
-                {{ mission.description |raw }}
-            </div>
-            <a href="{{ path('accept_mission', {'id': mission.id }) }}">
-                <button type="button" class="mlb-accept">Accepter la mission</button>
-            </a>
-        </div>
-    </section>
-    {% endif %}
-    {% endfor %}
 
-
-<!--
-<div class="list-mission flex-column" style=" width: 90%; margin: auto; height: 500px; overflow: scroll">
-    <h1>Missions classiques</h1><br>
-    {% for mission in missionAvailable %}
-        {% if mission.clan == null %}
-            <div class="mission-card">
-                <div class="card-body flex-row">
-                 <h3 class="card-title">{{ mission.title }}</h3>
-                 <p class="card-text">{{ mission.description|raw }}</p>
-                    <a href="{{ path('accept_mission', {'id': mission.id }) }}">
-                     <button type="button" class="btn btn-success">Accepter</button>
-                    </a>
-                </div>
-            </div>
-        {% endif %}
-    {% endfor %}
-</div>
-
-    {% if app.user.clan %}
-<div class="list-mission flex-column" style="width: 80%; margin: auto;">
-    <h1>Missions de clan : {{ app.user.clan.name }}</h1>
-
- <div class="mission-list--content">
-{% for mission in missionAvailable %}
-    {% if mission.clan == app.user.clan %}
-        <div class="mission-card">
-            <div class="card-body flex-row">
-                <h3 class="card-title">{{ mission.title }}</h3>
-                <p class="card-text">{{ mission.description|raw }}</p>
-                <a href="{{ path('accept_mission', {'id': mission.id }) }}">
-                    <button type="button" class="btn btn-success">Accepter</button>
-                </a>
+            <div class="flex-column mission-description">
+                <h2>{{ mission.title }}</h2>
+                <span>{{ mission.description|raw }}</span>
             </div>
         </div>
     {% endif %}
-{% endfor %}
-
-     {% endif %}
- </div>
+    {% endfor %}
 </div>
--->
+
+        <!-- Mission de clan -->
+    <div class="flex-column m-45">
+        <h1 style="margin-top: 20px; margin-bottom: 20px;">Missions de clan : {{ app.user.clan }}</h1>
+        {% for mission in missionAvailable %}
+            {% if mission.clan == app.user.clan %}
+                <section class="flex-center">
+                    <div class="flex-row mission-detail-box">
+                        <img class="mission-side-image" src="https://images.habbo.com/c_images/album1584/{{ app.user.clan.badge }}.png">
+                        <div class="flex-column">
+                            <div class="mission-bubble">
+                                <span>{{ mission.reward }} <img src="{{ asset('img/ls.png') }}"> </span>
+                            </div>
+                            <button class="accept-mission-btn" onclick="location.href= '/mission/accept/{{ mission.id }}'">Accepter</button>
+                        </div>
+
+                        <div class="flex-column mission-description">
+                            <h2>{{ mission.title }}</h2>
+                            <span>{{ mission.description|raw }}</span>
+                        </div>
+                    </div>
+                </section>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+
+</div>
+
 {% endblock %}

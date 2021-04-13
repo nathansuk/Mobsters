@@ -4,17 +4,17 @@
 
 {% block body %}
 
+    <div class="news-list flex-column">
     {% for news in newsList %}
-        <div class="card" style="width: 18rem;">
-            <img src="{{ news.topstory }}" class="card-img-top" alt="Topstory">
-            <div class="card-body">
-                <span class="badge bg-success">{{ news.category.name }}</span>
-                <h5 class="card-title">{{ news.title }}</h5>
-                <a href="/news-{{ news.id }}" class="btn btn-primary">Lire...</a>
+            <div class="news-topstory" style="background-image: url('{{ news.topstory }}')">
+                <span class="category-badge"><p>{{ news.category.name }}</p></span>
+                <div class="news-title-box">
+                    <span>{{ news.title }}</span>
+                    <a href="/news-{{ news.id }}" class="btn btn-primary btn-read-news">Lire...</a>
+                </div>
             </div>
-        </div>
     {% endfor %}
-
+    </div>
 
 {% endblock %}
 

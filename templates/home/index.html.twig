@@ -24,13 +24,12 @@
 	</section>
 
 	<section class="flex-center">
+	<div class="flex-column home-box">
+		<h1><img class="home-box-title--image" src="https://images.habbo.com/c_images/album1584/MFT33.gif" alt="badge"> Top richesse</h1>
 		<div class="top-players">
-			<h2>
-				Les meilleurs joueurs !</h2>
 			<section class="flex-center">
 				<div class="top-player-box" style="margin-right: 20px;">
 					<img style="position: absolute; margin-left: -36px; margin-top: 31px;" src="https://files.habboemotion.com/resources/images/homestickers/elegant_bling.gif">
-
 					<p class="tpb-title">Top richesse</p>
 					<p class="tpb-pseudo">{{ richestUser[0].username }}</p>
 					<img class="user-body" src="https://api.habbocity.me/avatar_image.php?user={{ richestUser[0].username }}&headonly=0&direction=2&head_direction=3&size=n">
@@ -40,7 +39,6 @@
 					<p class="go-profil">
 						<a href="#"><img src="https://files.habboemotion.com/resources/images/icons/guide_icon.gif"></a>
 					</p>
-
 				</div>
 
 				<div class="top-player-box">
@@ -55,36 +53,40 @@
 				</div>
 
 			</section>
-			<a href="/classement">
-				<span class="tpb-button">Voir la totalité des classements</span>
+			<a class="link-to-leaderboard" href="/classement">
+				<div style="margin-top: 1px" class="esp">Voir le classement</div>
 			</a>
 		</div>
+	</div>
 
-		<div class="top-players rpgmafia" style="overflow: auto; padding-bottom: 5px;">
-			<h2>
-				Le RPG Mafia</h2>
+		<div class="flex-column home-box">
+			<h1><img class="home-box-title--image" src="https://images.habbo.com/c_images/album1584/PT428.png" alt="badge"> Qu'est ce que le RPG MAFIA ?</h1>
+			<div class="top-players rpgmafia" style="overflow: auto; padding-bottom: 5px;">
+				<p class="align-left d-flex">
+					<img class="text-img" src="https://i.servimg.com/u/f12/19/02/71/34/emilie10.png">
+					Le Rôle Play ou jeu de rôle comme son nom l'indique consiste à se glisser dans la peau d'un personnage, en l'occurrence ici d'un mafieux, lorsque vous vous trouvez sur l'hôtel.<br>
+					A la différence des autres Rôle Play, les joueurs n'expriment pas leurs actions à travers des caractères
+					étoiles comme *sors son pistolet et le tue* même s'ils sont amenés à réaliser des actions RP avec par exemple les passages à tabac.
+				</p>
+				<h2 class="align-rght" style="margin-top: 20px;">L'Imperial Mobsters</h2>
+				<p class="align-right">
+					<img class="text-img" style="float: right; margin-top: -25px; margin-left: 3px;" src="https://i.servimg.com/u/f12/19/02/71/34/fanion11.png">
+					L'Imperial Mobsters est une organisation de HabboCity pratiquant le RPG Mafia.
+					Elle a été fondée le 12 décembre 2019 par trois hommes lassés du traditionnel mode de fonctionnement des autres organisations.
+					C'est donc dans cette volonté de vouloir apporter une réelle évolution au jeu que l'Empire est né en balayant les autres organisations sur son passage.
+					Aujourd'hui l'Imperial Mobsters est l'organisation mafieuse numéro 1 de HabboCity.
+				</p>
+				<div class="esp">En savoir plus sur l'univers mafieux</div>
 
-			<p><img style="float: left;" src="https://i.servimg.com/u/f12/19/02/71/34/emilie10.png">Le Rôle Play ou jeu de rôle comme son nom l'indique consiste à se glisser dans la peau 
-																																																							d'un personnage, en l'occurrence ici d'un mafieux, lorsque vous vous trouvez sur l'hôtel.<br>A la différence des autres Rôle Play, les joueurs n'expriment pas leurs actions à travers des caractères 
-																																																							étoiles comme *sors son pistolet et le tue* même s'ils sont amenés à réaliser des actions RP avec par exemple les passages à tabac.</p>
-
-			<h2 style="margin-top: 20px;">L'Imperial Mobsters</h2>
-			<p><img style="float: right; margin-top: -25px;" src="https://i.servimg.com/u/f12/19/02/71/34/fanion11.png">L'Imperial Mobsters est une organisation de HabboCity pratiquant le RPG Mafia. Elle a été fondée le 12 décembre 2019 par 
-																												trois hommes lassés du traditionnel mode de fonctionnement des autres organisations.
-																												C'est donc dans cette volonté de vouloir apporter une réelle évolution au jeu que l'Empire est né en balayant les autres organisations sur son passage. 
-																												Aujourd'hui l'Imperial Mobsters est l'organisation mafieuse numéro 1 de HabboCity.</p>
-
-			<div class="esp">En savoir plus sur l'univers mafieux</div>
-
-
+			</div>
 		</div>
 
 
 	</section>
 
 	<div class="lastmissions-list">
-		<h2>Les dernières missions</h2>
-		<section class="flex-center">
+		<h2 class="align-left" style="margin-bottom: 20px; margin-left: 80px"><img class="home-box-title--image" src="https://images.habbo.com/c_images/album1584/PT421.gif" alt="badge"> Les dernières missions</h2>
+		<section class="flex-row space-between" style="justify-content: center">
 
 			{% for mission in missions[:6] %}
 				{% if mission.clan == null %}
