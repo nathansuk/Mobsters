@@ -6,7 +6,6 @@ use App\Entity\Comments;
 use App\Form\CommentType;
 use App\Services\NewsService;
 use App\Services\UserService;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,15 +18,13 @@ class NewsController extends AbstractController
      * @param int $id
      * @param NewsService $newsService
      * @param Request $request
-     * @param EntityManagerInterface $entityManager
      * @param UserService $userService
      * @return Response
      * @Route("/news-{id}", name="show_news")
      */
-    public function show(int $id, NewsService $newsService, Request $request, EntityManagerInterface $entityManager, UserService $userService): Response {
+    public function show(int $id, NewsService $newsService, Request $request, UserService $userService): Response {
 
         $news = $newsService->getNewsById($id);
-        $user = $userService->getUserByUsername($this->getUser()->getUsername());
         $newsList = $newsService->getAllNews();
 
         if($news == null){
@@ -46,8 +43,9 @@ class NewsController extends AbstractController
         }
 
         if($comment_form->isSubmitted() && $comment_form->isValid()){
-
-            if($user == null){
+            if($this->getUser()){
+                $user = $userService->getUserByUsername($this->getUser()->getUsername());
+            } else {
                 $this->addFlash('error', 'Il y a eu une erreur');
                 return $this->redirectToRoute('show_news', ['id' => $id]);
             }

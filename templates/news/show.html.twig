@@ -18,10 +18,12 @@
 
     <div class="comment-space w-100 flex-column">
         <h1 class="section-title">Commentaires</h1>
+        {% if app.user %}
         {{ form_start(comment_form) }}
         {{ form_widget(comment_form) }}
         <button type="submit" class="btn btn-primary mb-2 btn-comment">Commenter</button>
         {{ form_end(comment_form) }}
+        {% endif %}
 
     {% for comment in comments|reverse %}
         <div class="comment-item w-100 flex-row">

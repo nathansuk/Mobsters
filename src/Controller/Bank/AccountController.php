@@ -9,7 +9,6 @@ use App\Form\TransactionType;
 use App\Services\Bank\EmpruntService;
 use App\Services\Bank\TransactionService;
 use App\Services\UserService;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +24,6 @@ class AccountController extends AbstractController
      * @param EmpruntService $empruntService
      * @return Response
      * @Route("/banque", name="my_bank_account")
-     * @Security("is_granted('ROLE_USER')", statusCode=404)
      */
     public function index(
         UserService $userService,
@@ -34,7 +32,7 @@ class AccountController extends AbstractController
         EmpruntService $empruntService): Response
     {
         if(!$this->getUser()) {
-            return $this->redirectToRoute("home");
+            return $this->redirectToRoute("app_login");
         }
 
         $username = $this->getUser()->getUsername();
