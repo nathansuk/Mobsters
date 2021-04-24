@@ -22,10 +22,15 @@
     {% if mission.clan == null %}
         <div class="flex-row mission-detail-box">
             <img class="mission-side-image" src="https://images.habbo.com/c_images/album1584/ITC81.png">
-            <div class="flex-column">
-            <div class="mission-bubble">
-                <span>{{ mission.reward }} <img src="{{ asset('img/ls.png') }}"> </span>
-            </div>
+            <div class="flex-column" style="margin-top: -30px;">
+                {% if mission.diamondsReward != null %}
+                    <div class="mission-bubble" style="margin-bottom: 5px;">
+                        <span style="display: flex; justify-content: space-between;"><span style="margin-top: 8px;">{{ mission.diamondsReward }}</span> <img src="{{ asset('img/diamond.png') }}"> </span>
+                    </div>
+                {% endif %}
+                <div class="mission-bubble" style="margin-bottom: 5px;">
+                    <span style="display: flex; justify-content: space-between;"><span style="margin-top: 8px;">{{ mission.reward }}</span> <img src="{{ asset('img/ls.png') }}"> </span>
+                </div>
                 <button class="accept-mission-btn" onclick="location.href= '/mission/accept/{{ mission.id }}'">Accepter</button>
             </div>
 
@@ -46,9 +51,14 @@
                 <section class="flex-center">
                     <div class="flex-row mission-detail-box">
                         <img class="mission-side-image" src="https://images.habbo.com/c_images/album1584/{{ app.user.clan.badge }}.png">
-                        <div class="flex-column">
-                            <div class="mission-bubble">
-                                <span>{{ mission.reward }} <img src="{{ asset('img/ls.png') }}"> </span>
+                        <div class="flex-column" style="margin-top: -30px;">
+                            {% if mission.diamondsReward != null %}
+                                <div class="mission-bubble" style="margin-bottom: 5px;">
+                                    <span style="display: flex; justify-content: space-between;"><span style="margin-top: 8px;">{{ mission.diamondsReward }}</span> <img src="{{ asset('img/diamond.png') }}"> </span>
+                                </div>
+                            {% endif %}
+                            <div class="mission-bubble" style="margin-bottom: 5px;">
+                                <span style="display: flex; justify-content: space-between;"><span style="margin-top: 8px;">{{ mission.reward }}</span> <img src="{{ asset('img/ls.png') }}"> </span>
                             </div>
                             <button class="accept-mission-btn" onclick="location.href= '/mission/accept/{{ mission.id }}'">Accepter</button>
                         </div>

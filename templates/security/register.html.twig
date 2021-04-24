@@ -7,18 +7,43 @@
 
 {% block body %}
 
-    {% for message in app.flashes('notice') %}
-        <h1 style="color: red;">{{ message }}</h1>
-    {% endfor %}
 
-    {{ form_start(register_form) }}
-    <h1>Inscription</h1>
+    <section class="flex-center">
+        <div class="flex-row">
 
-    <h4>Pour s'inscrire, il faut que tu renseignes ton pseudo sur city !
-    Ensuite, sur city, tu dois changer ta mission en "CODE-IM-Pseudo" en remplaçant "Pseudo" par ton pseudo sur city !
-    </h4>
-    {{ form_widget(register_form) }}
-    <button type="submit" class="btn btn-primary">M'inscrire</button>
-    {{ form_end(register_form) }}
+            <section class="login-container">
+                <div class="connexion">
+                    {{ form_start(register_form) }}
+                        <h2>Imperial Mobsters</h2>
+                        <h1>Inscription</h1>
 
+                    {{ form_widget(register_form) }}
+
+                        <button class="btn btn-lg btn-primary btn-register" type="submit">
+                            S'inscrire
+                        </button>
+                    {{ form_end(register_form) }}
+                </div>
+            </section>
+
+            <div class="separator"></div>
+
+            <div class="login-infos flex-column" style="height: auto;">
+                <div class="flex-row login-details-content">
+                    <img src="http://localhost:8000/img/grobberlogo.png" alt="Mobsters">
+                    <div class="flex-column login-details">
+                        <h2>Important !</h2>
+                        <span>
+				<h3>Pour t'inscrire : </h3><br>
+				<i class="instruction">- Ton pseudo doit être obligatoirement celui sur <strong>Habbocity</strong></i><br><br>
+				<i class="instruction">- Avant de valider l'inscription, il faut changer votre mission sur l'hôtel par "ImperialMobsters"</i><br><br>
+				<i class="instruction">- Choisissez un mot de passe différent de celui utilisé sur votre compte Habbocity</i><br><br>
+				<br>
+			</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 {% endblock %}

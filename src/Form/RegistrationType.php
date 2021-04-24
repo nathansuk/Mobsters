@@ -19,10 +19,30 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', TextType::class)
-            ->add('email', EmailType::class)
-            ->add('password', PasswordType::class)
-            ->add('confirm_password', PasswordType::class)
+            ->add('username', TextType::class, [
+                'label' => false ,
+                'attr' => [
+                    'placeholder' => 'Pseudo sur Habbocity'
+                ]
+            ])
+            ->add('email', EmailType::class, [
+                'label' => false ,
+                'attr' => [
+                    'placeholder' => 'Adresse e-mail'
+                ]
+            ])
+            ->add('password', PasswordType::class, [
+                'label' => false ,
+                'attr' => [
+                    'placeholder' => 'Mot de passe'
+                ]
+            ])
+            ->add('confirm_password', PasswordType::class, [
+                'label' => false ,
+                'attr' => [
+                    'placeholder' => 'Confirmation du mot de passe'
+                ]
+            ])
         ;
     }
 

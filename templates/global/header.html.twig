@@ -40,8 +40,8 @@
 			<a class="logout-btn" href="/logout">Déconnexion</a>
 		{% endif %}
 
-		<form class="searchprofil" action="/profil/">
-			<input class="spinput" type="search" placeholder="Rechercher un utilisateur...">
+		<form method="GET" class="searchprofil" action="/search/">
+			<input name="user" class="spinput" type="search" placeholder="Rechercher un utilisateur...">
     	</form>
 		<div class="menu">
 			<div class="menu-items">

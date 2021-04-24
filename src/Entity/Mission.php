@@ -49,6 +49,11 @@ class Mission
      */
     private $reward;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $diamondsReward;
+
     public function __construct()
     {
         $this->userMissions = new ArrayCollection();
@@ -149,6 +154,18 @@ class Mission
     public function setReward(int $reward): self
     {
         $this->reward = $reward;
+
+        return $this;
+    }
+
+    public function getDiamondsReward(): ?int
+    {
+        return $this->diamondsReward;
+    }
+
+    public function setDiamondsReward(?int $diamondsReward): self
+    {
+        $this->diamondsReward = $diamondsReward;
 
         return $this;
     }

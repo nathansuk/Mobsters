@@ -6,6 +6,7 @@ use App\CityApi;
 use App\Services\Missions\MissionService;
 use App\Services\UserService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -45,5 +46,26 @@ class ProfileController extends AbstractController
             'cityUser' => $cityUser,
             'missions' => $rewardedMission
         ]);
+    }
+
+    /**
+     * @param Request $request
+     * @param UserService $userService
+     * @return Response
+     * @Route("/search/", name="searchuser")
+     */
+    public function search(Request $request, UserService $userService): Response
+    {
+        $user = $userService->getUserByUsername($request->query->get('user'));
+
+        if(!$user){
+            $this->addFlash('error', "Cet utilisateur n'existe pas");
+            return $this->redirectToRoute("home");
+        }
+
+        else{
+            return $this->redirectToRoute("user_profile", ['username' => $request->query->get('user')]);
+        }
+
     }
 }

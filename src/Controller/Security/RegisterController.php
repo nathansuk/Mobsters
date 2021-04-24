@@ -72,7 +72,7 @@ class RegisterController extends AbstractController
                 return $this->redirectToRoute('home');
 
             } else {
-                $this->addFlash('notice', "Attention tu n'as pas mis le code dans ta mission");
+                $this->addFlash('error', "Attention tu n'as pas changé ta mission en : ImperialMobsters sur Habbocity !");
                 return $this->redirectToRoute("register");
             }
         }

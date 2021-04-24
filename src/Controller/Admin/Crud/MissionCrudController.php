@@ -33,7 +33,8 @@ class MissionCrudController extends AbstractCrudController
             TextField::new('title', 'Intitulé'),
             TextEditorField::new('description', 'Description'),
             TextField::new('type', 'Le Type'),
-            IntegerField::new('reward'),
+            IntegerField::new('reward', 'Récompense en LS'),
+            IntegerField::new('diamondsReward', 'Récompense en diamants'),
             AssociationField::new('clan', 'Associé au clan')
 
         ];
