@@ -1591,11 +1591,6 @@ hr {
   display: flex;
   align-content: center;
 }
-.login-infos img {
-  width: 200px;
-  height: 100%;
-  margin-left: -50px;
-}
 .login-infos .login-details {
   margin-left: 10px;
 }
