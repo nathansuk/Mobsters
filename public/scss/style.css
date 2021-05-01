@@ -221,6 +221,7 @@ body {
   background-image: url("https://i.servimg.com/u/f12/19/02/71/34/12405211.gif");
   background-size: cover;
   padding: 30px;
+  overflow: auto;
 }
 .mission-desc--content .content--bottom {
   margin-top: 30px;
@@ -506,6 +507,11 @@ body {
   text-align: left;
 }
 
+@media (max-width: 1700px) {
+  .index-mission-title {
+    margin-left: 0px !important;
+  }
+}
 .align-right {
   text-align: right;
 }
@@ -1253,6 +1259,12 @@ hr {
   top: -21px;
   background: #665e50;
   padding: 5px;
+}
+.idappart-box p:hover {
+  margin-top: -113px;
+  width: 100%;
+  height: 100%;
+  transition: 0.2s;
 }
 
 .groupe-id {
