@@ -18,7 +18,7 @@
 
 <div class="flex-column m-45">
     <h1 style="margin-top: 20px; margin-bottom: 20px;">Missions générales</h1>
-    {% for mission in missionAvailable %}
+    {% for mission in missionAvailable|reverse %}
     {% if mission.clan == null %}
         <div class="flex-row mission-detail-box">
             <img class="mission-side-image" src="https://images.habbo.com/c_images/album1584/ITC81.png">
@@ -44,9 +44,10 @@
 </div>
 
         <!-- Mission de clan -->
+    {% if app.user.clan %}
     <div class="flex-column m-45">
         <h1 style="margin-top: 20px; margin-bottom: 20px;">Missions de clan : {{ app.user.clan }}</h1>
-        {% for mission in missionAvailable %}
+        {% for mission in missionAvailable|reverse %}
             {% if mission.clan == app.user.clan %}
                 <section class="flex-center">
                     <div class="flex-row mission-detail-box">
@@ -72,6 +73,16 @@
             {% endif %}
         {% endfor %}
     </div>
+
+        {% else %}
+
+            <div class="flex-column m-45">
+                <h1 style="margin-top: 20px; margin-bottom: 20px;">Missions de clan</h1>
+                <h3>Les missions de clans sont accessibles pour les membres de l'Imperial Mobsters</h3>
+            </div>
+
+
+    {% endif %}
 
 
 </div>

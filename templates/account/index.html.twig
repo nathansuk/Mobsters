@@ -226,9 +226,9 @@
 				</div>
 				<img style="margin-top: 10px;" src="https://files.habboemotion.com/resources/images/icons/cash.gif">
 
-				{% for transaction in lastTransactions %}
+				{% for transaction in lastTransactions|reverse %}
 					<p>
-						{{ "now"|date("d/m/Y") }} | Virement - Bénéficiaire :
+						{{ transaction.date|date("d/m/Y") }} | Virement - Bénéficiaire :
 						{{ transaction.receiver }}
 						| Montant :
 						{{ transaction.amount }}

@@ -18,9 +18,9 @@
 				<h2>Imperial</h2>
 				<h1>Mobsters</h1>
 				<label for="inputEmail">Pseudo</label><br>
-				<input type="text" value="{{ last_username }}" name="username" id="inputEmail" class="form-control" required autofocus><br><br>
+				<input type="text" value="{{ last_username }}" name="username" id="inputEmail" class="form-control" placeholder="Pseudo Habbocity" required autofocus><br><br>
 				<label for="inputPassword">Mot de passe</label><br>
-				<input type="password" name="password" id="inputPassword" class="form-control" required><br><br>
+				<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe..." required><br><br>
 				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
 				<button class="btn btn-lg btn-primary btn-connexion" type="submit">

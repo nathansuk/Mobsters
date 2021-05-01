@@ -1259,12 +1259,12 @@ hr {
   top: -21px;
   background: #665e50;
   padding: 5px;
+  transition: 0.2s ease-in;
 }
 .idappart-box p:hover {
-  margin-top: -113px;
-  width: 100%;
+  margin-top: -80px;
   height: 100%;
-  transition: 0.2s;
+  transition: 0.2s ease-in;
 }
 
 .groupe-id {
@@ -1557,6 +1557,9 @@ hr {
 .login-container input:focus {
   outline: none;
 }
+.login-container input::placeholder {
+  color: #989898;
+}
 
 .separator {
   position: relative;
@@ -1638,6 +1641,13 @@ hr {
   border: none;
   color: white;
   cursor: pointer;
+}
+
+@media (max-width: 1700px) {
+  .rpgmafia {
+    height: 356px;
+    width: 600px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
