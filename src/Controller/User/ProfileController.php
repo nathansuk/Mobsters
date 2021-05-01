@@ -36,6 +36,7 @@ class ProfileController extends AbstractController
           'diamonds' => $api->getDiamonds(),
           'badges' => $api->getListBadge(),
           'rooms' => $api->getRooms(),
+          'motto' => $api->getMission(),
           'groups' => $api->getListGroupe()
         );
 
