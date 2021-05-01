@@ -37,7 +37,7 @@
 						{{ richestUser[0].money }}
 						<img class="ls" src="{{ asset('img/ls.png')}}"></p>
 					<p class="go-profil">
-						<a href="#"><img src="https://files.habboemotion.com/resources/images/icons/guide_icon.gif"></a>
+						<a href="/profil/{{ richestUser[0].username }}"><img src="https://files.habboemotion.com/resources/images/icons/guide_icon.gif"></a>
 					</p>
 				</div>
 
@@ -48,7 +48,7 @@
 					<img class="user-body" src="https://api.habbocity.me/avatar_image.php?user={{ bestMissionUser[0].username }}&headonly=0&direction=2&head_direction=3&size=n">
 					<p>{{ bestMissionUser[0].finishedMission }} missions</p>
 					<p class="go-profil">
-						<a href="#"><img src="https://files.habboemotion.com/resources/images/icons/guide_icon.gif"></a>
+						<a href="/profil/{{ bestMissionUser[0].username }}"><img src="https://files.habboemotion.com/resources/images/icons/guide_icon.gif"></a>
 					</p>
 				</div>
 
