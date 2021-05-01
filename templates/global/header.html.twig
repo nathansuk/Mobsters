@@ -4,7 +4,9 @@
 		{% if app.user %}
 			<div class="user-space">
 				<div class="user-avatar">
+					<a href="/profil/{{ app.user.username }}">
 					<img src="https://api.habbocity.me/avatar_image.php?user={{ app.user.username }}&headonly=0&direction=2&head_direction=3&size=l">
+					</a>
 				</div>
 				<div class="user-info">
 					<p class="user-name"><strong>{{ app.user.username }}</strong></p>
