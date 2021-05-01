@@ -1146,7 +1146,10 @@ hr {
 }
 
 .img-carte-id {
-  background-image: url("../../img/identite.png");
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  background-color: white;
   background-size: cover;
   height: 250px;
   width: 432px;
@@ -1161,11 +1164,10 @@ hr {
 
 .avatar-id-global {
   width: 76px;
-  height: 76px;
+  height: auto;
   position: relative;
-  top: 70px;
+  top: 30px;
   left: 19px;
-  overflow: hidden;
 }
 
 .avatar-id {
@@ -1177,24 +1179,20 @@ hr {
 .humeur-city {
   position: relative;
   top: -2px;
-  left: 100px;
 }
 
 .ls-id {
   position: relative;
-  left: 100px;
   top: 1px;
 }
 
 .diamond-id {
   position: relative;
-  left: 100px;
   top: 8px;
 }
 
 .cp-id {
   position: relative;
-  left: 20px;
   top: 16px;
 }
 
@@ -1204,7 +1202,7 @@ hr {
 }
 
 .casier-judiciaire {
-  background: #f5ead3;
+  background: white;
   width: 432px;
   height: 246px;
   border: 2px solid black;
@@ -1221,19 +1219,20 @@ hr {
 .listing-cj {
   width: 250px;
   height: 160px;
-  background: #9e8e6f;
+  background: #1b295f;
   position: relative;
   top: -145px;
   left: 155px;
   border: 2px solid #665e50;
   overflow: scroll;
   overflow-x: hidden;
+  color: white;
 }
 
 .appart-id {
   width: 875px;
   height: fit-content;
-  background: #f5ead3;
+  background: white;
   margin-top: 10px;
   border: 2px solid black;
   color: black;
@@ -1247,7 +1246,8 @@ hr {
 .idappart-box {
   width: 100px;
   height: 120px;
-  background: #9e8e6f;
+  color: white;
+  background: #1b295f;
   border: 2px solid black;
   margin-right: 10px;
   margin-bottom: 10px;
@@ -1257,7 +1257,7 @@ hr {
   text-align: center;
   position: relative;
   top: -21px;
-  background: #665e50;
+  background: #4961bd;
   padding: 5px;
   transition: 0.2s ease-in;
 }
