@@ -691,7 +691,7 @@ hr {
   border-radius: 10px;
   line-height: 35px;
   padding-left: 20px;
-  height: 250px;
+  height: 260px;
 }
 .mission-box .mission-title {
   background: #4961bd;
@@ -711,6 +711,7 @@ hr {
 @media (max-width: 1700px) {
   .rpgmafia {
     height: 365px;
+    width: 600px;
   }
 }
 

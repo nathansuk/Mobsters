@@ -85,7 +85,7 @@
 	</section>
 
 	<div class="lastmissions-list">
-		<h2 class="align-left" style="margin-bottom: 20px; margin-left: 80px"><img class="home-box-title--image" src="https://images.habbo.com/c_images/album1584/PT421.gif" alt="badge"> Les dernières missions</h2>
+		<h2 class="align-left" style="margin-bottom: 20px;"><img class="home-box-title--image" src="https://images.habbo.com/c_images/album1584/PT421.gif" alt="badge"> Les dernières missions</h2>
 		<section class="flex-row space-between" style="justify-content: center">
 
 			{% for mission in missions[:6] %}
@@ -93,15 +93,15 @@
 				<div class="mission-box" style="margin-right: 20px;">
 					<p class="mission-title">{{ mission.title }}</p>
 					<img src="https://files.habboemotion.com/resources/images/homestickers/hw_inmate.gif">
-					<div style="text-align: start;">
+					<div style="text-align: center;">
 						<p>Type : {{ mission.type }}
 						</p>
-						<p>Récompense : {{ mission.reward }}
+						<p>{{ mission.reward }}
 							<img src="{{ asset('img/ls.png')}}">
 						</p>
 					</div>
 					<a href="{{ path('mission') }}">
-						<img src="https://files.habboemotion.com/resources/images/icons/arrow_7.gif">
+						<p class="mission-title" style="color: white;">Accepter</p>
 					</a>
 				</div>
 				{% endif %}

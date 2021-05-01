@@ -745,7 +745,7 @@ hr {
   border-radius: 10px;
   line-height: 35px;
   padding-left: 20px;
-  height: 250px;
+  height: 260px;
 
   .mission-title {
     background: $border;
@@ -765,6 +765,7 @@ hr {
 
   @media (max-width: 1700px) {
     height: 365px;
+    width: 600px;
   }
 
 }
