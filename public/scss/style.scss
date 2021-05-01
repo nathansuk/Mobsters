@@ -980,6 +980,10 @@ hr {
     border-radius: 10px;
     margin-bottom: 10px;
     border: 2px solid $border;
+
+    &::placeholder{
+      color: #8c8c8c;
+    }
   }
 
   .send-virement {

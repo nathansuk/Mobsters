@@ -911,6 +911,9 @@ hr {
   margin-bottom: 10px;
   border: 2px solid #4961bd;
 }
+.virement-form input::placeholder {
+  color: #8c8c8c;
+}
 .virement-form .send-virement {
   padding: 10px;
   background: #4961bd;
