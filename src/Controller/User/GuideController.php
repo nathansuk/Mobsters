@@ -25,7 +25,7 @@ class HomeController extends AbstractController
         $missions = $missionService->getAvailableMission();
 
         return $this->render('guide/index.html.twig', [
-            'controller_name' => 'Accueil',
+            'controller_name' => 'Guide',
             'lastNews' => $lastNews,
             'richestUser' => $richestUser,
             'bestMissionUser' => $bestMissionUser,
