@@ -376,7 +376,6 @@ body {
   display: flex;
   flex-direction: column;
   margin-left: 35px;
-  transform: translateY(25%);
 }
 .menu .menu-items p {
   font-size: 1.2rem;
@@ -393,6 +392,7 @@ body {
 .menu .menu-items a {
   text-decoration: none;
   transition: 0.2s ease-out;
+  margin-top: 8.5px;
 }
 .menu .menu-items a:hover {
   transition: 0.2s ease-in;
