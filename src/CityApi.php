@@ -22,7 +22,7 @@ class CityApi {
     public function __construct($userName) {
         $this->userName = $userName;
         $this->apiKey = getenv('API_KEY');
-        $this->data = CityApi::cURL("https://api.habbocity.me/avatar_info.php?key=4927592840326&user=".$this->userName."&selectedBadges&groups&rooms&lastTweets");
+        $this->data = CityApi::cURL("https://api.habbocity.me/avatar_info.php?key=45GfdkHG2A&user=".$this->userName."&selectedBadges&groups&rooms&lastTweets");
         $this->checkErreur();
     }
 
