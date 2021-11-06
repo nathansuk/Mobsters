@@ -46,7 +46,7 @@
         <!-- Mission de clan -->
     {% if app.user.clan %}
     <div class="flex-column m-45">
-        <h1 style="margin-top: 20px; margin-bottom: 20px;">Missions de clan : {{ app.user.clan }}</h1>
+        <h1 style="margin-top: 20px; margin-bottom: 20px;">Missions de ligue : {{ app.user.clan }}</h1>
         {% for mission in missionAvailable|reverse %}
             {% if mission.clan == app.user.clan %}
                 <section class="flex-center">
